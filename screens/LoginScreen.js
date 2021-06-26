@@ -1,16 +1,13 @@
 import React, { useState } from "react";
-import { View, ImageBackground, Keyboard, TouchableWithoutFeedback, StyleSheet, Text, Image } from 'react-native';
+import { View, Keyboard, TouchableWithoutFeedback, StyleSheet, Text, Image } from 'react-native';
 import tailwind from "tailwind-rn";
-import { TextInput, Button } from "react-native-paper";
+import { TextInput } from "react-native-paper";
 import { LinearGradient } from 'expo-linear-gradient';
-import { useFonts } from "expo-font";
+import Button from "../components/Button";
 
 function LoginScreen() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [loaded, error] = useFonts({
-        Poppins: require("../assets/fonts/Poppins-Regular.ttf"),
-    });
 
     const loginUser = () => {
         console.log("Logging in");
@@ -24,34 +21,32 @@ function LoginScreen() {
         <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
             <View style={tailwind("flex-1 items-center justify-center")}>
                 <Image source={require("../assets/login/backgroundTwo.jpg")} style={StyleSheet.absoluteFillObject} />
-                <LinearGradient colors={["rgba(255, 255, 255, 0)", "rgba(32, 32, 32, .95)", "rgba(32, 32, 32, 1)"]} style={styles.overlay} />
+                <LinearGradient colors={["rgba(255, 255, 255, 0)", "rgba(32, 32, 32, .95)", "rgba(32, 32, 32, 1)"]} style={StyleSheet.absoluteFillObject} />
                     <View style={tailwind("w-full items-center justify-center")}>
                     <TextInput
                         mode="flat"
                         label="Email"
-                        theme= {{colors: { primary: "#fa3c4c"}}}
-                        style={[tailwind("h-14 w-4/5 rounded-lg"), styles.text]}
+                        style={tailwind("h-14 w-4/5 rounded-lg")}
                         value={email}
                         onChangeText={email => setEmail(email)}
                         keyboardType="email-address"
-                    />
+                        />
                     <TextInput
                         mode="flat"
                         label="Password"
-                        theme= {{colors: { primary: "#fa3c4c" }}}
-                        style={tailwind("h-14 w-4/5 rounded-lg mt-3")}
+                        style={tailwind("h-14 w-4/5 rounded-lg mt-3 mb-5")}
                         value={password}
                         onChangeText={password => setPassword(password)}
                         secureTextEntry
+                        right={<TextInput.Icon name="eye" />}
                     />
-                    <Button onPress={() => loginUser()} labelStyle={tailwind("text-white")} style={[tailwind("rounded-lg mt-8 w-4/5"), styles.button]}>
-                        <Text>Login</Text>
-                    </Button>
+                    <Button onPress={() => loginUser()} text="Login" backgroundColor="#FE904B"/>
                     
-                    <View style={tailwind("mt-20 w-5/6 border-b-2 border-gray-700")}/>
+                    <View style={tailwind("mt-14 mb-3 w-5/6 border-b-2 border-gray-700")}/>
 
-                    <Button labelStyle={tailwind("text-black")} style={[tailwind("rounded-lg w-4/5 mt-8 bg-gray-300"), styles.singpass]}>
-                        <Text>Login with</Text>
+                    <Button onPress={() => loginUser()} text="Login with" backgroundColor="#515250" style={tailwind("items-center")}>
+                        <Text styles={[tailwind("text-lg"), styles.text]} />
+                        <Image source={require("../assets/login/singpass.png")} style={[tailwind("mt-1"), styles.singpass]} />
                     </Button>
                     </View>
             </View>
@@ -60,25 +55,12 @@ function LoginScreen() {
 }
 
 const styles = StyleSheet.create({
-    button: {
-        backgroundColor: "#FE904B",
-        fontFamily: "Poppins"
+    text: {
+        fontFamily: "Poppins-Bold"
     },
     singpass: {
-        borderColor: "#FE904B",
-        border: "5px solid #FE904B",
-        fontFamily: "Poppins"
-    },
-    overlay: {
-        ...StyleSheet.absoluteFillObject,
-        opacity: 0.95
-    },
-    input: {
-        height: 40,
-        width: "80%",
-    },
-    text: {
-        fontFamily: "Poppins"
+        height:12.2,
+        width: 70
     }
 });
 
