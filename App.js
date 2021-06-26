@@ -1,15 +1,13 @@
 import React from 'react';
 import AuthContextProvider from './provider/AuthProvider';
 import { NavigationContainer } from '@react-navigation/native';
-import RootStack from './stacks/RootStack';
-
-
+import SingaporeStack from './stacks/SingaporeStack';
 
 export default function App() {
     return (
         <AuthContextProvider>
             <NavigationContainer>
-                <RootStack />
+                <SingaporeStack/>
             </NavigationContainer>
         </AuthContextProvider>
     );
