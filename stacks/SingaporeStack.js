@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import MustKnowTips from "../screens/GetToKnowSingapore/MustKnowTips";
+import MustKnowTips from "../screens/MustKnowTips";
 
 const Singapore = createStackNavigator();
 
