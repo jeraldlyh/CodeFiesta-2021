@@ -5,8 +5,7 @@ import { View, Text } from 'react-native';
 import RootStack from './stacks/RootStack';
 import * as Font from "expo-font";
 import HomeStack from './stacks/HomeStack';
-import WelcomeScreen from './screens/WelcomeScreen';
-
+import SingaporeStack from './stacks/SingaporeStack';
 
 
 export default function App() {
@@ -26,7 +25,6 @@ export default function App() {
     }, [])
 
     return (
-
             isLoaded
                 ? (
                     <AuthContextProvider>
