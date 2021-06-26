@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react';
 import AuthContextProvider from './provider/AuthProvider';
 import { NavigationContainer } from '@react-navigation/native';
 import { View, Text } from 'react-native';
-import RootStack from './stacks/RootStack';
 import * as Font from "expo-font";
+import RootStack from './stacks/RootStack';
 import HomeStack from './stacks/HomeStack';
 import SingaporeStack from './stacks/SingaporeStack';
+import AuthStack from './stacks/AuthStack';
 
 
 export default function App() {
