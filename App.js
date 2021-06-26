@@ -5,6 +5,7 @@ import { View, Text } from 'react-native';
 import RootStack from './stacks/RootStack';
 import * as Font from "expo-font";
 import HomeStack from './stacks/HomeStack';
+import WelcomeScreen from './screens/WelcomeScreen';
 
 
 
