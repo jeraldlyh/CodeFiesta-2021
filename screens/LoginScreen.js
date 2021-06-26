@@ -24,7 +24,7 @@ function LoginScreen({ navigation }) {
         <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
             <View style={tailwind("flex-1 items-center justify-center")}>
                 <Image source={require("../assets/login/backgroundTwo.jpg")} style={StyleSheet.absoluteFillObject} />
-                <LinearGradient colors={["rgba(255, 255, 255, 0)", "rgba(32, 32, 32, .95)", "rgba(32, 32, 32, 1)"]} style={StyleSheet.absoluteFillObject} />
+                <LinearGradient colors={["rgba(255, 255, 255, 0)", "rgba(32, 32, 32, .7)", "rgba(32, 32, 32, 1)"]} style={StyleSheet.absoluteFillObject} />
                     <View style={tailwind("w-full items-center justify-center")}>
                     <TextInput
                         mode="flat"
