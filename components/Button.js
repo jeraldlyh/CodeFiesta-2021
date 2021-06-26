@@ -9,16 +9,23 @@ function Button(props) {
         },
         text: {
             fontFamily: "Poppins-Bold",
-            color: "white",
+            color: `${props.textColor}`,
             fontSize: 16
         }
     });
 
+    const getDesign = () => {
+        if (props.height) {
+            return `w-4/5 rounded-lg h-${props.height} flex items-center justify-center`;
+        }
+        return "w-4/5 rounded-lg h-16 flex items-center justify-center";
+    };
+
     return (
-        <View style={[styles.background, tailwind("w-4/5 rounded-lg h-12 flex items-center justify-center")]}>
+        <View style={[styles.background, tailwind(getDesign())]}>
             <TouchableOpacity onPress={props.onPress} styles={styles.background}>
                 <View style={tailwind("flex flex-row items-center")}>
-                    <Text style={[styles.text, tailwind("mr-3")]}>{props.text}</Text>
+                    <Text style={[styles.text, tailwind("mr-2 p-4 text-center")]}>{props.text}</Text>
                     {props.children}
                 </View>
             </TouchableOpacity>

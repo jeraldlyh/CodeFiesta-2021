@@ -1,6 +1,9 @@
 import React from "react"
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from "react-native-elements";
+import HomeStack from "./HomeStack";
+import Ionicons from 'react-native-vector-icons/Ionicons';
+
 
 const Tab = createBottomTabNavigator();
 
@@ -25,7 +28,7 @@ const TabStack = () => {
                     : 'person-outline';
                 }
 
-                return <Icon name={iconName} size={size} color="#fa3c4c" />;
+                return <Ionicons name={iconName} size={size} color="#fa3c4c" />;
                 },
             })}
             tabBarOptions={{
@@ -33,7 +36,8 @@ const TabStack = () => {
                 inactiveTintColor: 'gray',
             }}
         >
-            {/* <Tab.Screen name="Home"  component={LandingPageStack} />
+            <Tab.Screen name="Home"  component={HomeStack} />
+            {/* 
             <Tab.Screen name="Chat" component={RootChatStack} />
             <Tab.Screen name="Profile" component={RootProfileStack} /> */}
         </Tab.Navigator>

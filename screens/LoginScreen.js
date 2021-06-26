@@ -1,16 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { View, Keyboard, TouchableWithoutFeedback, StyleSheet, Text, Image } from 'react-native';
 import tailwind from "tailwind-rn";
 import { TextInput } from "react-native-paper";
 import { LinearGradient } from 'expo-linear-gradient';
 import Button from "../components/Button";
+import { AuthContext } from "../provider/AuthProvider";
 
-function LoginScreen() {
+function LoginScreen({ navigation }) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const { setIsLoggedIn } = useContext(AuthContext);
 
     const loginUser = () => {
-        console.log("Logging in");
+        // push login to firestore
+        setIsLoggedIn(true);
     };
 
     const registerUser = () => {
@@ -40,11 +43,11 @@ function LoginScreen() {
                         secureTextEntry
                         right={<TextInput.Icon name="eye" />}
                     />
-                    <Button onPress={() => loginUser()} text="Login" backgroundColor="#FE904B"/>
+                    <Button onPress={() => loginUser()} text="Login" backgroundColor="#FE904B" textColor="#FFF" />
                     
                     <View style={tailwind("mt-14 mb-3 w-5/6 border-b-2 border-gray-700")}/>
 
-                    <Button onPress={() => loginUser()} text="Login with" backgroundColor="#515250" style={tailwind("items-center")}>
+                    <Button onPress={() => loginUser()} text="Login with" backgroundColor="#D0D0D0" textColor="#000" style={tailwind("items-center")}>
                         <Text styles={[tailwind("text-lg"), styles.text]} />
                         <Image source={require("../assets/login/singpass.png")} style={[tailwind("mt-1"), styles.singpass]} />
                     </Button>
