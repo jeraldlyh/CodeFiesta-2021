@@ -3,8 +3,7 @@ import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import tailwind from "tailwind-rn";
 import Button from "../components/Button";
 
-
-function UserScreen({ navigation }) {
+function VisaScreen({ navigation }) {
     const [activeIndex, setActiveIndex] = useState(0);
 
     const isActive = (index) => {
@@ -13,18 +12,15 @@ function UserScreen({ navigation }) {
 
     return (
         <View style={tailwind("flex flex-col w-full h-full p-3 items-center")}>
-            <Text style={[styles.title, tailwind("text-3xl p-3 text-center mt-5")]}>What kind of user are you?</Text>
+            <Text style={[styles.title, tailwind("text-3xl p-3 text-center mt-5")]}>Getting ready your work visa</Text>
             <View style={tailwind("mt-6")}/>
-            <Button onPress={() => setActiveIndex(1)} text="I'm moving for work" backgroundColor={isActive(1) ? "#FE904B": "#FFF"} textColor={isActive(1) ? "#FFF" : "#000"} />
+            <Button onPress={() => setActiveIndex(1)} text="I do not have a work visa" backgroundColor={isActive(1) ? "#FE904B": "#FFF"} textColor={isActive(1) ? "#FFF" : "#000"} />
 
             <View style={tailwind("mt-6")}/>
-            <Button onPress={() => setActiveIndex(2)} text="I'm moving for school / to reunite with my family" backgroundColor={isActive(2) ? "#FE904B": "#FFF"} textColor={isActive(2) ? "#FFF" : "#000"} />
-
-            <View style={tailwind("mt-6")}/>
-            <Button onPress={() => setActiveIndex(3)} text="I wish to be a permanent resident (PR)" backgroundColor={isActive(3) ? "#FE904B": "#FFF"} textColor={isActive(3) ? "#FFF" : "#000"} />
+            <Button onPress={() => setActiveIndex(2)} text="I have a work visa" backgroundColor={isActive(2) ? "#FE904B": "#FFF"} textColor={isActive(2) ? "#FFF" : "#000"} />
 
             <View style={tailwind("mt-8 flex flex-col w-4/5 items-center")}>
-                <Button onPress={() => navigation.push("Visa")} text="Confirm" backgroundColor="#FE904B" textColor="#FFF" height="12" />
+                <Button onPress={() => navigation.push("Visa Type")} text="Confirm" backgroundColor="#FE904B" textColor="#FFF" height="12" />
                 <View style={tailwind("mt-3")}/>
                 <Button onPress={() => navigation.goBack()} text="Cancel" backgroundColor="#FE904B" textColor="#FFF" height="12" />
             </View>
@@ -41,4 +37,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default UserScreen;
+export default VisaScreen;
