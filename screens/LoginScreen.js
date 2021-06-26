@@ -44,8 +44,9 @@ function LoginScreen() {
                     
                     <View style={tailwind("mt-14 mb-3 w-5/6 border-b-2 border-gray-700")}/>
 
-                    <Button onPress={() => loginUser()} text="Login with" backgroundColor="#515250">
-                        <Text styles={[tailwind("text-lg"), styles.text]}>aaa</Text>
+                    <Button onPress={() => loginUser()} text="Login with" backgroundColor="#515250" style={tailwind("items-center")}>
+                        <Text styles={[tailwind("text-lg"), styles.text]} />
+                        <Image source={require("../assets/login/singpass.png")} style={[tailwind("mt-1"), styles.singpass]} />
                     </Button>
                     </View>
             </View>
@@ -57,6 +58,10 @@ const styles = StyleSheet.create({
     text: {
         fontFamily: "Poppins-Bold"
     },
+    singpass: {
+        height:12.2,
+        width: 70
+    }
 });
 
 
