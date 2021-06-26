@@ -1,8 +1,6 @@
 import React, { useContext } from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import { AuthContext } from "../provider/AuthProvider";
-import AuthStack from "./AuthStack";
-import TabStack from "./TabStack";
+
 
 
 const Home = createStackNavigator();
