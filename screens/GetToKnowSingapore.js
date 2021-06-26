@@ -21,7 +21,7 @@ function HomeScreen({ navigation }) {
 
                 <View style={tailwind("flex flex-row mt-3")}>
                     <CustomCard
-                        onPress={() => navigation.push("Work Permit")}
+                        onPress={() => navigation.push("Tips")}
                         source={require("../assets/singapore/road.jpeg")}
                         title="Useful tips before coming into Singapore"
                         description="These are some information you will need when migrating to SG!"

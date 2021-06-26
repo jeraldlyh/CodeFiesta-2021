@@ -8,7 +8,7 @@ const Singapore = createStackNavigator();
 const SingaporeStack = () => {
     return (
         <Singapore.Navigator screenOptions={{ headerShown: false}}>
-            <Singapore.Screen name="list" component={GetToKnowSingapore}r />
+            <Singapore.Screen name="list" component={GetToKnowSingapore} />
             <Singapore.Screen name="Tips" component={MustKnowTips} />
         </Singapore.Navigator>
     )
