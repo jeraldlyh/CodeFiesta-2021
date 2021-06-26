@@ -29,7 +29,7 @@ export default function App() {
                 ? (
                     <AuthContextProvider>
                         <NavigationContainer>
-                            <RootStack />
+                            <SingaporeStack/>
                         </NavigationContainer>
                     </AuthContextProvider>
                 )
