@@ -9,13 +9,13 @@ function WelcomeScreen({navigation}) {
     return (
         <>
             <Swiper autoplay={true} showsPagination={false}>
-                <ImageBackground source={require("../assets/welcome/1.png")} style={styles.image}>
+                <ImageBackground source={require("../assets/welcome/1.webp")} style={styles.image}>
                     <Text style={[tailwind("flex flex-col text-white self-center px-9 pb-4 font-extrabold"), {fontSize: 21, marginTop:250}]}>Step-by-step guide for your migration process</Text>
                 </ImageBackground>
-                <ImageBackground source={require("../assets/welcome/2.png")} style={styles.image}>
+                <ImageBackground source={require("../assets/welcome/2.webp")} style={styles.image}>
                     <Text style={[tailwind("flex flex-col text-white self-center px-9 pb-4 font-extrabold"), {fontSize: 21, marginTop:250}]}>Stay updated with new changes in the community</Text>
                 </ImageBackground>
-                <ImageBackground source={require("../assets/welcome/3.png")} style={styles.image}>
+                <ImageBackground source={require("../assets/welcome/3.webp")} style={styles.image}>
                     <Text style={[tailwind("flex flex-col text-white self-center px-9 pb-4 font-extrabold"), {fontSize: 21, marginTop:250}]}>Learn more about Singapore and make new friends</Text>
                 </ImageBackground>
             </Swiper>
