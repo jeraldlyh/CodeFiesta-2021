@@ -16,25 +16,27 @@ function HomeScreen({ navigation }) {
                 <View style={tailwind("mt-5")}>
                     <Text style={[styles.header, tailwind("text-2xl text-left")]}>Applications</Text>
                 </View>
-                <View style={tailwind("flex flex-row mt-4")}>
+                <View style={tailwind("flex flex-row mt-8")}>
                     <CustomCard
                         onPress={() => navigation.push("Work Permit")}
                         source={require("../assets/home/workPermit.jpg")}
                         title="Apply for Work Permit"
                         description="Get to know what work permit you are eligible for and start applying now"
                     />
+                    <View style={tailwind("w-3")} />
                     <CustomCard
                         source={require("../assets/home/news.jpg")}
                         title="Get current news"
                         description="Keep up with current news in Singapore! Find out what happened recently"
                     />
                 </View>
-                <View style={tailwind("flex flex-row mt-4")}>
+                <View style={tailwind("flex flex-row mt-8")}>
                     <CustomCard
                         source={require("../assets/home/singapore.jpg")}
                         title="Get to know Singapore"
                         description="Unfamiliar with Singapore? Fret now! click here to find out more."
                     />
+                    <View style={tailwind("w-3")} />
                     <CustomCard
                         source={require("../assets/home/friends.jpg")}
                         title="Make new friends"
