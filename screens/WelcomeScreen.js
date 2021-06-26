@@ -10,17 +10,17 @@ function WelcomeScreen({navigation}) {
         <>
             <Swiper autoplay={true} showsPagination={false}>
                 <ImageBackground source={require("../assets/welcome/1.png")} style={styles.image}>
-                    <Text style={[tailwind("flex flex-col text-white self-center px-9 pb-4 font-extrabold"), {fontSize: 21, marginTop:300}]}>Step-by-step guide for your migration process</Text>
+                    <Text style={[tailwind("flex flex-col text-white self-center px-9 pb-4 font-extrabold"), {fontSize: 21, marginTop:250}]}>Step-by-step guide for your migration process</Text>
                 </ImageBackground>
                 <ImageBackground source={require("../assets/welcome/2.png")} style={styles.image}>
-                    <Text style={[tailwind("flex flex-col text-white self-center px-9 pb-4 font-extrabold"), {fontSize: 21, marginTop:300}]}>Stay updated with new changes in the community</Text>
+                    <Text style={[tailwind("flex flex-col text-white self-center px-9 pb-4 font-extrabold"), {fontSize: 21, marginTop:250}]}>Stay updated with new changes in the community</Text>
                 </ImageBackground>
                 <ImageBackground source={require("../assets/welcome/3.png")} style={styles.image}>
-                    <Text style={[tailwind("flex flex-col text-white self-center px-9 pb-4 font-extrabold"), {fontSize: 21, marginTop:300}]}>Learn more about Singapore and make new friends</Text>
+                    <Text style={[tailwind("flex flex-col text-white self-center px-9 pb-4 font-extrabold"), {fontSize: 21, marginTop:250}]}>Learn more about Singapore and make new friends</Text>
                 </ImageBackground>
             </Swiper>
 
-            <View style={[tailwind("absolute flex flex-col text-white self-center pl-14 w-80 pb-4 font-extrabold"), {fontSize: 21, marginTop:605}]}>
+            <View style={[tailwind("absolute flex flex-col text-white self-center pl-14 w-80 pb-4 font-extrabold"), {fontSize: 21, bottom:150}]}>
                 <Button onPress={() => navigation.push('Login')} text="Login" backgroundColor="#FE904B"/>
                 <Text style={[tailwind("flex flex-row text-white pt-5 pl-2 font-normal"), {fontSize: 13}]}>Don't have an account? <Text style={[tailwind("font-semibold"), {color:"#FE904B"}]}>Sign up</Text></Text>
             </View>
