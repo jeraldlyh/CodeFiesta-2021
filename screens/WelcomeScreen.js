@@ -1,28 +1,39 @@
 import React from "react";
-import { View, ImageBackground, StyleSheet } from 'react-native';
+import { Text, View, ImageBackground, StyleSheet } from 'react-native';
 import Swiper from 'react-native-swiper';
 import tailwind from "tailwind-rn";
+import Button from "../components/Button";
 
 
-
-function WelcomeScreen() {
+function WelcomeScreen({navigation}) {
     return (
-        <Swiper buttonWrapperStyle={styles.buttonWrapperStyle} showsButtons={true}>
-            <ImageBackground source={require("../assets/login/backgroundOne.jpg")} style={styles.image} />
-            <ImageBackground source={require("../assets/login/backgroundTwo.jpg")} style={styles.image} />
-        </Swiper>
+        <>
+            <Swiper autoplay={true} showsPagination={false}>
+                <ImageBackground source={require("../assets/welcome/1.png")} style={styles.image}>
+                    <Text style={[tailwind("flex flex-col text-white self-center px-9 pb-4 font-extrabold"), {fontSize: 21, marginTop:250}]}>Step-by-step guide for your migration process</Text>
+                </ImageBackground>
+                <ImageBackground source={require("../assets/welcome/2.png")} style={styles.image}>
+                    <Text style={[tailwind("flex flex-col text-white self-center px-9 pb-4 font-extrabold"), {fontSize: 21, marginTop:250}]}>Stay updated with new changes in the community</Text>
+                </ImageBackground>
+                <ImageBackground source={require("../assets/welcome/3.png")} style={styles.image}>
+                    <Text style={[tailwind("flex flex-col text-white self-center px-9 pb-4 font-extrabold"), {fontSize: 21, marginTop:250}]}>Learn more about Singapore and make new friends</Text>
+                </ImageBackground>
+            </Swiper>
+
+            <View style={[tailwind("absolute flex flex-col text-white self-center pl-14 w-80 pb-4 font-extrabold"), {fontSize: 21, bottom:150}]}>
+                <Button onPress={() => navigation.push('Login')} text="Login" backgroundColor="#FE904B"/>
+                <Text style={[tailwind("flex flex-row text-white pt-5 pl-2 font-normal"), {fontSize: 13}]}>Don't have an account? <Text style={[tailwind("font-semibold"), {color:"#FE904B"}]}>Sign up</Text></Text>
+            </View>
+        </>
     )
 };
 
 const styles = StyleSheet.create({
     image: {
-        flex: 1,
+        flex: 3,
         resizeMode: "cover",
         justifyContent: "center"
     },
-    buttonWrapperStyle: {
-        backgroundColor: 'transparent', flexDirection: 'row', position: 'absolute', top: 0, left: 0, flex: 1, paddingHorizontal: 10, paddingVertical: 10, justifyContent: 'space-between', alignItems: 'center'
-    }
 });
 
 
