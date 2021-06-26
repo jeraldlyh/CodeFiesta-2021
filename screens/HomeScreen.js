@@ -7,16 +7,20 @@ import CustomCard from "../components/CustomCard";
 function HomeScreen({ navigation }) {
     return (
         <View>
-            <View style={tailwind("flex items-center mt-3")} >
+            <View style={tailwind("flex items-center mt-20")} >
+                <View style={tailwind("mt-5")}>
+                    <Text style={[styles.header, tailwind("text-4xl text-left")]}>Home</Text>
+                </View>
+
                 <Searchbar
-                    style={tailwind("w-5/6")}
+                    style={tailwind("w-5/6 m-3")}
                     inputStyle={styles.searchBar}
                     placeholder="Search"
                 />
                 <View style={tailwind("mt-5")}>
                     <Text style={[styles.header, tailwind("text-2xl text-left")]}>Applications</Text>
                 </View>
-                <View style={tailwind("flex flex-row mt-8")}>
+                <View style={tailwind("flex flex-row mt-4")}>
                     <CustomCard
                         onPress={() => navigation.push("Work Permit")}
                         source={require("../assets/home/workPermit.jpg")}
