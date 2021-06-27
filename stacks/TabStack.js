@@ -7,6 +7,7 @@ import WorkPermitStack from "./WorkPermitStack";
 import NewsStack from "./NewsStack";
 import tailwind from "tailwind-rn";
 import SingaporeStack from "./SingaporeStack";
+import CommunityStack from "./CommunityStack";
 
 
 const Tab = createBottomTabNavigator();
@@ -50,7 +51,7 @@ const TabStack = () => {
             <Tab.Screen name="Trivia" component={SingaporeStack} />
             <Tab.Screen name="Apply" component={WorkPermitStack} />
             <Tab.Screen name="News" component={NewsStack} />
-            <Tab.Screen name="Community" component={HomeStack} />
+            <Tab.Screen name="Community" component={CommunityStack} />
         </Tab.Navigator>
     )
 }
