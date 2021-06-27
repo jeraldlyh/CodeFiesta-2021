@@ -11,7 +11,7 @@ function CurrentNewsScreen(props) {
         <ScrollView>
             <Image source={require("../assets/news/backgroundImage.png")} style={styles.backgroundImage} />
             <View style={{marginTop:250,right:30}}>
-                <Text style={[styles.header, tailwind("text-4xl text-left")]}>COVID-19 news</Text>
+                <Text style={[styles.header, tailwind("text-4xl text-left ml-16 mb-2")]}>COVID-19 news</Text>
             </View>
             <View style = {styles.articleContainer}>
                 <View style = {styles.singleArticle}>
@@ -43,7 +43,8 @@ function CurrentNewsScreen(props) {
 const styles = StyleSheet.create({
     container:{
         flex:1,
-        alignItems:'center',
+        alignItems:'stretch',
+        width:'100%',
     },
     articleContainer:{
         borderRadius:24,
@@ -84,7 +85,7 @@ const styles = StyleSheet.create({
         color:'white'
     },
     singleArticle:{
-        width:269,
+        width:'100%',
         borderWidth:1,
         borderRadius:14,
         padding:10,
