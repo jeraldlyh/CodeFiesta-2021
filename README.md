@@ -1,4 +1,4 @@
-# CodeFiesta-2021
+# OneStop
 
 > By **geekignore**
 > - [Felice](https://github.com/felicepng/)
