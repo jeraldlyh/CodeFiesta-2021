@@ -7,7 +7,7 @@ import Button from "../components/Button";
 
 
 
-function QuizScreen(props) {
+function QuizScreen(props, { navigation }) {
     const [activeIndex, setActiveIndex] = useState(0);
     const [correctAnswer, setCorrectAnswer] = useState(true);
     const [visible, setVisible] = useState(false);
@@ -23,7 +23,7 @@ function QuizScreen(props) {
     useEffect(() => {
         const timer = setTimeout(() => {
             setVisible(true)
-        }, 10000);
+        }, 5000);
 
         return () => clearTimeout(timer);
     }, [])
@@ -37,7 +37,7 @@ function QuizScreen(props) {
                             <Text style={[styles.title, tailwind("text-center mb-1 text-xl")]}>Congralutations!</Text>
                             <Text style={[styles.title, tailwind("text-center text-xl mb-3")]}>+75 points</Text>
                             <Text style={[styles.description, tailwind("text-center mb-3")]}>You got the correct answer!</Text>
-                            <TouchableOpacity style={styles.button} onPress={toggleOverlay}>
+                            <TouchableOpacity style={styles.button} onPress={() => navigation.goBack()}>
                                 <Text style={styles.buttonText}>Confirm</Text>
                             </TouchableOpacity>
                         </View>
@@ -49,7 +49,7 @@ function QuizScreen(props) {
                 <CountdownCircleTimer
                     strokeWidth={20}
                     isPlaying
-                    duration={10}
+                    duration={5}
                     colors={[
                         ['#004777', 0.4],
                         ['#F7B801', 0.4],

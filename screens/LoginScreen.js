@@ -25,7 +25,10 @@ function LoginScreen({ navigation }) {
             <View style={tailwind("flex-1 items-center justify-center")}>
                 <Image source={require("../assets/login/backgroundTwo.jpg")} style={StyleSheet.absoluteFillObject} />
                 <LinearGradient colors={["rgba(255, 255, 255, 0)", "rgba(32, 32, 32, .7)", "rgba(32, 32, 32, 1)"]} style={StyleSheet.absoluteFillObject} />
-                    <View style={tailwind("w-full items-center justify-center")}>
+                <View style={tailwind("w-full items-center justify-center")}>
+                    <View style={tailwind("w-4/5 pb-8")}>
+                        <Text style={[styles.text, tailwind("text-4xl text-white")]}>Login</Text>
+                    </View>
                     <TextInput
                         mode="flat"
                         label="Email"
@@ -33,7 +36,7 @@ function LoginScreen({ navigation }) {
                         value={email}
                         onChangeText={email => setEmail(email)}
                         keyboardType="email-address"
-                        />
+                    />
                     <TextInput
                         mode="flat"
                         label="Password"
@@ -44,14 +47,14 @@ function LoginScreen({ navigation }) {
                         right={<TextInput.Icon name="eye" />}
                     />
                     <Button onPress={() => loginUser()} text="Login" backgroundColor="#FE904B" textColor="#FFF" />
-                    
-                    <View style={tailwind("mt-14 mb-3 w-5/6 border-b-2 border-gray-700")}/>
+
+                    <View style={tailwind("mt-14 mb-3 w-5/6 border-b-2 border-gray-700")} />
 
                     <Button onPress={() => loginUser()} text="Login with" backgroundColor="#D0D0D0" textColor="#000" style={tailwind("items-center")}>
                         <Text styles={[tailwind("text-lg"), styles.text]} />
                         <Image source={require("../assets/login/singpass.png")} style={[tailwind("mt-1"), styles.singpass]} />
                     </Button>
-                    </View>
+                </View>
             </View>
         </TouchableWithoutFeedback>
     )
@@ -62,7 +65,7 @@ const styles = StyleSheet.create({
         fontFamily: "Poppins-Bold"
     },
     singpass: {
-        height:12.2,
+        height: 12.2,
         width: 70
     }
 });
