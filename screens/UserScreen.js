@@ -14,7 +14,7 @@ function UserScreen({ navigation }) {
 
     return (
         <View style={tailwind("flex flex-col w-full h-full p-3 items-center")}>
-            <Text style={[styles.title, tailwind("text-3xl p-3 text-center mt-32")]}>What kind of user {"\n"} are you?</Text>
+            <Text style={[styles.title, tailwind("text-3xl p-3 text-center mt-32")]}>I'm...</Text>
 
             <View>
                 <Image style={styles.image} source={require('../assets/work_permit/work.png')} />
@@ -22,13 +22,13 @@ function UserScreen({ navigation }) {
 
             <View style={tailwind("mt-8")} />
 
-            <Button onPress={() => setActiveIndex(1)} text="I'm moving for work" backgroundColor={isActive(1) ? "#FE904B" : "#e3e3e3"} textColor={isActive(1) ? "#FFF" : "#000"} />
+            <Button onPress={() => setActiveIndex(1)} text="moving for work" backgroundColor={isActive(1) ? "#FE904B" : "#e3e3e3"} textColor={isActive(1) ? "#FFF" : "#000"} />
 
             <View style={tailwind("mt-6")} />
-            <Button onPress={() => setActiveIndex(2)} text="I'm moving for school / to reunite with my family" backgroundColor={isActive(2) ? "#FE904B" : "#e3e3e3"} textColor={isActive(2) ? "#FFF" : "#000"} />
+            <Button onPress={() => setActiveIndex(2)} height="20" text="moving to school / reunite with my family" backgroundColor={isActive(2) ? "#FE904B" : "#e3e3e3"} textColor={isActive(2) ? "#FFF" : "#000"} />
 
             <View style={tailwind("mt-6")} />
-            <Button onPress={() => setActiveIndex(3)} text="I wish to be a permanent resident (PR)" backgroundColor={isActive(3) ? "#FE904B" : "#e3e3e3"} textColor={isActive(3) ? "#FFF" : "#000"} />
+            <Button onPress={() => setActiveIndex(3)} height="20" text="hoping to become a permanent resident (PR)" backgroundColor={isActive(3) ? "#FE904B" : "#e3e3e3"} textColor={isActive(3) ? "#FFF" : "#000"} />
 
             <View style={{ flexDirection: "row" }}>
                 <View style={tailwind("m-14")}>

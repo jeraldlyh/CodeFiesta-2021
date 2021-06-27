@@ -4,10 +4,11 @@ import { CountdownCircleTimer } from 'react-native-countdown-circle-timer'
 import { Overlay } from "react-native-elements";
 import tailwind from "tailwind-rn";
 import Button from "../components/Button";
+ 
 
 
 
-function QuizScreen(props, { navigation }) {
+function QuizScreen(props) {
     const [activeIndex, setActiveIndex] = useState(0);
     const [correctAnswer, setCorrectAnswer] = useState(true);
     const [visible, setVisible] = useState(false);

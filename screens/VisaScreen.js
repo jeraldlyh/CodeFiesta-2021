@@ -19,10 +19,10 @@ function VisaScreen({ navigation }) {
 
             <View style={tailwind("mt-8")}/>
 
-            <Button onPress={() => setActiveIndex(1)} text="I do not have a work visa" backgroundColor={isActive(1) ? "#FE904B": "#e3e3e3"} textColor={isActive(1) ? "#FFF" : "#000"} />
+            <Button onPress={() => setActiveIndex(1)} text="Yes" backgroundColor={isActive(1) ? "#FE904B": "#e3e3e3"} textColor={isActive(1) ? "#FFF" : "#000"} />
 
             <View style={tailwind("mt-6")}/>
-            <Button onPress={() => setActiveIndex(2)} text="I have a work visa" backgroundColor={isActive(2) ? "#FE904B": "#e3e3e3"} textColor={isActive(2) ? "#FFF" : "#000"} />
+            <Button onPress={() => setActiveIndex(2)} text="No" backgroundColor={isActive(2) ? "#FE904B": "#e3e3e3"} textColor={isActive(2) ? "#FFF" : "#000"} />
 
             {/* <View style={tailwind("mt-8 flex flex-col w-4/5 items-center")}>
                 <Button onPress={() => navigation.push("Visa Type")} text="Confirm" backgroundColor="#FE904B" textColor="#FFF" height="12" />
