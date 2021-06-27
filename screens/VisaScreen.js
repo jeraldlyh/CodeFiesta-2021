@@ -79,7 +79,8 @@ const styles = StyleSheet.create({
 
     buttonText: {
         fontFamily: "Poppins-Normal",
-        color: "white", 
+        color: "white",
+        textAlign: "center"
     },
 })
 
