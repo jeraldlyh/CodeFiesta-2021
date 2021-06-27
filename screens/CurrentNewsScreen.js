@@ -2,13 +2,16 @@ import React from 'react';
 import { View,Image, StyleSheet,Text,ScrollView, Touchable } from 'react-native';
 import tailwind from "tailwind-rn";
 import { TouchableHighlight } from 'react-native-gesture-handler';
+import Button from '../components/Button';
+import { useNavigation } from '@react-navigation/native';
 
 
 
 function CurrentNewsScreen(props) {
+    const navigation = useNavigation();
     return (
         <View style = {styles.container}>
-        <ScrollView>
+        <ScrollView >
             <Image source={require("../assets/news/backgroundImage.png")} style={styles.backgroundImage} />
             <View style={{marginTop:250,right:30}}>
                 <Text style={[styles.header, tailwind("text-4xl text-left ml-16 mb-2")]}>COVID-19 news</Text>
@@ -32,11 +35,17 @@ function CurrentNewsScreen(props) {
                     <Text style = {styles.articleContent}>Mandatory testing will be conducted for those living at Block 66 Eng Watt Street, at the pavilion of 2D Boon Tiong Road on June 26 and 27 between 9am and ...</Text>
                     <TouchableHighlight style = {styles.articleButton}><Text style={{ color: "#FBFBFB",fontSize:10, }}>Go to article</Text></TouchableHighlight>
                 </View>
+                
 
             </View>
             
+            
         </ScrollView>
+            <View style = {styles.backButton}>
+                <Button onPress = {()=>navigation.goBack()}text="Back" backgroundColor="#FE904B" textColor="#FFF" />
+            </View>
         </View>
+        
     );
 }
 
@@ -55,6 +64,13 @@ const styles = StyleSheet.create({
         alignItems:'center',
         backgroundColor:'white',
         padding:30,
+        paddingBottom:100
+    },
+    backButton:{
+        position:'absolute',
+        alignItems:'center',
+        width:'100%',
+        bottom:20,
     },
     articleButton:{
         height:18,
