@@ -1,13 +1,11 @@
 import React from "react"
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { StyleSheet } from "react-native";
-import HomeStack from "./HomeStack";
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import WorkPermitStack from "./WorkPermitStack";
 import NewsStack from "./NewsStack";
-import tailwind from "tailwind-rn";
 import SingaporeStack from "./SingaporeStack";
 import CommunityStack from "./CommunityStack";
+import ApplicationStack from "./ApplicationStack";
 
 
 const Tab = createBottomTabNavigator();
@@ -49,7 +47,7 @@ const TabStack = () => {
             }}
         >
             <Tab.Screen name="Trivia" component={SingaporeStack} />
-            <Tab.Screen name="Apply" component={WorkPermitStack} />
+            <Tab.Screen name="Apply" component={ApplicationStack} />
             <Tab.Screen name="News" component={NewsStack} />
             <Tab.Screen name="Community" component={CommunityStack} />
         </Tab.Navigator>

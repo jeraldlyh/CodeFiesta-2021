@@ -1,12 +1,13 @@
 import React from "react";
-import { View, ImageBackground, Keyboard, TouchableWithoutFeedback, StyleSheet, Text, Image, TouchableOpacity, SafeAreaView, ScrollView } from 'react-native';
-import { Searchbar, Card, Paragraph } from "react-native-paper";
+import { View, StyleSheet, Text, SafeAreaView, ScrollView } from 'react-native';
+import { Searchbar } from "react-native-paper";
 import tailwind from "tailwind-rn";
 import CustomCard from "../components/CustomCard";
 
 function HomeScreen({ navigation }) {
     return (
         <SafeAreaView style = {styles.container} >
+            <View style={tailwind("h-10")} />
             <Searchbar
                 style={tailwind("mx-8")}
                 inputStyle={styles.searchBar}
@@ -21,7 +22,7 @@ function HomeScreen({ navigation }) {
 
                 <View style={tailwind("flex flex-row mt-3")}>
                     <CustomCard
-                        onPress={() => navigation.push("Tips")}
+                        onPress={() => navigation.navigate("Tips")}
                         source={require("../assets/singapore/road.jpeg")}
                         title="Useful tips before coming into Singapore"
                         description="These are some information you will need when migrating to SG!"
