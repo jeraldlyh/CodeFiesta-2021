@@ -26,6 +26,7 @@ function HomeScreen({ navigation }) {
                     />
                     <View style={tailwind("w-3")} />
                     <CustomCard
+                        onPress={() => navigation.push("CurrentNews")}
                         source={require("../assets/home/news.jpg")}
                         title="Get current news"
                         description="Keep up with current news in Singapore! Find out what happened recently"
