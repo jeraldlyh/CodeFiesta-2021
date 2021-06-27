@@ -196,6 +196,7 @@ const MustKnowTips = ({ navigation }) => {
                 <Button onPress={() => navigation.goBack()} text="Back" backgroundColor="#FE904B" textColor="#FFF" height="12" />
                 <View style={tailwind("h-12")} />
             </ScrollView>
+            
         </SafeAreaView>
     )
 }

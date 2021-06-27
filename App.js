@@ -10,6 +10,8 @@ import AuthStack from './stacks/AuthStack';
 import WorkPermitStack from './stacks/WorkPermitStack';
 import NewsStack from './stacks/NewsStack';
 import CommunityScreen from './screens/CommunityScreen';
+import SettingsScreen from './screens/SettingsScreen';
+import SettingsStack from './stacks/SettingsStack';
 
 
 export default function App() {
@@ -33,7 +35,7 @@ export default function App() {
                 ? (
                     <AuthContextProvider>
                         <NavigationContainer>
-                            <RootStack />
+                            <RootStack/>
                         </NavigationContainer>
                     </AuthContextProvider>
                 )
