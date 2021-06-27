@@ -72,7 +72,7 @@ function QuizScreen(props) {
             <Button onPress={() => setActiveIndex(3)} text="Someone forgot to take it..." backgroundColor={isActive(3) ? "#FE904B" : "#e3e3e3"} textColor={isActive(3) ? "#FFF" : "#000"} />
 
             <View style={tailwind("mt-5")}>
-                <TouchableOpacity style={styles.button} onPress={() => navigation.push("Visa")}>
+                <TouchableOpacity style={styles.button} onPress={() => console.log("Submitting answer")}>
                     <Text style={styles.buttonText}>Confirm</Text>
                 </TouchableOpacity>
             </View>
