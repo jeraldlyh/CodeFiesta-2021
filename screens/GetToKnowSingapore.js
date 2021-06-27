@@ -1,17 +1,17 @@
 import React from "react";
-import { View, ImageBackground, Keyboard, TouchableWithoutFeedback, StyleSheet, Text, Image, TouchableOpacity } from 'react-native';
+import { View, ImageBackground, Keyboard, TouchableWithoutFeedback, StyleSheet, Text, Image, TouchableOpacity, SafeAreaView, ScrollView } from 'react-native';
 import { Searchbar, Card, Paragraph } from "react-native-paper";
 import tailwind from "tailwind-rn";
 import CustomCard from "../components/CustomCard";
 
 function HomeScreen({ navigation }) {
     return (
-        <View>
-            <View style={tailwind("flex items-center mt-20")} >
-                <Searchbar
-                    style={tailwind("w-5/6")}
-                    inputStyle={styles.searchBar}
-                    placeholder="Search"/>
+        <SafeAreaView style = {styles.container} >
+            <Searchbar
+                style={tailwind("mx-8")}
+                inputStyle={styles.searchBar}
+                placeholder="Search"/>
+            <ScrollView contentContainerStyle={tailwind("flex flex-col px-3 items-center justify-center")}>
 
                 <View style={tailwind("mt-8")}>
                     <Text style={[styles.header, tailwind("text-2xl text-left m-5")]}>
@@ -61,8 +61,8 @@ function HomeScreen({ navigation }) {
                         description="Click here to find out some Singaporean etiquette you should take"
                     />
                 </View>
-            </View>
-        </View>
+            </ScrollView>
+        </SafeAreaView>
     )
 };
 
