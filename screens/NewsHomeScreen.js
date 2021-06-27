@@ -12,7 +12,7 @@ function NewsHomeScreen(props) {
         <SafeAreaView style = {styles.container}>
         <ScrollView contentContainerStyle={tailwind("flex items-center mt-20")} >
                 <View style={tailwind("mt-5")}>
-                    <Text style={[styles.header, tailwind("text-4xl text-left")]}>What local topics are you interested in?</Text>
+                    <Text style={[styles.header, tailwind("text-4xl text-left p-4")]}>What local topics are you interested in?</Text>
                 </View>
                 <View style={tailwind("flex flex-row mt-12")}>
                     <CustomCard
