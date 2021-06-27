@@ -6,7 +6,7 @@ import Button from "../components/Button";
 const MustKnowTips = ({navigation}) => {
   return (
     <SafeAreaView style = {styles.container} >
-        <ScrollView contentContainerStyle={tailwind("flex flex-col px-3 items-center justify-center")}>
+        <ScrollView style={tailwind("pb-10")} contentContainerStyle={tailwind("flex flex-col items-center justify-center")}>
 
         <View>
           <Text style={styles.header1}>
