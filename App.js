@@ -7,6 +7,7 @@ import RootStack from './stacks/RootStack';
 import HomeStack from './stacks/HomeStack';
 import SingaporeStack from './stacks/SingaporeStack';
 import AuthStack from './stacks/AuthStack';
+import WorkPermitStack from './stacks/WorkPermitStack';
 
 
 export default function App() {
@@ -30,7 +31,7 @@ export default function App() {
                 ? (
                     <AuthContextProvider>
                         <NavigationContainer>
-                            <SingaporeStack />
+                            <WorkPermitStack />
                         </NavigationContainer>
                     </AuthContextProvider>
                 )

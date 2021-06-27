@@ -10,7 +10,7 @@ const WorkPermit = createStackNavigator();
 
 const WorkPermitStack = () => {
     return (
-        <WorkPermit.Navigator screenOptions={{ headerShown: true }}>
+        <WorkPermit.Navigator screenOptions={{ headerShown: false }}>
             <WorkPermit.Screen name="Start" component={StartScreen}/>
             <WorkPermit.Screen name="User" component={UserScreen}/>
             <WorkPermit.Screen name="Visa" component={VisaScreen}/>

@@ -4,8 +4,6 @@ import { Button } from 'react-native-elements/dist/buttons/Button';
 import {Icon} from 'react-native-elements/'
 import { useNavigation } from '@react-navigation/native';
 
-
-
 function WorkPassApplication(props) {
     // const navigation = useNavigation();
     // const startWorkApp = () =>{
@@ -41,8 +39,7 @@ const styles = StyleSheet.create({
 
     },
     headerStyle:{
-        
-        fontSize:34
+        fontSize:34,
     },
     headerContainer:{
         width:305,
