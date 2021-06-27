@@ -4,7 +4,8 @@ import { CountdownCircleTimer } from 'react-native-countdown-circle-timer'
 import { Overlay } from "react-native-elements";
 import tailwind from "tailwind-rn";
 import Button from "../components/Button";
- 
+import { useNavigation } from '@react-navigation/native';
+
 
 
 
@@ -12,6 +13,7 @@ function QuizScreen(props) {
     const [activeIndex, setActiveIndex] = useState(0);
     const [correctAnswer, setCorrectAnswer] = useState(true);
     const [visible, setVisible] = useState(false);
+    const navigation = useNavigation();
 
     const isActive = (index) => {
         return activeIndex === index;
@@ -19,6 +21,11 @@ function QuizScreen(props) {
 
     const toggleOverlay = () => {
         setVisible(!visible);
+    };
+
+    const confirmButton = () => {
+        setVisible(false);
+        navigation.goBack();
     };
 
     useEffect(() => {
@@ -38,7 +45,7 @@ function QuizScreen(props) {
                             <Text style={[styles.title, tailwind("text-center mb-1 text-xl")]}>Congralutations!</Text>
                             <Text style={[styles.title, tailwind("text-center text-xl mb-3")]}>+75 points</Text>
                             <Text style={[styles.description, tailwind("text-center mb-3")]}>You got the correct answer!</Text>
-                            <TouchableOpacity style={styles.button} onPress={() => navigation.goBack()}>
+                            <TouchableOpacity style={styles.button} onPress={confirmButton}>
                                 <Text style={styles.buttonText}>Confirm</Text>
                             </TouchableOpacity>
                         </View>
