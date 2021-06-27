@@ -31,7 +31,7 @@ export default function App() {
                 ? (
                     <AuthContextProvider>
                         <NavigationContainer>
-                            <WorkPermitStack />
+                            <RootStack />
                         </NavigationContainer>
                     </AuthContextProvider>
                 )
