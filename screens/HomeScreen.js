@@ -13,14 +13,11 @@ function HomeScreen({ navigation }) {
                 </View>
 
                 <Searchbar
-                    style={tailwind("w-5/6 m-3")}
+                    style={tailwind("w-5/6 mx-3 mt-5")}
                     inputStyle={styles.searchBar}
                     placeholder="Search"
                 />
-                <View style={tailwind("mt-5")}>
-                    <Text style={[styles.header, tailwind("text-2xl text-left")]}>Applications</Text>
-                </View>
-                <View style={tailwind("flex flex-row mt-4")}>
+                <View style={tailwind("flex flex-row mt-12")}>
                     <CustomCard
                         onPress={() => navigation.push("Work Permit")}
                         source={require("../assets/home/workPermit.jpg")}
@@ -36,6 +33,7 @@ function HomeScreen({ navigation }) {
                 </View>
                 <View style={tailwind("flex flex-row mt-8")}>
                     <CustomCard
+                        onPress={() => navigation.push("Get To Know Singapore")}
                         source={require("../assets/home/singapore.jpg")}
                         title="Get to know Singapore"
                         description="Unfamiliar with Singapore? Fret now! click here to find out more."

@@ -61,6 +61,7 @@ function HomeScreen({ navigation }) {
                         description="Click here to find out some Singaporean etiquette you should take"
                     />
                 </View>
+                <View style={tailwind("h-20")} />
             </ScrollView>
         </SafeAreaView>
     )
