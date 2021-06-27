@@ -8,6 +8,8 @@ import HomeStack from './stacks/HomeStack';
 import SingaporeStack from './stacks/SingaporeStack';
 import AuthStack from './stacks/AuthStack';
 import WorkPermitStack from './stacks/WorkPermitStack';
+import NewsStack from './stacks/NewsStack';
+import CommunityScreen from './screens/CommunityScreen';
 
 
 export default function App() {
