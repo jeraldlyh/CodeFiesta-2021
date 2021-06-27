@@ -1,11 +1,12 @@
 import React from 'react';
 import { Text, View, Image, StyleSheet, SafeAreaView, ScrollView} from 'react-native';
 import tailwind from 'tailwind-rn';
+import Button from "../components/Button";
 
-const MustKnowTips = () => {
+const MustKnowTips = ({navigation}) => {
   return (
     <SafeAreaView style = {styles.container} >
-        <ScrollView contentContainerStyle={tailwind("flex flex-col items-center justify-center")}>
+        <ScrollView contentContainerStyle={tailwind("flex flex-col px-3 items-center justify-center")}>
 
         <View>
           <Text style={styles.header1}>
@@ -31,7 +32,7 @@ const MustKnowTips = () => {
         </View>
 
         <View>
-          <Text style={styles.header2}>2. Reserve your seat with packets of tissues</Text>
+          <Text style={styles.header2}>2. See seats with packets of tissues? They're reserved</Text>
         </View>
 
         <View>
@@ -190,6 +191,8 @@ const MustKnowTips = () => {
         </View>
 
 
+        <Button onPress={() => navigation.goBack()} text="Back" backgroundColor="#FE904B" textColor="#FFF" height="12" />
+        <View style={tailwind("h-12")} />
         </ScrollView>
     </SafeAreaView>
   )
@@ -225,7 +228,6 @@ const styles = StyleSheet.create({
     color: "black", 
     fontSize: 26,
     fontWeight: 'bold',
-    alignItems: 'center',
   },
 
   header2: {
