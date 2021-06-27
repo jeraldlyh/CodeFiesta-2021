@@ -7,6 +7,7 @@ import CustomCard from "../components/CustomCard";
 function ApplicationScreen({ navigation }) {
     return (
         <SafeAreaView style = {styles.container} >
+            <View style={tailwind("h-10")} />
             <Searchbar
                 style={tailwind("mx-8")}
                 inputStyle={styles.searchBar}
