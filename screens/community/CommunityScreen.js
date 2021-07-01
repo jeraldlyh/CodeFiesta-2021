@@ -5,11 +5,13 @@ import tailwind from "tailwind-rn";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { Icon } from "react-native-elements";
+
 import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
 import QuestsScreen from "./QuestsScreen";
 import QuestCard from "./components/QuestCard";
 import BottomDrawer from "rn-bottom-drawer";
 import { useNavigation } from "@react-navigation/native";
+
 
 function CommunityScreen() {
     const navigation = useNavigation();

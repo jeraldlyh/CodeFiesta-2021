@@ -18,7 +18,7 @@ function LoginScreen({ navigation }) {
         //         setUsername(response);
         //         setIsLoggedIn(true);
         //     });
-        registerUser(">.<", "2@2.com", "123456")
+        // registerUser(">.<", "2@2.com", "123456")
         setUsername("testing");
         setIsLoggedIn(true);
     };
