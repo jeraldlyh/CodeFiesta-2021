@@ -2,7 +2,7 @@ import React from "react";
 import { View, ImageBackground, Keyboard, TouchableWithoutFeedback, StyleSheet, Text, Image, TouchableOpacity } from 'react-native';
 import { Searchbar, Card, Paragraph } from "react-native-paper";
 import tailwind from "tailwind-rn";
-import CustomCard from "../components/CustomCard";
+import CustomCard from "../../components/CustomCard";
 
 function HomeScreen({ navigation }) {
     return (

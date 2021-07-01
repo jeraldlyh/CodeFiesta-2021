@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { View, StyleSheet, Text, TouchableOpacity, Image } from 'react-native';
 import { color } from "react-native-elements/dist/helpers";
 import tailwind from "tailwind-rn";
-import Button from "../components/Button";
+import Button from "../../components/Button";
 
 
 function UserScreen({ navigation }) {
@@ -17,7 +17,7 @@ function UserScreen({ navigation }) {
             <Text style={[styles.title, tailwind("text-3xl p-3 text-center mt-32")]}>I'm...</Text>
 
             <View>
-                <Image style={styles.image} source={require('../assets/work_permit/work.png')} />
+                <Image style={styles.image} source={require('../../assets/work_permit/work.png')} />
             </View>
 
             <View style={tailwind("mt-8")} />

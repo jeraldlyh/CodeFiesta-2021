@@ -3,7 +3,7 @@ import { View, Animated, Text, StyleSheet, TouchableOpacity, Modal } from 'react
 import { CountdownCircleTimer } from 'react-native-countdown-circle-timer'
 import { Overlay } from "react-native-elements";
 import tailwind from "tailwind-rn";
-import Button from "../components/Button";
+import Button from "../../components/Button";
 import { useNavigation } from '@react-navigation/native';
 
 

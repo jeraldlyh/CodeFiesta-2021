@@ -1,8 +1,6 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import LoginScreen from "../screens/LoginScreen";
-import WelcomeScreen from "../screens/WelcomeScreen";
-import CommunityScreen from "../screens/CommunityScreen";
+import CommunityScreen from "./CommunityScreen";
 
 
 const Community = createStackNavigator();

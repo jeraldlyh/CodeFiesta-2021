@@ -1,11 +1,7 @@
 import React, { useContext } from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import HomeScreen from "../screens/HomeScreen";
-import SingaporeStack from "../stacks/SingaporeStack";
-import WorkPermitStack from "./WorkPermitStack";
-import { useRoute } from "@react-navigation/native";
-import NewsHomeScreen from "../screens/NewsHomeScreen";
-import CurrentNewsScreen from "../screens/CurrentNewsScreen";
+import NewsHomeScreen from "./NewsHomeScreen";
+import CurrentNewsScreen from "./CurrentNewsScreen";
 
 
 const News = createStackNavigator();

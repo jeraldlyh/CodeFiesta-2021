@@ -1,9 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import HomeScreen from "../screens/HomeScreen";
-import SingaporeStack from "../stacks/SingaporeStack";
-import WorkPermitStack from "./WorkPermitStack";
-import { useRoute } from "@react-navigation/native";
+import HomeScreen from "./HomeScreen";
+import SingaporeStack from "../singapore/SingaporeStack";
+import WorkPermitStack from "../../stacks/WorkPermitStack";
 import NewsStack from "./NewsStack";
 
 

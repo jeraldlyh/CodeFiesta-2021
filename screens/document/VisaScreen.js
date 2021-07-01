@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { View, StyleSheet, Text, TouchableOpacity, Image} from 'react-native';
 import tailwind from "tailwind-rn";
-import Button from "../components/Button";
+import Button from "../../components/Button";
 
 function VisaScreen({ navigation }) {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -14,7 +14,7 @@ function VisaScreen({ navigation }) {
         <View style={tailwind("flex flex-col w-full h-full p-3 items-center")}>
             <Text style={[styles.title, tailwind("text-3xl p-3 text-center mt-40")]}>Getting ready your work visa</Text>
             <View>
-                <Image style={styles.image} source={require('../assets/work_permit/work.png')}/>
+                <Image style={styles.image} source={require('../../assets/work_permit/work.png')}/>
             </View>
 
             <View style={tailwind("mt-8")}/>

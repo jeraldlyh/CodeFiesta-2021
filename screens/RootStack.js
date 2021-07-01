@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { AuthContext } from "../provider/AuthProvider";
-import AuthStack from "./AuthStack";
-import TabStack from "./TabStack";
+import AuthStack from "./authentication/AuthStack";
+import TabStack from "./misc/TabStack";
 
 
 const Root = createStackNavigator();

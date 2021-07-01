@@ -2,7 +2,7 @@ import React from "react";
 import { View, StyleSheet, Text, SafeAreaView, ScrollView } from 'react-native';
 import { Searchbar } from "react-native-paper";
 import tailwind from "tailwind-rn";
-import CustomCard from "../components/CustomCard";
+import CustomCard from "../../components/CustomCard";
 
 function ApplicationScreen({ navigation }) {
     return (
@@ -23,13 +23,13 @@ function ApplicationScreen({ navigation }) {
                 <View style={tailwind("flex flex-row mt-3")}>
                     <CustomCard
                         onPress={() => navigation.navigate("Work Permit")}
-                        source={require("../assets/home/workPermit.jpg")}
+                        source={require("../../assets/home/workPermit.jpg")}
                         title="Apply for work permit"
                         description="Find out which work permit you are eligible for and start applying"
                     />
                     <View style={tailwind("w-3")} />
                     <CustomCard
-                        source={require("../assets/application/financial.jpeg")}
+                        source={require("../../assets/application/financial.jpeg")}
                         title="Apply for financial assistance"
                         description="Check your eligiblity for financial aid schemes"
                     />
@@ -37,14 +37,14 @@ function ApplicationScreen({ navigation }) {
 
                 <View style={tailwind("flex flex-row mt-8")}>
                     <CustomCard
-                        source={require("../assets/application/hospital.jpeg")}
+                        source={require("../../assets/application/hospital.jpeg")}
                         title="Apply for healthcare subsidies"
                         description="Find out which subsidies
                         you are eligible for"
                     />
                     <View style={tailwind("w-3")} />
                     <CustomCard
-                        source={require("../assets/application/passport.jpeg")}
+                        source={require("../../assets/application/passport.jpeg")}
                         title="Apply for Singapore citizenship"
                         description="Check your eligiblity and start applying"
                     />
@@ -52,13 +52,13 @@ function ApplicationScreen({ navigation }) {
 
                 <View style={tailwind("flex flex-row mt-8")}>
                     <CustomCard
-                        source={require("../assets/application/dsa.png")}
+                        source={require("../../assets/application/dsa.png")}
                         title="Apply for direct school admission (DSA)"
                         description="Explore the different education pathways for your child"
                     />
                     <View style={tailwind("w-3")} />
                     <CustomCard
-                        source={require("../assets/application/people.jpeg")}
+                        source={require("../../assets/application/people.jpeg")}
                         title="Apply to a special education school"
                         description="Explore the different education pathways for your child"
                     />

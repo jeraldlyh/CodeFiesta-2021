@@ -1,12 +1,12 @@
 import React from 'react';
 import { Searchbar } from "react-native-paper";
-import { View,Text, StyleSheet,ScrollView, Button,Image } from 'react-native';
+import { View, Text, StyleSheet, Image } from 'react-native';
 import tailwind from "tailwind-rn";
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Icon } from 'react-native-elements'
 
-function CommunityScreen(props) {
+function CommunityScreen() {
     return (
         <SafeAreaView>
             <View style={[tailwind("mt-5 ml-5 items-center"),{flexDirection:"row",justifyContent:'space-between'}]}>
@@ -26,7 +26,7 @@ function CommunityScreen(props) {
                 placeholder="Search"
             />
             <View style={tailwind("items-center mt-8")}>
-                <Image source = {require("../assets/community/singaporeMap.png")} />
+                <Image source = {require("../../assets/community/singaporeMap.png")} />
             </View>
             
         </SafeAreaView>

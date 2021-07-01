@@ -3,15 +3,7 @@ import AuthContextProvider from './provider/AuthProvider';
 import { NavigationContainer } from '@react-navigation/native';
 import { View, Text } from 'react-native';
 import * as Font from "expo-font";
-import RootStack from './stacks/RootStack';
-import HomeStack from './stacks/HomeStack';
-import SingaporeStack from './stacks/SingaporeStack';
-import AuthStack from './stacks/AuthStack';
-import WorkPermitStack from './stacks/WorkPermitStack';
-import NewsStack from './stacks/NewsStack';
-import CommunityScreen from './screens/CommunityScreen';
-import SettingsScreen from './screens/SettingsScreen';
-import SettingsStack from './stacks/SettingsStack';
+import RootStack from './screens/RootStack';
 
 
 export default function App() {
@@ -26,7 +18,7 @@ export default function App() {
         setIsLoaded(true);
     };
 
-    useEffect(() => {
+    useEffect(() => {       // Load default fonts
         loadFonts();
     }, [])
 

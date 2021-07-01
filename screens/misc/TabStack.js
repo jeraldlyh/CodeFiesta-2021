@@ -2,10 +2,10 @@ import React from "react"
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { StyleSheet } from "react-native";
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import NewsStack from "./NewsStack";
-import SingaporeStack from "./SingaporeStack";
-import CommunityStack from "./CommunityStack";
-import ApplicationStack from "./ApplicationStack";
+import NewsStack from "../news/NewsStack";
+import SingaporeStack from "../singapore/SingaporeStack";
+import ApplicationStack from "../application/ApplicationStack";
+import CommunityStack from "../community/CommunityStack";
 
 
 const Tab = createBottomTabNavigator();

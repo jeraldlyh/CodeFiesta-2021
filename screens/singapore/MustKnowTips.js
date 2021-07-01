@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View, Image, StyleSheet, SafeAreaView, ScrollView } from 'react-native';
 import tailwind from 'tailwind-rn';
-import Button from "../components/Button";
+import Button from "../../components/Button";
 
 const MustKnowTips = ({ navigation }) => {
     return (
@@ -19,7 +19,7 @@ const MustKnowTips = ({ navigation }) => {
                 </View>
 
                 <View>
-                    <Image style={styles.image} source={require('../assets/singapore/taxi.jpg')} />
+                    <Image style={styles.image} source={require('../../assets/singapore/taxi.jpg')} />
                 </View>
 
                 <View>
@@ -36,7 +36,7 @@ const MustKnowTips = ({ navigation }) => {
                 </View>
 
                 <View>
-                    <Image style={styles.image} source={require('../assets/singapore/tissue.jpg')} />
+                    <Image style={styles.image} source={require('../../assets/singapore/tissue.jpg')} />
                 </View>
 
                 <View>
@@ -53,7 +53,7 @@ const MustKnowTips = ({ navigation }) => {
                 </View>
 
                 <View>
-                    <Image style={styles.image} source={require('../assets/singapore/escalator.jpg')} />
+                    <Image style={styles.image} source={require('../../assets/singapore/escalator.jpg')} />
                 </View>
 
                 <View>
@@ -70,7 +70,7 @@ const MustKnowTips = ({ navigation }) => {
                 </View>
 
                 <View>
-                    <Image style={styles.image} source={require('../assets/singapore/mrt.jpg')} />
+                    <Image style={styles.image} source={require('../../assets/singapore/mrt.jpg')} />
                 </View>
 
                 <View>
@@ -87,7 +87,7 @@ const MustKnowTips = ({ navigation }) => {
                 </View>
 
                 <View>
-                    <Image style={styles.image} source={require('../assets/singapore/tip.jpg')} />
+                    <Image style={styles.image} source={require('../../assets/singapore/tip.jpg')} />
                 </View>
 
                 <View>
@@ -105,7 +105,7 @@ const MustKnowTips = ({ navigation }) => {
                 </View>
 
                 <View>
-                    <Image style={styles.image} source={require('../assets/singapore/reservedSeat.jpg')} />
+                    <Image style={styles.image} source={require('../../assets/singapore/reservedSeat.jpg')} />
                 </View>
 
                 <View>
@@ -123,7 +123,7 @@ const MustKnowTips = ({ navigation }) => {
                 </View>
 
                 <View>
-                    <Image style={styles.image} source={require('../assets/singapore/alcohol.jpg')} />
+                    <Image style={styles.image} source={require('../../assets/singapore/alcohol.jpg')} />
                 </View>
 
                 <View>
@@ -140,7 +140,7 @@ const MustKnowTips = ({ navigation }) => {
                 </View>
 
                 <View>
-                    <Image style={styles.image} source={require('../assets/singapore/smoking.jpg')} />
+                    <Image style={styles.image} source={require('../../assets/singapore/smoking.jpg')} />
                 </View>
 
                 <View>
@@ -158,7 +158,7 @@ const MustKnowTips = ({ navigation }) => {
                 </View>
 
                 <View>
-                    <Image style={styles.image} source={require('../assets/singapore/food.jpg')} />
+                    <Image style={styles.image} source={require('../../assets/singapore/food.jpg')} />
                 </View>
 
                 <View>
@@ -176,7 +176,7 @@ const MustKnowTips = ({ navigation }) => {
                 </View>
 
                 <View>
-                    <Image style={styles.image} source={require('../assets/singapore/coffee.jpg')} />
+                    <Image style={styles.image} source={require('../../assets/singapore/coffee.jpg')} />
                 </View>
 
                 <View>

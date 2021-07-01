@@ -1,9 +1,9 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import StartScreen from "../screens/StartScreen";
-import UserScreen from "../screens/UserScreen";
-import VisaScreen from "../screens/VisaScreen";
-import VisaTypeScreen from "../screens/VisaTypeScreen";
+import StartScreen from "./StartScreen";
+import UserScreen from "./UserScreen";
+import VisaScreen from "./VisaScreen";
+import VisaTypeScreen from "./VisaTypeScreen";
 
 
 const WorkPermit = createStackNavigator();

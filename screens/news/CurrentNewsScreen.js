@@ -2,7 +2,7 @@ import React from 'react';
 import { View,Image, StyleSheet,Text,ScrollView, Touchable } from 'react-native';
 import tailwind from "tailwind-rn";
 import { TouchableHighlight } from 'react-native-gesture-handler';
-import Button from '../components/Button';
+import Button from '../../components/Button';
 import { useNavigation } from '@react-navigation/native';
 
 
@@ -12,7 +12,7 @@ function CurrentNewsScreen(props) {
     return (
         <View style = {styles.container}>
         <ScrollView >
-            <Image source={require("../assets/news/backgroundImage.png")} style={styles.backgroundImage} />
+            <Image source={require("../../assets/news/backgroundImage.png")} style={styles.backgroundImage} />
             <View style={{marginTop:250,right:30}}>
                 <Text style={[styles.header, tailwind("text-4xl text-left ml-16 mb-2")]}>COVID-19 news</Text>
             </View>

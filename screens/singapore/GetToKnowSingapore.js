@@ -2,7 +2,7 @@ import React from "react";
 import { View, StyleSheet, Text, SafeAreaView, ScrollView } from 'react-native';
 import { Searchbar } from "react-native-paper";
 import tailwind from "tailwind-rn";
-import CustomCard from "../components/CustomCard";
+import CustomCard from "../../components/CustomCard";
 
 function HomeScreen({ navigation }) {
     return (
@@ -23,13 +23,13 @@ function HomeScreen({ navigation }) {
                 <View style={tailwind("flex flex-row mt-3")}>
                     <CustomCard
                         onPress={() => navigation.navigate("Tips")}
-                        source={require("../assets/singapore/road.jpeg")}
+                        source={require("../../assets/singapore/road.jpeg")}
                         title="Useful tips before coming into Singapore"
                         description="These are some information you will need when migrating to SG!"
                     />
                     <View style={tailwind("w-3")} />
                     <CustomCard
-                        source={require("../assets/singapore/singlish.jpeg")}
+                        source={require("../../assets/singapore/singlish.jpeg")}
                         title="Learning Singlish"
                         description="Singaporeans have a unique style of speaking. Click here to find out more!"
                     />
@@ -37,13 +37,13 @@ function HomeScreen({ navigation }) {
 
                 <View style={tailwind("flex flex-row mt-8")}>
                     <CustomCard
-                        source={require("../assets/singapore/localFood.jpg")}
+                        source={require("../../assets/singapore/localFood.jpg")}
                         title="Local food"
                         description="Food is a huge part of our culture. Here are some local dishes you need to try in Singapore!"
                     />
                     <View style={tailwind("w-3")} />
                     <CustomCard
-                        source={require("../assets/singapore/gbtb.jpeg")}
+                        source={require("../../assets/singapore/gbtb.jpeg")}
                         title="Local Tourism"
                         description="Want to explore Singapore more? Here are some local attractions you can visit."
                     />
@@ -51,13 +51,13 @@ function HomeScreen({ navigation }) {
 
                 <View style={tailwind("flex flex-row mt-8")}>
                     <CustomCard
-                        source={require("../assets/singapore/ethnic.jpeg")}
+                        source={require("../../assets/singapore/ethnic.jpeg")}
                         title="Ethnic composition"
                         description="Singapore is a multi cultural society. Click here to find out more more!"
                     />
                     <View style={tailwind("w-3")} />
                     <CustomCard
-                        source={require("../assets/singapore/smoking.jpeg")}
+                        source={require("../../assets/singapore/smoking.jpeg")}
                         title="Do’s and Don’ts"
                         description="Click here to find out some Singaporean etiquette you should take"
                     />

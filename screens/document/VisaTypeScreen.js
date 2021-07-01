@@ -24,7 +24,7 @@ function VisaTypeScreen({ navigation }) {
                 <TouchableOpacity style={tailwind("mb-3")} onPress={() => toggleEntre()}>
                     <View style={tailwind("flex flex-col items-center")}>
                         <View style={tailwind("flex items-center justify-center")}>
-                            <Image style={tailwind("absolute w-80 h-16 rounded-xl opacity-60")} source={require("../assets/visa/entre.jpg")} />
+                            <Image style={tailwind("absolute w-80 h-16 rounded-xl opacity-60")} source={require("../../assets/visa/entre.jpg")} />
                             <Text style={[tailwind("text-white text-lg"), styles.content]}>Entre Pass</Text>
                         </View>
                     </View>
@@ -64,7 +64,7 @@ The new business must meet one of the below 4 criteria:
                 <TouchableOpacity style={tailwind("mt-12")}>
                     <View style={tailwind("flex flex-col items-center")}>
                         <View style={tailwind("flex items-center justify-center")}>
-                            <Image style={tailwind("absolute w-80 h-16 rounded-xl opacity-60")} source={require("../assets/visa/employment.jpg")} />
+                            <Image style={tailwind("absolute w-80 h-16 rounded-xl opacity-60")} source={require("../../assets/visa/employment.jpg")} />
                             <Text style={[tailwind("text-white text-lg"), styles.content]}>Employment Pass</Text>
                         </View>
                     </View>
@@ -72,7 +72,7 @@ The new business must meet one of the below 4 criteria:
                 <TouchableOpacity style={tailwind("mt-12")}>
                     <View style={tailwind("flex flex-col items-center")}>
                         <View style={tailwind("flex items-center justify-center")}>
-                            <Image style={tailwind("absolute w-80 h-16 rounded-xl opacity-60")} source={require("../assets/visa/personalized.jpg")} />
+                            <Image style={tailwind("absolute w-80 h-16 rounded-xl opacity-60")} source={require("../../assets/visa/personalized.jpg")} />
                             <Text style={[tailwind("text-white text-lg text-center"), styles.content]}>Personalized Employment Pass (PEP)</Text>
                         </View>
                     </View>
@@ -80,7 +80,7 @@ The new business must meet one of the below 4 criteria:
                 <TouchableOpacity style={tailwind("mt-12")}>
                     <View style={tailwind("flex flex-col items-center")}>
                         <View style={tailwind("flex items-center justify-center")}>
-                            <Image style={tailwind("absolute w-80 h-16 rounded-xl opacity-60")} source={require("../assets/visa/spass.jpg")} />
+                            <Image style={tailwind("absolute w-80 h-16 rounded-xl opacity-60")} source={require("../../assets/visa/spass.jpg")} />
                             <Text style={[tailwind("text-black text-lg"), styles.content]}>S Pass</Text>
                         </View>
                     </View>
