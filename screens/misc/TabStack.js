@@ -6,6 +6,7 @@ import NewsStack from "../news/NewsStack";
 import SingaporeStack from "../singapore/SingaporeStack";
 import ApplicationStack from "../application/ApplicationStack";
 import CommunityStack from "../community/CommunityStack";
+import ChatStack from "../chat/ChatStack";
 
 
 const Tab = createBottomTabNavigator();
@@ -48,7 +49,7 @@ const TabStack = () => {
         >
             <Tab.Screen name="Trivia" component={SingaporeStack} />
             <Tab.Screen name="Apply" component={ApplicationStack} />
-            <Tab.Screen name="News" component={NewsStack} />
+            <Tab.Screen name="News" component={ChatStack} />
             <Tab.Screen name="Community" component={CommunityStack} />
         </Tab.Navigator>
     )

@@ -8,9 +8,16 @@ export const addPointsToUser = (newPoints, user) => {
                 points: firebase.firestore.FieldValue.increment(newPoints)
             })
             .then(() => resolve(true))
-            .catch(error => {
-                console.log(error);
-                console.log("Error in addPointsToUser");
-            });
+            .catch(error => console.log("Error in addPointsToUser"));
+    });
+};
+
+export const getUserAvatar = (username) => {
+    return new Promise((resolve, reject) => {
+        firebase.firestore().collection("User")
+            .doc(username)
+            .get()
+            .then(doc => resolve(doc.data().avatar))
+            .catch(error => console.log("Error in getUserAvatar"));
     });
 };

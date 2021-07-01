@@ -4,14 +4,15 @@ import { GiftedChat, Bubble, Send, SystemMessage, Time } from 'react-native-gift
 import firebase from "../../database/firebaseDB";
 import Filter from "bad-words";
 import { IconButton } from "react-native-paper";
-import tailwind from "tailwind-rn";
-import Header from "../../components/Header";
 import Loading from "../../components/Loading";
+import ChatHeader from "./components/ChatHeader";
+import tailwind from "tailwind-rn";
+
 
 
 function RoomScreen({ route }) {
     const [messages, setMessage] = useState([]);
-    const { thread, username, avatar } = route.params;
+    const { thread, username, avatar, anotherUser, anotherUserAvatar } = route.params;
     const filter = new Filter();
 
     useEffect(() => {
@@ -138,25 +139,26 @@ function RoomScreen({ route }) {
         );
     }
 
-
     return (
         <Fragment>
-            <Header title={route.params.anotherUser} />
-            <GiftedChat
-                messages={messages}
-                onSend={handleSend}
-                user={{ _id: username }}
-                placeholder="Type your message here..."
-                alwaysShowSend
-                showUserAvatar
-                scrollToBottom
-                renderBubble={renderBubble}
-                renderLoading={Loading}
-                renderSend={renderSend}
-                renderTime={renderTime}
-                renderSystemMessage={renderSystemMessage}
-                scrollToBottomComponent={scrollToBottomComponent}
-            />
+            <View style={tailwind("w-full h-full")}>
+                <ChatHeader user={anotherUser} image={anotherUserAvatar} />
+                <GiftedChat
+                    messages={messages}
+                    onSend={handleSend}
+                    user={{ _id: username }}
+                    placeholder="Type your message here..."
+                    alwaysShowSend
+                    showUserAvatar
+                    scrollToBottom
+                    renderBubble={renderBubble}
+                    renderLoading={Loading}
+                    renderSend={renderSend}
+                    renderTime={renderTime}
+                    renderSystemMessage={renderSystemMessage}
+                    scrollToBottomComponent={scrollToBottomComponent}
+                />
+            </View>
         </Fragment>
     );
 }

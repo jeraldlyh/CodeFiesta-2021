@@ -1,9 +1,10 @@
 import firebase from "../firebaseDB";
 import { v4 as uuidv4 } from "uuid";
+import { getUserAvatar } from "./User";
 
 export const isConvoExist = (userOne, userTwo) => {
     return new Promise((resolve, reject) => {
-        firebase.firestore().collection("threads")
+        firebase.firestore().collection("Threads")
             .get()
             .then(querySnapshot => {
                 const convoData = querySnapshot.docs.map(doc => doc.data());
@@ -27,24 +28,40 @@ export const isConvoExist = (userOne, userTwo) => {
     });
 };
 
+export const updateConvoUUID = (conversationID) => {
+    firebase.firestore().collection("threads")
+        .doc(conversationID)
+        .update({
+            _id: conversationID
+        });
+};
+
 export const createConvo = (userOne, userTwo) => {
     return new Promise((resolve, reject) => {
         isConvoExist(userOne, userTwo)
             .then(response => {
                 if (!response) {
-                    firebase.firestore().collection("threads")
-                        .set({
-                            _id: uuidv4(),
-                            userOne: userOne,
-                            userTwo: userTwo,
-                        })
-                        .then(doc => {
-                            resolve(doc.id);
-                        })
-                        .catch(error => {
-                            console.log("Error in isConvoExist called in createConvo");
-                            reject(error);
-                        });
+                    Promise.all([getUserAvatar(userOne), getUserAvatar(userTwo)]).then(values => {      // Synchronous promise
+                        firebase.firestore().collection("Threads")
+                            .add({
+                                userOne: userOne,
+                                userOneAvatar: values[0],
+                                userTwo: userTwo,
+                                userTwoAvatar: values[1],
+                                latestMessage: {
+                                    text: `${userOne} has just started a chat! 🤗`,
+                                    createdAt: new Date().getTime()
+                                }
+                            })
+                            .then(doc => {
+                                // updateConvoUUID(doc.id);
+                                resolve(doc.id);
+                            })
+                            .catch(error => {
+                                console.log("Error in isConvoExist called in createConvo");
+                                reject(error);
+                            });
+                    })
                 } else {
                     resolve(response._id)
                 }

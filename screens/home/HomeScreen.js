@@ -9,7 +9,7 @@ import {
   Image,
   TouchableOpacity,
 } from "react-native";
-import { Searchbar, Card, Paragraph } from "react-native-paper";
+import { Searchbar, Card, Paragraph, Button } from "react-native-paper";
 import tailwind from "tailwind-rn";
 import CustomCard from "../../components/CustomCard";
 
@@ -22,7 +22,6 @@ function HomeScreen({ navigation }) {
             Home
           </Text>
         </View>
-
         <Searchbar
           style={tailwind("w-5/6 mx-3 mt-5")}
           inputStyle={styles.searchBar}
