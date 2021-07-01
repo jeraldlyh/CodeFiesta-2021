@@ -10,21 +10,20 @@ function Layout(props) {
 
     return (
         <SafeAreaView style={tailwind("flex-1 items-center justify-center")}>
-            <View style={tailwind("self-start top-10 ml-10 z-10")}>
-                <View style={tailwind("flex items-center justify-center")}>
-                    <TouchableOpacity
-                        style={tailwind("bg-gray-300 w-14 h-14 rounded-full absolute opacity-75")}
-                        onPress={() => navigation.goBack()}
-                    />
+            <View style={tailwind("self-start top-5 ml-8 z-10")}>
+                <TouchableOpacity
+                    style={tailwind("bg-gray-300 w-14 h-14 rounded-full absolute opacity-75 items-center flex justify-center")}
+                    onPress={() => navigation.goBack()}
+                >
                     <Icon
                         name='arrow-back-outline'
                         type='ionicon'
                         color='#000'
                     />
-                </View>
+                </TouchableOpacity>
             </View>
 
-            <View style={tailwind("flex-1 pl-3 pr-3 items-center")}>
+            <View style={tailwind("flex-1 pl-3 pr-3 items-center mt-2")}>
                 {props.children}
             </View>
         </SafeAreaView>

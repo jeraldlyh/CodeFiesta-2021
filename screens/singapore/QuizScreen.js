@@ -1,90 +1,130 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment, useContext } from "react";
 import { View, Animated, Text, StyleSheet, TouchableOpacity, Modal } from 'react-native';
 import { CountdownCircleTimer } from 'react-native-countdown-circle-timer'
 import { Overlay } from "react-native-elements";
 import tailwind from "tailwind-rn";
 import Button from "../../components/Button";
-import { useNavigation } from '@react-navigation/native';
+import Layout from "../../components/Layout";
+import Header from "../../components/Header";
+import { getRandomQuiz } from "../../database/actions/Quiz";
+import Loading from "../../components/Loading";
+import _ from "lodash";
+import { AuthContext } from "../../provider/AuthProvider";
+import { addPointsToUser } from "../../database/actions/User";
 
-
-
-
-function QuizScreen(props) {
+function QuizScreen({ navigation }) {
     const [activeIndex, setActiveIndex] = useState(0);
-    const [correctAnswer, setCorrectAnswer] = useState(true);
-    const [visible, setVisible] = useState(false);
-    const navigation = useNavigation();
+    const [displayCorrect, setDisplayCorrect] = useState(false);
+    const [displayError, setDisplayError] = useState(false);
+    const [isPlaying, setIsPlaying] = useState(true);
+    const [question, setQuestion] = useState(null);
+    const { username } = useContext(AuthContext);
+
+    useEffect(() => {
+        getRandomQuiz().then(result => {
+            setQuestion(result)
+        });
+    }, []);
 
     const isActive = (index) => {
         return activeIndex === index;
     };
 
-    const toggleOverlay = () => {
-        setVisible(!visible);
-    };
-
     const confirmButton = () => {
-        setVisible(false);
+        setDisplayCorrect(false);
+        setDisplayError(false);
         navigation.goBack();
     };
 
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setVisible(true)
-        }, 5000);
+    const evaluateAnswer = () => {
+        if (activeIndex === question.answer) {
+            setDisplayCorrect(true);
+            addPointsToUser(75, username);          // Constant 75 points per correct answer
+        } else {
+            setDisplayError(true);
+        }
+    };
 
-        return () => clearTimeout(timer);
-    }, [])
+    const onComplete = () => {
+        evaluateAnswer();
+        return [false, 0];
+    };
+
+    const submitButton = () => {
+        setIsPlaying(false);
+        evaluateAnswer();
+    };
 
     return (
-        <View style={tailwind("flex flex-col items-center justify-center mt-20")}>
+        <Layout>
+            <Header />
+
+            {/* Modal Box */}
+            <Overlay isVisible={displayCorrect} onBackdropPress={confirmButton} backdropStyle={tailwind("opacity-75 bg-black")}>
+                <View style={tailwind("flex flex-col items-center justify-center h-48 w-48")}>
+                    <Text style={[styles.title, tailwind("text-center mb-1 text-xl")]}>Congralutations!</Text>
+                    <Text style={[styles.title, tailwind("text-center text-xl mb-3")]}>+75 points</Text>
+                    <Text style={[styles.description, tailwind("text-center mb-3")]}>You got the correct answer!</Text>
+                    <TouchableOpacity style={styles.button} onPress={confirmButton}>
+                        <Text style={styles.buttonText}>Confirm</Text>
+                    </TouchableOpacity>
+                </View>
+            </Overlay>
+            <Overlay isVisible={displayError} onBackdropPress={confirmButton} backdropStyle={tailwind("opacity-75 bg-black")}>
+                <View style={tailwind("flex flex-col items-center justify-center h-48 w-48")}>
+                    <Text style={[styles.title, tailwind("text-center mb-1 text-xl")]}>Oh no!</Text>
+                    <Text style={[styles.description, tailwind("text-center mb-3")]}>You didn't managed to get the correct answer! 😐</Text>
+                    <TouchableOpacity style={styles.button} onPress={confirmButton}>
+                        <Text style={styles.buttonText}>Confirm</Text>
+                    </TouchableOpacity>
+                </View>
+            </Overlay>
+
             {
-                correctAnswer
-                    ? <Overlay isVisible={visible} onBackdropPress={toggleOverlay} backdropStyle={tailwind("opacity-75 bg-black")}>
-                        <View style={tailwind("flex flex-col items-center justify-center h-48 w-48")}>
-                            <Text style={[styles.title, tailwind("text-center mb-1 text-xl")]}>Congralutations!</Text>
-                            <Text style={[styles.title, tailwind("text-center text-xl mb-3")]}>+75 points</Text>
-                            <Text style={[styles.description, tailwind("text-center mb-3")]}>You got the correct answer!</Text>
-                            <TouchableOpacity style={styles.button} onPress={confirmButton}>
+                question
+                    ?
+                    <Fragment>
+                        <Text style={[styles.title, tailwind("text-2xl mb-4")]}>{question.question}</Text>
+                        <View>
+                            <CountdownCircleTimer
+                                strokeWidth={20}
+                                isPlaying={isPlaying}
+                                duration={5}
+                                colors={[
+                                    ['#004777', 0.4],
+                                    ['#F7B801', 0.4],
+                                    ['#A30000', 0.2],
+                                ]}
+                                onComplete={onComplete}
+                            >
+                                {({ remainingTime, animatedColor }) => (
+                                    <Animated.Text style={[{ color: animatedColor }, tailwind("text-3xl"), styles.description]}>
+                                        {remainingTime}
+                                    </Animated.Text>
+                                )}
+                            </CountdownCircleTimer>
+                        </View>
+
+                        <View style={tailwind("flex flex-col items-center justify-center w-full")}>
+                            <View style={tailwind("h-3 mt-5")} />
+                            {
+                                _.toArray(question.options).map((question, index) => {
+                                    return (
+                                        <Button key={index} onPress={() => setActiveIndex(index + 1)} text={question} backgroundColor={isActive(index + 1) ? "#FE904B" : "#e3e3e3"} textColor={isActive(index + 1) ? "#FFF" : "#000"} />
+                                    )
+                                })
+                            }
+                        </View>
+
+                        <View style={tailwind("mt-5")}>
+                            <TouchableOpacity style={styles.button} onPress={submitButton}>
                                 <Text style={styles.buttonText}>Confirm</Text>
                             </TouchableOpacity>
                         </View>
-                    </Overlay>
-                    : null
+                    </Fragment>
+                    : <Loading />
             }
-            <Text style={[styles.title, tailwind("text-2xl mb-4")]}>What does a packet of tissue paper represent?</Text>
-            <View>
-                <CountdownCircleTimer
-                    strokeWidth={20}
-                    isPlaying
-                    duration={5}
-                    colors={[
-                        ['#004777', 0.4],
-                        ['#F7B801', 0.4],
-                        ['#A30000', 0.2],
-                    ]}
-                >
-                    {({ remainingTime, animatedColor }) => (
-                        <Animated.Text style={[{ color: animatedColor }, tailwind("text-3xl"), styles.description]}>
-                            {remainingTime}
-                        </Animated.Text>
-                    )}
-                </CountdownCircleTimer>
-            </View>
-
-            <View style={tailwind("h-3 mt-5")} />
-            <Button onPress={() => setActiveIndex(1)} text="It's free! Take it and go!" backgroundColor={isActive(1) ? "#FE904B" : "#e3e3e3"} textColor={isActive(1) ? "#FFF" : "#000"} />
-            <View style={tailwind("h-3")} />
-            <Button onPress={() => setActiveIndex(2)} text="Oh no, the table is occupied! 😥" backgroundColor={isActive(2) ? "#FE904B" : "#e3e3e3"} textColor={isActive(2) ? "#FFF" : "#000"} />
-            <View style={tailwind("h-3")} />
-            <Button onPress={() => setActiveIndex(3)} text="Someone forgot to take it..." backgroundColor={isActive(3) ? "#FE904B" : "#e3e3e3"} textColor={isActive(3) ? "#FFF" : "#000"} />
-
-            <View style={tailwind("mt-5")}>
-                <TouchableOpacity style={styles.button} onPress={() => console.log("Submitting answer")}>
-                    <Text style={styles.buttonText}>Confirm</Text>
-                </TouchableOpacity>
-            </View>
-        </View>
+        </Layout >
     )
 };
 

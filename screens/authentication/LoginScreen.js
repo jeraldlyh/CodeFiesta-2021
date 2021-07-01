@@ -5,7 +5,7 @@ import { TextInput } from "react-native-paper";
 import { LinearGradient } from 'expo-linear-gradient';
 import Button from "../../components/Button";
 import { AuthContext } from "../../provider/AuthProvider";
-import { loginUser } from "../../database/actions/Auth";
+import { loginUser, registerUser } from "../../database/actions/Auth";
 
 function LoginScreen({ navigation }) {
     const [email, setEmail] = useState("");
@@ -18,10 +18,12 @@ function LoginScreen({ navigation }) {
         //         setUsername(response);
         //         setIsLoggedIn(true);
         //     });
+        // registerUser("testing", "1@1.com", "123456")
+        setUsername("testing");
         setIsLoggedIn(true);
     };
 
-    const registerUser = () => {
+    const submitRegister = () => {
         console.log("Register user");
     };
 

@@ -1,24 +1,15 @@
 import React from "react";
-import { View, StyleSheet, Text, SafeAreaView, ScrollView } from 'react-native';
-import { Searchbar } from "react-native-paper";
+import { View, ScrollView } from 'react-native';
 import tailwind from "tailwind-rn";
 import CustomCard from "../../components/CustomCard";
+import Layout from "../../components/Layout";
+import Header from "../../components/Header";
 
 function HomeScreen({ navigation }) {
     return (
-        <SafeAreaView style = {styles.container} >
-            <View style={tailwind("h-10")} />
-            <Searchbar
-                style={tailwind("mx-8")}
-                inputStyle={styles.searchBar}
-                placeholder="Search"/>
-            <ScrollView contentContainerStyle={tailwind("flex flex-col px-3 items-center justify-center")}>
-
-                <View style={tailwind("mt-8")}>
-                    <Text style={[styles.header, tailwind("text-2xl text-left m-5")]}>
-                        What do you want to know about the Singapore culture?
-                    </Text>
-                </View>
+        <Layout>
+            <ScrollView contentContainerStyle={tailwind("flex flex-col items-center justify-center")}>
+                <Header title="What do you want to know about the Singapore culture?" />
 
                 <View style={tailwind("flex flex-row mt-3")}>
                     <CustomCard
@@ -35,7 +26,7 @@ function HomeScreen({ navigation }) {
                     />
                 </View>
 
-                <View style={tailwind("flex flex-row mt-8")}>
+                <View style={tailwind("flex flex-row mt-4")}>
                     <CustomCard
                         source={require("../../assets/singapore/localFood.jpg")}
                         title="Local food"
@@ -49,7 +40,7 @@ function HomeScreen({ navigation }) {
                     />
                 </View>
 
-                <View style={tailwind("flex flex-row mt-8")}>
+                <View style={tailwind("flex flex-row mt-4")}>
                     <CustomCard
                         source={require("../../assets/singapore/ethnic.jpeg")}
                         title="Ethnic composition"
@@ -64,17 +55,8 @@ function HomeScreen({ navigation }) {
                 </View>
                 <View style={tailwind("h-20")} />
             </ScrollView>
-        </SafeAreaView>
+        </Layout>
     )
 };
-
-const styles = StyleSheet.create({
-    searchBar: {
-        fontFamily: "Poppins-Normal"
-    },
-    header: {
-        fontFamily: "Poppins-Bold"
-    }
-})
 
 export default HomeScreen;

@@ -6,7 +6,8 @@
             "2": "Oh no, the table is occupied! 😥",
             "3": "Someone forgot to take it..."
         },
-        "answer": 2
+        "answer": 2,
+        "tag": "Culture"
     },
     {
         "question": "Let's go drinking at 11:30pm in the park!",
@@ -15,6 +16,7 @@
             "2": "I don't think we're able to drink in public after 10:00pm",
             "3": "Let's invite more friends!"
         },
-        "answer": 2
+        "answer": 2,
+        "tag": "Culture"
     }
 ]
