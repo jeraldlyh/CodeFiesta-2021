@@ -5,14 +5,19 @@ import { TextInput } from "react-native-paper";
 import { LinearGradient } from 'expo-linear-gradient';
 import Button from "../../components/Button";
 import { AuthContext } from "../../provider/AuthProvider";
+import { loginUser } from "../../database/actions/Auth";
 
 function LoginScreen({ navigation }) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const { setIsLoggedIn } = useContext(AuthContext);
+    const { setIsLoggedIn, setUsername } = useContext(AuthContext);
 
-    const loginUser = () => {
-        // push login to firestore
+    const submitLogin = () => {
+        // loginUser(email, password)
+        //     .then(response => {
+        //         setUsername(response);
+        //         setIsLoggedIn(true);
+        //     });
         setIsLoggedIn(true);
     };
 
@@ -46,7 +51,7 @@ function LoginScreen({ navigation }) {
                         secureTextEntry
                         right={<TextInput.Icon name="eye" />}
                     />
-                    <Button onPress={() => loginUser()} text="Login" backgroundColor="#FE904B" textColor="#FFF" />
+                    <Button onPress={() => submitLogin()} text="Login" backgroundColor="#FE904B" textColor="#FFF" />
 
                     <View style={tailwind("mt-14 mb-3 w-5/6 border-b-2 border-gray-700")} />
 
