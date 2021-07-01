@@ -5,7 +5,7 @@ import tailwind from "tailwind-rn";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { Icon } from "react-native-elements";
-import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
+// import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
 
 function CommunityScreen() {
   return (
