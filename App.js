@@ -15,6 +15,7 @@ export default function App() {
             "Poppins-Normal": require("./assets/fonts/Poppins-Regular.ttf"),
             "Poppins-Bold": require("./assets/fonts/Poppins-Bold.ttf"),
             "Poppins-Thin": require("./assets/fonts/Poppins-Thin.ttf"),
+            "Poppins-SemiBold": require("./assets/fonts/Poppins-SemiBold.ttf")
         });
         setIsLoaded(true);
     };
