@@ -1,4 +1,4 @@
-import { firebase } from "@firebase/app";
+import firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/auth";
 
@@ -12,11 +12,12 @@ var firebaseConfig = {
     measurementId: "G-N619F14GBD"
 };
 
-if (!firebase.apps.length) {
-    firebase.initializeApp(firebaseConfig);
-    firebase.firestore();
-} else {
-    firebase.app();
-};
+// if (!firebase.apps.length) {
+//     firebase.firestore();
+// } else {
+//     firebase.app();
+// };
 
+if (!firebase.apps.length)
+    firebase.initializeApp(firebaseConfig);
 export default firebase;

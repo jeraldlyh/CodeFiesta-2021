@@ -1,0 +1,20 @@
+[
+    {
+        "question": "What does a packet of tissue paper represent?",
+        "options": {
+            "1": "It's free! Take it and go!",
+            "2": "Oh no, the table is occupied! 😥",
+            "3": "Someone forgot to take it..."
+        },
+        "answer": 2
+    },
+    {
+        "question": "Let's go drinking at 11:30pm in the park!",
+        "options": {
+            "1": "Sure, I'm excited to drink!",
+            "2": "I don't think we're able to drink in public after 10:00pm",
+            "3": "Let's invite more friends!"
+        },
+        "answer": 2
+    }
+]

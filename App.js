@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { View, Text } from 'react-native';
 import * as Font from "expo-font";
 import RootStack from './screens/RootStack';
+import { loadData } from './database/loadData';
 
 
 export default function App() {
@@ -19,6 +20,7 @@ export default function App() {
     };
 
     useEffect(() => {       // Load default fonts
+        loadData();
         loadFonts();
     }, [])
 
