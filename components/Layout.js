@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { View, SafeAreaView, TouchableOpacity } from 'react-native';
 import tailwind from 'tailwind-rn';
 import { Icon } from 'react-native-elements';
@@ -22,8 +22,24 @@ function Layout(props) {
                     />
                 </TouchableOpacity>
             </View>
+            {
+                props.settingsButton
+                    ? <View style={tailwind("self-end top-5 mr-8 z-10")}>
+                        <TouchableOpacity
+                            style={tailwind("bg-gray-300 w-14 h-14 rounded-full opacity-75 items-center flex justify-center")}
+                            onPress={() => navigation.push("Settings")}
+                        >
+                            <Icon
+                                name='settings'
+                                type='ionicon'
+                                color='#000'
+                            />
+                        </TouchableOpacity>
+                    </View>
+                    : <Fragment />
+            }
 
-            <View style={tailwind("flex-1 pl-3 pr-3 items-center mt-2")}>
+            <View style={tailwind("flex-1 pl-3 pr-3 items-center mt-1")}>
                 {props.children}
             </View>
         </SafeAreaView>

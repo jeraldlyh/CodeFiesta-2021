@@ -5,6 +5,7 @@ import * as Font from "expo-font";
 import RootStack from './screens/RootStack';
 import ProfileStack from './screens/profile/ProfileStack';
 import NewsStack from './screens/news/NewsStack';
+import DocumentStack from './screens/document/DocumentStack';
 import { loadData } from './database/loadData';
 import Loading from './components/Loading';
 
@@ -27,17 +28,17 @@ export default function App() {
     }, [])
 
     return (
-            isLoaded
-                ? (
-                    <AuthContextProvider>
-                        <NavigationContainer>
-                            <RootStack />
-                        </NavigationContainer>
-                    </AuthContextProvider>
-                )
-                : (
-                    <Loading />
-                )
-        
+        isLoaded
+            ? (
+                <AuthContextProvider>
+                    <NavigationContainer>
+                        <RootStack />
+                    </NavigationContainer>
+                </AuthContextProvider>
+            )
+            : (
+                <Loading />
+            )
+
     );
 }

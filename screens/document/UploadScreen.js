@@ -101,21 +101,21 @@ const styles = StyleSheet.create({
         color: "#7A7A7A",
         fontSize: 18,
         textAlign: "justify",
-        fontFamily: "Poppins-Regular"
+        fontFamily: "Poppins-Normal"
     },
 
     subText1: {
         color: "#C24A4A",
         fontSize: 14,
         textAlign: "justify",
-        fontFamily: "Poppins-Regular"
+        fontFamily: "Poppins-Normal"
     },
 
     subText2: {
         color: "#717171",
         fontSize: 14,
         textAlign: "justify",
-        fontFamily: "Poppins-Regular"
+        fontFamily: "Poppins-Normal"
     },
 
     headerImage: {

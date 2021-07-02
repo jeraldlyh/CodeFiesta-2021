@@ -11,7 +11,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import moment from 'moment';
 
 const ChatScreen = ({ navigation }) => {
-    const { username, avatar } = useContext(AuthContext);
+    const { username } = useContext(AuthContext);
     const [threads, setThreads] = useState([]);
     const [loading, setLoading] = useState(true);
 

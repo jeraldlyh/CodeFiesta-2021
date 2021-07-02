@@ -30,6 +30,8 @@ export const createUser = (username) => {
             enableNotification: false,
             questCompleted: 0,
             avatar: "https://placeimg.com/140/140/any",
+            bio: "Add a bio here",
+            interests: []
         });
 }
 

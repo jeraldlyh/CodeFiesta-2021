@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { View, StyleSheet, Text,Image } from "react-native";
+import { View, StyleSheet, Text, Image } from "react-native";
 import tailwind from "tailwind-rn";
 
 function Options(props) {
@@ -19,7 +19,6 @@ function Options(props) {
                 image = require("../../../assets/icons/community.png");
                 break;
         }
-        console.log(typeof image)
     });
 
 
@@ -27,7 +26,7 @@ function Options(props) {
         <View
             style={[styles.container, tailwind("items-center justify-center")]}
         >
-            <Image source={image} style = {styles.image}/>
+            <Image source={image} style={styles.image} />
             <Text>{props.name}</Text>
         </View>
     );
@@ -40,9 +39,9 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderRadius: 14,
     },
-    image:{
-        height:25,
-        width:25
+    image: {
+        height: 25,
+        width: 25
     }
 });
 
