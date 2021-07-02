@@ -18,7 +18,7 @@ function ProfileScreen({ route }) {
             setProfile(response)
         });
     }, []);
-
+ 
     const formatJoinedDate = (date) => {
         return moment(date).fromNow();
     };
