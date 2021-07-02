@@ -15,7 +15,7 @@ function SettingsScreen() {
             <View style={styles.container}>
                 <Text style={styles.subHeader}>Account</Text>
                 <Button text="Set Two-Factor Authentication" icon="lock-closed-outline" />
-                <Button text="Language" icon="chatbubble-ellipses-outline" />
+                <Button text="Language" icon="language-outline" />
                 <Button text="Font Size" icon="text-outline" />
             </View>
 

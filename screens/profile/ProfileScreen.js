@@ -34,26 +34,26 @@ function ProfileScreen({ route }) {
 
                             <Text style={[tailwind("mt-4"), styles.header]}>{username}</Text>
 
-                            <View style={{ flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'flex-end' }}>
+                            <View style={[tailwind("mt-1"), { flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center' }]}>
                                 <Image source={require("../../assets/profile/TimeCircle.png")}
                                     style={[styles.icons]} />
 
-                                <Text style={[tailwind("mt-1 ml-2"), styles.subText]}>
+                                <Text style={[tailwind("ml-2"), styles.subText]}>
                                     Joined {formatJoinedDate(profile.registeredAt)}
                                 </Text>
                             </View>
 
-                            <View style={{ flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'flex-end' }}>
+                            <View style={[ tailwind("mt-1"), {flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center' }]}>
                                 <Image source={require("../../assets/profile/Game.png")}
                                     style={[styles.icons]} />
 
                                 <Text style={[tailwind("ml-2 mr-1"), styles.subText]}>{profile.questCompleted} quests completed | {profile.points}</Text>
                                 <Image source={require("../../assets/profile/merlion.png")}
-                                    style={[styles.currency]} />
+                                    style={[tailwind("-mt-2"), styles.currency]} />
                             </View>
 
                             <View style={tailwind("mt-5")}>
-                                <TouchableOpacity style={styles.button}>
+                                <TouchableOpacity style={[styles.button, tailwind("items-center")]}>
                                     <Image source={require("../../assets/profile/AddUser.png")}
                                         style={[styles.icons, tailwind("mr-2")]} />
                                     <Text style={styles.buttonText}>Add friend</Text>
