@@ -9,7 +9,7 @@ function SettingsScreen() {
     return (
         <Layout>
             <Header />
-            <View style={tailwind("mt-5 self-start")}>
+            <View style={tailwind("mt-3 self-start")}>
                 <Text style={[styles.header, tailwind("text-4xl")]}>Settings</Text>
             </View>
             <View style={styles.container}>

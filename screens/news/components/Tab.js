@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         paddingLeft:35,
         paddingRight:17,
-        height:45,
+        height:30,
     },
     inactiveText:{
         fontSize:20,
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         paddingLeft:17,
         paddingRight:17,
-        height:45,
+        height:30,
     },
     active:{
         borderBottomWidth: 2,

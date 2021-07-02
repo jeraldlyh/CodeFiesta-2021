@@ -19,8 +19,8 @@ function HomeScreenUpdated(props) {
                 <Title fontSize={24} style={styles.headerTitle} />
             </View>
 
-            <View style={[styles.guidingNav, tailwind("-mt-14")]}>
-                <Text style={{ fontFamily: "Poppins-Bold", fontSize: 18 }}>
+            <View style={[styles.guidingNav, tailwind("-mt-16")]}>
+                <Text style={{ fontFamily: "Poppins-Bold", fontSize: 20 }}>
                     What do you need?
                 </Text>
                 <View style={styles.navOptions}>
@@ -32,9 +32,9 @@ function HomeScreenUpdated(props) {
                     <Options name = "Community"/>
                 </View>
                 <View style={[styles.applicationStatus, tailwind("mt-12")]}>
-                    <View style={styles.applicationHeader}>
+                    <View style={[styles.applicationHeader, tailwind("items-center flex")]}>
                         <Text
-                            style={{ fontFamily: "Poppins-Bold", fontSize: 18 }}
+                            style={{ fontFamily: "Poppins-Bold", fontSize: 20 }}
                         >
                             Application status
                         </Text>
@@ -64,7 +64,7 @@ function HomeScreenUpdated(props) {
                 <View style={styles.applicationStatus}>
                     <View style={styles.applicationHeader}>
                         <Text
-                            style={{ fontFamily: "Poppins-Bold", fontSize: 18 }}
+                            style={{ fontFamily: "Poppins-Bold", fontSize: 20 }}
                         >
                             Today's reads
                         </Text>
@@ -87,7 +87,7 @@ function HomeScreenUpdated(props) {
                 <View style={styles.applicationStatus}>
                     <View style={styles.applicationHeader}>
                         <Text
-                            style={{ fontFamily: "Poppins-Bold", fontSize: 18 }}
+                            style={{ fontFamily: "Poppins-Bold", fontSize: 20 }}
                         >
                             Daily quests
                         </Text>
@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
     headerTitle: {
         position: "absolute",
         left: 25,
-        bottom: 85,
+        bottom: 70,
     },
     guidingNav: {
         width: "100%",
@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
     applicationHeader: {
         flexDirection: "row",
         justifyContent: "space-between",
-        marginBottom: 10,
+        marginBottom: 13,
     },
 });
 

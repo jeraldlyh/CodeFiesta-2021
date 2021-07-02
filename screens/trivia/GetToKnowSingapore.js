@@ -1,5 +1,5 @@
 import React from "react";
-import { View, ScrollView } from 'react-native';
+import { View, ScrollView, Text, StyleSheet } from 'react-native';
 import tailwind from "tailwind-rn";
 import CustomCard from "../../components/CustomCard";
 import Layout from "../../components/Layout";
@@ -8,8 +8,10 @@ import Header from "../../components/Header";
 function HomeScreen({ navigation }) {
     return (
         <Layout>
-            <ScrollView contentContainerStyle={tailwind("flex flex-col items-center justify-center")}>
-                <Header title="What do you want to know about the Singapore culture?" />
+            <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={tailwind("pb-10 flex flex-col items-center self-start")}>
+                <View style={tailwind("mt-4 flex flex-row self-start mt-16 ml-5")}>
+                    <Text style={[tailwind("text-3xl text-left mb-1 py-4 -ml-3"), styles.header]}>Learn more about Singapore's culture</Text>
+                </View>
 
                 <View style={tailwind("flex flex-row mt-3")}>
                     <CustomCard
@@ -53,10 +55,15 @@ function HomeScreen({ navigation }) {
                         description="Click here to find out some Singaporean etiquette you should take"
                     />
                 </View>
-                <View style={tailwind("h-20")} />
             </ScrollView>
         </Layout>
     )
 };
+
+const styles = StyleSheet.create({
+    header: {
+        fontFamily: "Poppins-Bold"
+    },
+})
 
 export default HomeScreen;
