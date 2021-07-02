@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import * as Font from "expo-font";
 import RootStack from './screens/RootStack';
 import ProfileStack from './screens/profile/ProfileStack';
+import NewsStack from './screens/news/NewsStack';
 import { loadData } from './database/loadData';
 import Loading from './components/Loading';
 

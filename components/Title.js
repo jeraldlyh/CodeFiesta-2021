@@ -7,7 +7,7 @@ function Title(props) {
             <Text style = {{fontFamily:'Poppins-Normal', fontSize:props.fontSize, color:'white'}}>
                 One
             </Text>
-            <Text style={{fontFamily:'Poppins-Bold', fontSize: props.fontSize ,color:'white'}}>
+            <Text style={{fontFamily:'Poppins-Bold', fontSize: props.fontSize ,color:'#FB724C'}}>
                 Stop
             </Text>
         </View>
