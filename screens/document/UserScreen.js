@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { View, StyleSheet, Text, TouchableOpacity, Image } from 'react-native';
-import { color } from "react-native-elements/dist/helpers";
 import tailwind from "tailwind-rn";
 import Button from "../../components/Button";
 

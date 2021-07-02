@@ -4,10 +4,10 @@ import tailwind from "tailwind-rn";
 
 
 function VisaTypeScreen({ navigation }) {
-    const [entrePass, setEntrePass] = useState(true);
-    const [empPass, setEmpPass] = useState(true);
-    const [personEmpPass, setPersonEmpPass] = useState(true);
-    const [sPass, setSPass] = useState(true);
+    const [entrePass, setEntrePass] = useState(false);
+    const [empPass, setEmpPass] = useState(false);
+    const [personEmpPass, setPersonEmpPass] = useState(false);
+    const [sPass, setSPass] = useState(false);
 
 
     const toggleEntre = () => {
@@ -16,24 +16,31 @@ function VisaTypeScreen({ navigation }) {
     };
 
     return (
-        <View style={tailwind("flex-1 p-10")}>
-            <Text style={[styles.title, tailwind("text-2xl text-left mt-5")]}>There are the work visa to migrate to Singapore</Text>
-            <Text style={[styles.content, tailwind("self-start text-xl text-gray-500 mt-3 mb-6")]}>Click to find out more</Text>
+        <View style={tailwind("flex-1")}>
+            <Image
+                source={require("../../assets/welcome/1.webp")}
+                style={styles.headerImage}
+            />
+            <View style={[tailwind("flex-1 w-full mt-44"), { backgroundColor: "white", borderTopLeftRadius: 30, borderTopRightRadius: 30 }]}>
+                <View style={tailwind("flex flex-col ml-10 mt-10")}>
+                    <Text style={[styles.title, tailwind("text-2xl text-left")]}>There are the work visa to migrate to Singapore</Text>
+                    <Text style={[styles.content, tailwind("text-xl text-gray-500 mt-3 mb-6")]}>Click to find out more</Text>
+                </View>
 
-            <ScrollView contentContainerStyle={[tailwind("flex flex-col items-center"), { paddingTop: 25 }]}>
-                <TouchableOpacity style={tailwind("mb-3")} onPress={() => toggleEntre()}>
-                    <View style={tailwind("flex flex-col items-center")}>
-                        <View style={tailwind("flex items-center justify-center")}>
-                            <Image style={tailwind("absolute w-80 h-16 rounded-xl opacity-60")} source={require("../../assets/visa/entre.jpg")} />
-                            <Text style={[tailwind("text-white text-lg"), styles.content]}>Entre Pass</Text>
+                <ScrollView contentContainerStyle={[tailwind("flex flex-col items-center pb-10"), { paddingTop: 25 }]}>
+                    <TouchableOpacity onPress={() => toggleEntre()}>
+                        <View style={tailwind("flex flex-col items-center")}>
+                            <View style={tailwind("flex items-center justify-center")}>
+                                <Image style={tailwind("absolute w-80 h-16 rounded-xl opacity-60")} source={require("../../assets/visa/entre.jpg")} />
+                                <Text style={[tailwind("text-white text-lg"), styles.content]}>Entre Pass</Text>
+                            </View>
                         </View>
-                    </View>
-                </TouchableOpacity>
-                {
-                    entrePass
-                        ? <View style={[tailwind("mt-2 bg-gray-100 w-80 rounded-lg p-2"), styles.card]}>
-                            <Text style={styles.content}>
-                                {`
+                    </TouchableOpacity>
+                    {
+                        entrePass
+                            ? <View style={[tailwind("mt-2 bg-gray-100 w-80 rounded-lg p-2"), styles.card]}>
+                                <Text style={styles.content}>
+                                    {`
 The Entre Pass is valid for a period of 1 year and may be renewed further.
 
 Dependents can be brought to Singapore only after the pass has been renewed once.
@@ -51,41 +58,42 @@ The new business must meet one of the below 4 criteria:
 • It must work in collaboration with a premier research institution
 • It must work with a government-supported incubator
 `}
-                            </Text>
-                            <TouchableOpacity>
-                                <View style={[tailwind("flex items-center justify-center rounded-full self-end w-20 h-7"), styles.apply]}>
-                                    <Text style={[tailwind("text-white"), styles.content]}>Apply now</Text>
-                                </View>
-                            </TouchableOpacity>
-                        </View>
-                        : null
-                }
+                                </Text>
+                                <TouchableOpacity onPress={() => navigation.push("Upload")}>
+                                    <View style={[tailwind("flex items-center justify-center rounded-full self-end w-20 h-7"), styles.apply]}>
+                                        <Text style={[tailwind("text-white"), styles.content]}>Apply now</Text>
+                                    </View>
+                                </TouchableOpacity>
+                            </View>
+                            : null
+                    }
 
-                <TouchableOpacity style={tailwind("mt-12")}>
-                    <View style={tailwind("flex flex-col items-center")}>
-                        <View style={tailwind("flex items-center justify-center")}>
-                            <Image style={tailwind("absolute w-80 h-16 rounded-xl opacity-60")} source={require("../../assets/visa/employment.jpg")} />
-                            <Text style={[tailwind("text-white text-lg"), styles.content]}>Employment Pass</Text>
+                    <TouchableOpacity style={tailwind("mt-12")}>
+                        <View style={tailwind("flex flex-col items-center")}>
+                            <View style={tailwind("flex items-center justify-center")}>
+                                <Image style={tailwind("absolute w-80 h-16 rounded-xl opacity-60")} source={require("../../assets/visa/employment.jpg")} />
+                                <Text style={[tailwind("text-white text-lg"), styles.content]}>Employment Pass</Text>
+                            </View>
                         </View>
-                    </View>
-                </TouchableOpacity>
-                <TouchableOpacity style={tailwind("mt-12")}>
-                    <View style={tailwind("flex flex-col items-center")}>
-                        <View style={tailwind("flex items-center justify-center")}>
-                            <Image style={tailwind("absolute w-80 h-16 rounded-xl opacity-60")} source={require("../../assets/visa/personalized.jpg")} />
-                            <Text style={[tailwind("text-white text-lg text-center"), styles.content]}>Personalized Employment Pass (PEP)</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={tailwind("mt-12")}>
+                        <View style={tailwind("flex flex-col items-center")}>
+                            <View style={tailwind("flex items-center justify-center")}>
+                                <Image style={tailwind("absolute w-80 h-16 rounded-xl opacity-60")} source={require("../../assets/visa/personalized.jpg")} />
+                                <Text style={[tailwind("text-white text-lg text-center"), styles.content]}>Personalized Employment Pass (PEP)</Text>
+                            </View>
                         </View>
-                    </View>
-                </TouchableOpacity>
-                <TouchableOpacity style={tailwind("mt-12")}>
-                    <View style={tailwind("flex flex-col items-center")}>
-                        <View style={tailwind("flex items-center justify-center")}>
-                            <Image style={tailwind("absolute w-80 h-16 rounded-xl opacity-60")} source={require("../../assets/visa/spass.jpg")} />
-                            <Text style={[tailwind("text-black text-lg"), styles.content]}>S Pass</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={tailwind("mt-12")}>
+                        <View style={tailwind("flex flex-col items-center")}>
+                            <View style={tailwind("flex items-center justify-center")}>
+                                <Image style={tailwind("absolute w-80 h-16 rounded-xl opacity-60")} source={require("../../assets/visa/spass.jpg")} />
+                                <Text style={[tailwind("text-black text-lg"), styles.content]}>S Pass</Text>
+                            </View>
                         </View>
-                    </View>
-                </TouchableOpacity>
-            </ScrollView>
+                    </TouchableOpacity>
+                </ScrollView>
+            </View>
         </View>
     )
 };
@@ -109,7 +117,12 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.30,
         shadowRadius: 4.65,
         elevation: 8,
-    }
+    },
+    headerImage: {
+        width: "100%",
+        height: 200,
+        position: "absolute"
+    }, 
 })
 
 export default VisaTypeScreen;

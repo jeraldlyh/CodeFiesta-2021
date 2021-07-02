@@ -8,11 +8,11 @@ function UploadScreen({ navigation }) {
             <View style={styles.headerContainer}>
                 <Image
                     source={require("../../assets/visa/entre.jpg")}
-                    style={styles.headerImage}/>
+                    style={styles.headerImage}
+                />
 
                 <View style={global.container}>
-                    <View style = {styles.bodyContainer} >
-                    </View>
+                    <View style = {styles.bodyContainer} />
                 </View>
             </View>
 
