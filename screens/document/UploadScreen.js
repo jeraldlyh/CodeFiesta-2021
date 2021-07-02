@@ -1,12 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-    View,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    Image,
-    ScrollView,
-} from "react-native";
+import { View, StyleSheet, Text, TouchableOpacity, Image, ScrollView } from "react-native";
 import tailwind from "tailwind-rn";
 import * as ImagePicker from "expo-image-picker";
 import { Icon } from 'react-native-elements';
