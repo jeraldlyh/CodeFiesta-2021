@@ -4,6 +4,7 @@ import HomeScreen from "./HomeScreen";
 import SingaporeStack from "../trivia/SingaporeStack";
 import DocumentStack from "../document/DocumentStack";
 import NewsStack from "../news/NewsStack";
+import CommunityStack from "../community/CommunityStack";
 
 const Home = createStackNavigator();
 
@@ -14,6 +15,7 @@ const HomeStack = () => {
             <Home.Screen name="Document" component={DocumentStack} />
             <Home.Screen name="Trivia" component={SingaporeStack} />
             <Home.Screen name="News" component={NewsStack} />
+            <Home.Screen name="Community" component={CommunityStack} />
         </Home.Navigator>
     )
 }

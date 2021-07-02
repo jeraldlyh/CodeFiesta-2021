@@ -30,7 +30,7 @@ function WelcomeScreen({ navigation }) {
                 </ImageBackground>
             </Swiper>
 
-            <View style={[tailwind("absolute flex flex-col text-white self-center pl-14 w-80 pb-4 font-extrabold"), { fontSize: 21, bottom: 160 }]}>
+            <View style={[tailwind("absolute flex flex-col text-white self-center pl-14 w-80 pb-4 font-extrabold"), { fontSize: 21, bottom: 165 }]}>
                 <Button onPress={() => navigation.push('Login')} text="Login" backgroundColor="#FE904B" textColor="#FFF" height={14} />
                 <TouchableOpacity onPress={() => navigation.push("Register")}>
                     <Text style={[tailwind("flex flex-row text-white pt-5 pl-2 font-normal"), { fontSize: 13 }]}>Don't have an account? <Text style={[tailwind("font-semibold"), { color: "#FE904B" }]}>Sign up</Text></Text>

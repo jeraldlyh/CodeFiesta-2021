@@ -11,24 +11,22 @@ import QuestsScreen from "./QuestsScreen";
 import QuestCard from "./components/QuestCard";
 import BottomDrawer from "rn-bottom-drawer";
 import { useNavigation } from "@react-navigation/native";
+import Layout from '../../components/Layout';
 
 
 function CommunityScreen() {
     const navigation = useNavigation();
 
     return (
-        <SafeAreaView>
+        <Layout>
             <View
-                style={[
-                    tailwind("mt-7 ml-5 px-4 items-center"),
-                    { flexDirection: "row", justifyContent: "space-between" },
-                ]}
+                style={tailwind("mt-20 items-center flex flex-row justify-between")}
             >
-                <Text style={[styles.header, tailwind("text-3xl text-left")]}>
+                <Text style={[styles.header, tailwind("text-3xl text-left mr-16")]}>
                     My Community
                 </Text>
                 <TouchableOpacity
-                    style={styles.questButton}
+                    style={[tailwind("-mr-2"), styles.questButton]}
                     onPress={() => {
                         navigation.navigate("Quests");
                     }}
@@ -65,7 +63,7 @@ function CommunityScreen() {
                 }}
                 showsUserLocation={true}
             />
-        </SafeAreaView>
+        </Layout>
     );
 }
 
@@ -88,9 +86,9 @@ const styles = StyleSheet.create({
         fontSize: 20,
     },
     map: {
-        marginTop: 20,
+        marginTop: 15,
         alignSelf: "center",
-        height: 600,
+        height: 520,
         width: 350,
         borderRadius: 14,
     },
