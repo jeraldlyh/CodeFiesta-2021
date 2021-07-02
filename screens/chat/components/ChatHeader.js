@@ -9,7 +9,7 @@ function ChatHeader(props) {
         <View style={tailwind("flex flex-row w-full mt-20 items-center ml-3")}>
             <TouchableOpacity
                 style={tailwind("w-14 h-14 rounded-full items-center flex justify-center")}
-                onPress={() => navigation.goBack()}
+                onPress={props.onPressed}
             >
                 <Icon
                     name='arrow-back-outline'

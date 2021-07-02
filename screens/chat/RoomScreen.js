@@ -1,19 +1,21 @@
 import React, { useEffect, useState, Fragment } from "react";
-import { StyleSheet, View, ActivityIndicator, Text } from "react-native";
+import { StyleSheet, View, Text, Platform } from "react-native";
 import { GiftedChat, Bubble, Send, SystemMessage, Time } from 'react-native-gifted-chat';
 import firebase from "../../database/firebaseDB";
 import Filter from "bad-words";
 import { IconButton } from "react-native-paper";
 import Loading from "../../components/Loading";
 import ChatHeader from "./components/ChatHeader";
-import tailwind from "tailwind-rn";
 
 
-
-function RoomScreen({ route }) {
+function RoomScreen({ route, navigation }) {
     const [messages, setMessage] = useState([]);
     const { thread, username, avatar, anotherUser, anotherUserAvatar } = route.params;
     const filter = new Filter();
+
+    const onPressed = () => {
+        navigation.goBack();
+    };
 
     useEffect(() => {
         const unsubscribe = firebase.firestore().collection("Threads")
@@ -137,28 +139,27 @@ function RoomScreen({ route }) {
                 </View>
             </View>
         );
-    }
+    };
 
     return (
         <Fragment>
-            <View style={tailwind("w-full h-full")}>
-                <ChatHeader user={anotherUser} image={anotherUserAvatar} />
-                <GiftedChat
-                    messages={messages}
-                    onSend={handleSend}
-                    user={{ _id: username }}
-                    placeholder="Type your message here..."
-                    alwaysShowSend
-                    showUserAvatar
-                    scrollToBottom
-                    renderBubble={renderBubble}
-                    renderLoading={Loading}
-                    renderSend={renderSend}
-                    renderTime={renderTime}
-                    renderSystemMessage={renderSystemMessage}
-                    scrollToBottomComponent={scrollToBottomComponent}
-                />
-            </View>
+            <ChatHeader user={anotherUser} image={anotherUserAvatar} onPressed={onPressed} />
+            <GiftedChat
+                messages={messages}
+                onSend={handleSend}
+                user={{ _id: username }}
+                placeholder="Type your message here..."
+                alwaysShowSend
+                showUserAvatar
+                scrollToBottom
+                bottomOffset={34}
+                renderBubble={renderBubble}
+                renderLoading={Loading}
+                renderSend={renderSend}
+                renderTime={renderTime}
+                renderSystemMessage={renderSystemMessage}
+                scrollToBottomComponent={scrollToBottomComponent}
+            />
         </Fragment>
     );
 }

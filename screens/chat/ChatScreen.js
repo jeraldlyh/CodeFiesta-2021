@@ -37,6 +37,10 @@ const ChatScreen = ({ navigation }) => {
         return () => unsubscribe();
     }, []);
 
+    const getUserAvatar = (item) => {
+        return item.userOne === username ? item.userOneAvatar : item.userTwoAvatar;
+    };
+
     const getAnotherUser = (item) => {
         return item.userOne === username ? item.userTwo : item.userOne;
     };
@@ -79,7 +83,7 @@ const ChatScreen = ({ navigation }) => {
                                         onPress={() => navigation.navigate("Room", {
                                             thread: item._id,
                                             username: username,
-                                            avatar: avatar,
+                                            avatar: getUserAvatar(item),
                                             anotherUser: getAnotherUser(item),
                                             anotherUserAvatar: getAnotherUserAvatar(item)
                                         })}
