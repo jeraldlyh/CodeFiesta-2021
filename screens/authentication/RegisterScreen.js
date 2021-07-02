@@ -1,13 +1,14 @@
 import React, { useState, useContext } from "react";
-import { TouchableOpacity, Icon, View, Keyboard, TouchableWithoutFeedback, StyleSheet, Text, Image } from 'react-native';
+import { View, Keyboard, TouchableWithoutFeedback, StyleSheet, Text, Image } from 'react-native';
 import tailwind from "tailwind-rn";
 import { TextInput } from "react-native-paper";
 import { LinearGradient } from 'expo-linear-gradient';
 import Button from "../../components/Button";
 import { AuthContext } from "../../provider/AuthProvider";
 import { registerUser } from "../../database/actions/Auth";
+import BackButton from "./components/BackButton";
 
-function RegisterScreen({ navigation }) {
+function RegisterScreen() {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -29,10 +30,14 @@ function RegisterScreen({ navigation }) {
         <>
             <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
                 <View style={tailwind("flex-1 items-center justify-center")}>
-                    <Image source={require("../../assets/login/backgroundOne.jpg")} style={StyleSheet.absoluteFillObject} />
+                    <Image source={require("../../assets/login/backgroundOne.jpg")} style={[StyleSheet.absoluteFillObject, { height: "100%" }]} />
                     <LinearGradient colors={["rgba(255, 255, 255, 0)", "rgba(32, 32, 32, .7)", "rgba(32, 32, 32, 1)"]} style={StyleSheet.absoluteFillObject} />
+
                     <View style={tailwind("w-full items-center justify-center")}>
-                        <View style={tailwind("w-4/5 pb-8")}>
+                    <View style={tailwind("w-4/5 pb-8")}>
+                            <View style={tailwind("self-start mb-10")}>
+                                <BackButton />
+                            </View>
                             <Text style={[styles.header, tailwind("text-4xl text-black")]}>Welcome</Text>
                             <Text style={[styles.text, tailwind("text-xl")]}>Fill in your details to begin</Text>
                         </View>
@@ -89,6 +94,9 @@ const styles = StyleSheet.create({
     singpass: {
         height: 12.2,
         width: 74
+    },
+    image: {
+        
     }
 });
 

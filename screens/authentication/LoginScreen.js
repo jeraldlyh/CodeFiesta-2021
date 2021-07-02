@@ -1,11 +1,12 @@
 import React, { useState, useContext } from "react";
-import { TouchableOpacity, Icon, View, Keyboard, TouchableWithoutFeedback, StyleSheet, Text, Image } from 'react-native';
+import { View, Keyboard, TouchableWithoutFeedback, StyleSheet, Text, Image } from 'react-native';
 import tailwind from "tailwind-rn";
 import { TextInput } from "react-native-paper";
 import { LinearGradient } from 'expo-linear-gradient';
 import Button from "../../components/Button";
 import { AuthContext } from "../../provider/AuthProvider";
-import { loginUser, registerUser } from "../../database/actions/Auth";
+import { loginUser } from "../../database/actions/Auth";
+import BackButton from "./components/BackButton";
 
 function LoginScreen({ navigation }) {
     const [email, setEmail] = useState("");
@@ -18,13 +19,8 @@ function LoginScreen({ navigation }) {
         //         setUsername(response);
         //         setIsLoggedIn(true);
         //     });
-        // registerUser(">.<", "2@2.com", "123456")
         setUsername("testing");
         setIsLoggedIn(true);
-    };
-
-    const submitRegister = () => {
-        console.log("Register user");
     };
 
     return (
@@ -33,8 +29,12 @@ function LoginScreen({ navigation }) {
                 <View style={tailwind("flex-1 items-center justify-center")}>
                     <Image source={require("../../assets/login/backgroundTwo.jpg")} style={StyleSheet.absoluteFillObject} />
                     <LinearGradient colors={["rgba(255, 255, 255, 0)", "rgba(32, 32, 32, .7)", "rgba(32, 32, 32, 1)"]} style={StyleSheet.absoluteFillObject} />
-                    <View style={tailwind("w-full items-center justify-center")}>
+
+                    <View style={tailwind("w-full items-center justify-center -mt-20")}>
                         <View style={tailwind("w-4/5 pb-8")}>
+                            <View style={tailwind("self-start mb-10")}>
+                                <BackButton />
+                            </View>
                             <Text style={[styles.text, tailwind("text-4xl text-white")]}>Login</Text>
                         </View>
                         <TextInput
