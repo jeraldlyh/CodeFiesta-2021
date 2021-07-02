@@ -3,45 +3,41 @@ import { View, StyleSheet, Text, Image } from "react-native";
 import tailwind from "tailwind-rn";
 
 function Options(props) {
-    var image;
-    useEffect(() => {
-        switch (props.name) {
-            case "Apply":
-                image = require("../../../assets/icons/apply.png");
-                break;
-            case "Trivia":
-                image = require("../../../assets/icons/trivia.png");
-                break;
-            case "News":
-                image = require("../../../assets/icons/news.png");
-                break;
-            case "Community":
-                image = require("../../../assets/icons/community.png");
-                break;
-        }
-    });
-
-
     return (
         <View
             style={[styles.container, tailwind("items-center justify-center")]}
-        >
-            <Image source={image} style={styles.image} />
-            <Text>{props.name}</Text>
+        >   
+            { props.name === "Apply" ? <Image source={require("../../../assets/icons/apply.png")} style={styles.image} /> : null }
+            { props.name === "Trivia" ? <Image source={require("../../../assets/icons/trivia.png")} style={styles.image} /> : null }
+            { props.name === "News" ? <Image source={require("../../../assets/icons/news.png")} style={styles.image} /> : null }
+            { props.name === "Community" ? <Image source={require("../../../assets/icons/community.png")} style={styles.community} /> : null }
+
+            <Text style={[tailwind("mt-1 font-semibold"), styles.text]}>{props.name}</Text>
         </View>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
-        width: 144,
-        height: 70,
-        borderWidth: 1,
+        width: 160,
+        height: 80,
         borderRadius: 14,
+        backgroundColor: 'white',
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 1 },
+        shadowOpacity: 0.4,
+        shadowRadius: 1,  
     },
     image: {
         height: 25,
-        width: 25
+        width: 25,
+    },
+    community: {
+        height: 25,
+        width: 32,
+    },
+    text: {
+        color: '#2b2b2b'
     }
 });
 

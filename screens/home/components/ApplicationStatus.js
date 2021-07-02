@@ -26,7 +26,12 @@ const styles = StyleSheet.create({
         height: 133,
         borderRadius: 14,
         marginRight:20,
-        backgroundColor:'#FFFFFF'
+        marginBottom:20,
+        backgroundColor:'#FFFFFF',
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 1 },
+        shadowOpacity: 0.4,
+        shadowRadius: 1,  
     },
     details: {
         height: 60,
@@ -34,7 +39,8 @@ const styles = StyleSheet.create({
         position: "absolute",
         bottom: 10,
         left: 10,
-        backgroundColor: "black",
+        backgroundColor: "#000000",
+        opacity: 0.6,
         borderRadius: 14,
         padding:10
     },

@@ -17,7 +17,14 @@ const styles = StyleSheet.create({
     container:{
         width:163,
         height:148,
-        marginRight:20
+        marginRight:20,
+        marginBottom:10,
+        backgroundColor: 'white',
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 1 },
+        shadowOpacity: 0.4,
+        shadowRadius: 1,  
+        borderRadius:14,
     },
     header:{
         fontFamily:'Poppins-SemiBold',
