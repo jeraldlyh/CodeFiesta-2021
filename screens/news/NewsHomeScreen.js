@@ -33,7 +33,7 @@ function NewsHomeScreen(props) {
                 </View>
                 
                 <View style={tailwind("mt-4 flex flex-row self-start ml-5")}>
-                    <Text style={[styles.header, tailwind("text-4xl text-left my-1 p-4")]}>News</Text>
+                    <Text style={[styles.header, tailwind("text-3xl text-left mb-1 p-4")]}>News</Text>
                 </View>
                 
                 <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} styles={tailwind("w-5/6 flex flex-row justify-between")}>
@@ -46,7 +46,7 @@ function NewsHomeScreen(props) {
                 </ScrollView>
 
                 <Searchbar
-                    style={tailwind("w-5/6 mx-3 mt-5 rounded-lg")}
+                    style={tailwind("h-11 w-5/6 mx-3 mt-5 mb-3 rounded-xl opacity-80")}
                     inputStyle={styles.searchBar}
                     placeholder="Search"
                 />
