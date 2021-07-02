@@ -46,7 +46,7 @@ function HomeScreen({ navigation }) {
                     <CustomCard
                         source={require("../../assets/singapore/ethnic.jpeg")}
                         title="Ethnic composition"
-                        description="Singapore is a multi cultural society. Click here to find out more more!"
+                        description="Singapore is a multi cultural society. Click here to find out more!"
                     />
                     <View style={tailwind("w-3")} />
                     <CustomCard

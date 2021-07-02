@@ -15,6 +15,9 @@ function Button(props) {
     });
 
     const getDesign = () => {
+        if (props.height && props.width) {
+            return `w-4/5 rounded-lg h-${props.height} w-${props.width} flex items-center justify-center`;
+        }
         if (props.height) {
             return `w-4/5 rounded-lg h-${props.height} flex items-center justify-center`;
         }
