@@ -1,16 +1,14 @@
 import React, { useState, useEffect, useContext } from "react";
-import { View, Text, Image, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import tailwind from "tailwind-rn";
-import CustomCard from "../../components/CustomCard";
 import Layout from "../../components/Layout";
-import Header from "../../components/Header";
 import { getUserProfile } from "../../database/actions/User";
 import moment from "moment";
 import { AuthContext } from "../../provider/AuthProvider";
 import Loading from "../../components/Loading";
 import { Fragment } from "react";
 
-function ProfileScreen({ navigation, route }) {
+function ProfileScreen({ route }) {
     const { username } = route.params ? route.params.username : useContext(AuthContext);
     const [profile, setProfile] = useState(null);
 
@@ -26,7 +24,7 @@ function ProfileScreen({ navigation, route }) {
     };
 
     return (
-        <Layout>
+        <Layout settingsButton={true}>
             {
                 profile ?
                     <Fragment>
@@ -65,18 +63,15 @@ function ProfileScreen({ navigation, route }) {
 
                         <View style={[tailwind("ml-6 mr-6"), { width: 350 }]}>
                             <Text style={[tailwind("mt-4"), styles.subHeader]}>Bio</Text>
-
                             <View style={styles.container}>
                                 <Text style={[tailwind("ml-2"), styles.normalText]}>
                                     {profile.bio}
                                 </Text>
-
                             </View>
                         </View>
 
                         <View style={[tailwind("mt-4 mr-6 ml-6"), { width: 350 }]}>
                             <Text style={[styles.subHeader]}>Interests</Text>
-
                             <View style={styles.container}>
                                 <View style={tailwind("flex flex-row flex-wrap")}>
                                     {
