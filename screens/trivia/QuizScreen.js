@@ -1,7 +1,6 @@
 import React, { useState, useEffect, Fragment, useContext } from "react";
-import { View, Animated, Text, StyleSheet, TouchableOpacity, Modal } from 'react-native';
+import { View, Animated, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { CountdownCircleTimer } from 'react-native-countdown-circle-timer'
-import { Overlay } from "react-native-elements";
 import tailwind from "tailwind-rn";
 import Button from "../../components/Button";
 import Layout from "../../components/Layout";
@@ -11,6 +10,7 @@ import Loading from "../../components/Loading";
 import _ from "lodash";
 import { AuthContext } from "../../provider/AuthProvider";
 import { addPointsToUser } from "../../database/actions/User";
+import { BlurView } from "expo-blur";
 
 function QuizScreen({ navigation }) {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -60,26 +60,33 @@ function QuizScreen({ navigation }) {
             <Header />
 
             {/* Modal Box */}
-            <Overlay isVisible={displayCorrect} onBackdropPress={confirmButton} backdropStyle={tailwind("opacity-75 bg-black")}>
-                <View style={tailwind("flex flex-col items-center justify-center h-48 w-48")}>
-                    <Text style={[styles.title, tailwind("text-center mb-1 text-xl")]}>Congralutations!</Text>
-                    <Text style={[styles.title, tailwind("text-center text-xl mb-3")]}>+75 points</Text>
-                    <Text style={[styles.description, tailwind("text-center mb-3")]}>You got the correct answer!</Text>
-                    <TouchableOpacity style={styles.button} onPress={confirmButton}>
-                        <Text style={styles.buttonText}>Confirm</Text>
-                    </TouchableOpacity>
-                </View>
-            </Overlay>
-            <Overlay isVisible={displayError} onBackdropPress={confirmButton} backdropStyle={tailwind("opacity-75 bg-black")}>
-                <View style={tailwind("flex flex-col items-center justify-center h-48 w-48")}>
-                    <Text style={[styles.title, tailwind("text-center mb-1 text-xl")]}>Oh no!</Text>
-                    <Text style={[styles.description, tailwind("text-center mb-3")]}>You didn't managed to get the correct answer! 😐</Text>
-                    <TouchableOpacity style={styles.button} onPress={confirmButton}>
-                        <Text style={styles.buttonText}>Confirm</Text>
-                    </TouchableOpacity>
-                </View>
-            </Overlay>
-
+            {
+                displayCorrect
+                    ? <BlurView intensity={95} style={[tailwind("items-center justify-center"), { height: "100%", position: 'absolute', width: 500, zIndex: 100 }]}>
+                        <View style={tailwind("flex flex-col items-center justify-center h-56 w-56 bg-white rounded-xl")}>
+                            <Text style={[styles.title, tailwind("text-center mb-1 text-xl")]}>Congralutations!</Text>
+                            <Text style={[styles.title, tailwind("text-center text-lg mb-3")]}>+75 points</Text>
+                            <Text style={[styles.description, tailwind("text-center mb-3")]}>You got the correct answer!</Text>
+                            <TouchableOpacity style={styles.button} onPress={confirmButton}>
+                                <Text style={styles.buttonText}>Exit Quiz</Text>
+                            </TouchableOpacity>
+                        </View>
+                    </BlurView>
+                    : null
+            }
+            {
+                displayError
+                    ? <BlurView intensity={95} style={[tailwind("items-center justify-center"), { height: "100%", position: 'absolute', width: 500, zIndex: 100 }]}>
+                        <View style={tailwind("flex flex-col items-center justify-center h-56 w-56 bg-white rounded-xl")}>
+                            <Text style={[styles.title, tailwind("text-center mb-1 text-xl")]}>Oh no!</Text>
+                            <Text style={[styles.description, tailwind("text-center mb-3")]}>You didn't managed to get the correct answer! 😐</Text>
+                            <TouchableOpacity style={styles.button} onPress={confirmButton}>
+                                <Text style={styles.buttonText}>Exit Quiz</Text>
+                            </TouchableOpacity>
+                        </View>
+                    </BlurView>
+                    : null
+            }
             {
                 question
                     ?
@@ -111,7 +118,7 @@ function QuizScreen({ navigation }) {
                                 _.toArray(question.options).map((question, index) => {
                                     const buttonHeight = question.length > 39 ? 20 : 16
                                     return (
-                                        <Button key={index} onPress={() => setActiveIndex(index + 1)} text={question} backgroundColor={isActive(index + 1) ? "#FE904B" : "#e3e3e3"} textColor={isActive(index + 1) ? "#FFF" : "#000"}  height={buttonHeight} />
+                                        <Button key={index} onPress={() => setActiveIndex(index + 1)} text={question} backgroundColor={isActive(index + 1) ? "#FE904B" : "#e3e3e3"} textColor={isActive(index + 1) ? "#FFF" : "#000"} height={buttonHeight} />
                                     )
                                 })
                             }
