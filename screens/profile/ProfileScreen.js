@@ -30,7 +30,7 @@ function ProfileScreen({ route }) {
                     <Fragment>
                         <View style={tailwind("flex flex-col items-center justify-center")}>
                             <Image source={require("../../assets/profile/man.jpg")}
-                                style={[styles.image, tailwind("mt-12")]} />
+                                style={[styles.image, tailwind("mt-6")]} />
 
                             <Text style={[tailwind("mt-4"), styles.header]}>{username}</Text>
 
@@ -62,7 +62,7 @@ function ProfileScreen({ route }) {
                         </View>
 
                         <View style={[tailwind("ml-6 mr-6"), { width: 350 }]}>
-                            <Text style={[tailwind("mt-4"), styles.subHeader]}>Bio</Text>
+                            <Text style={[tailwind("mt-7"), styles.subHeader]}>Bio</Text>
                             <View style={styles.container}>
                                 <Text style={[tailwind("ml-2"), styles.normalText]}>
                                     {profile.bio}
@@ -70,7 +70,7 @@ function ProfileScreen({ route }) {
                             </View>
                         </View>
 
-                        <View style={[tailwind("mt-4 mr-6 ml-6"), { width: 350 }]}>
+                        <View style={[tailwind("mt-7 mr-6 ml-6"), { width: 350 }]}>
                             <Text style={[styles.subHeader]}>Interests</Text>
                             <View style={styles.container}>
                                 <View style={tailwind("flex flex-row flex-wrap")}>
