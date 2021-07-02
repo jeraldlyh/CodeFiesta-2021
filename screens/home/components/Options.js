@@ -55,7 +55,8 @@ const styles = StyleSheet.create({
         width: 29,
     },
     text: {
-        color: '#2b2b2b'
+        color: '#2b2b2b',
+        fontFamily:'Poppins-SemiBold'
     }
 });
 
