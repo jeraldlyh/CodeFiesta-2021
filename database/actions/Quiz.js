@@ -19,8 +19,8 @@ export const isQuizExist = (data) => {
             .catch(error => {
                 console.log("Error in isQuizExist");
             })
-    })
-}
+    });
+};
 
 
 export const insertQuiz = (data) => {
@@ -36,9 +36,9 @@ export const insertQuiz = (data) => {
                     })
                     .then(doc => console.log(`Inserted quiz ${doc.id}`))
                     .catch(error => console.log("Error in insertQuiz"));
-            }
-        })
-}
+            };
+        });
+};
 
 export const getRandomQuiz = () => {
     return new Promise((resolve, reject) => {
@@ -51,6 +51,6 @@ export const getRandomQuiz = () => {
             })
             .catch(error => {
                 console.log("Error in getRandomQuiz");
-            })
-    })
-}
+            });
+    });
+};

@@ -11,6 +11,7 @@ import _ from "lodash";
 import { AuthContext } from "../../provider/AuthProvider";
 import { addPointsToUser } from "../../database/actions/User";
 import { BlurView } from "expo-blur";
+import ConfettiCannon from "react-native-confetti-cannon";
 
 function QuizScreen({ navigation }) {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -61,6 +62,7 @@ function QuizScreen({ navigation }) {
             {
                 displayCorrect
                     ? <BlurView intensity={95} style={[tailwind("items-center justify-center"), { height: "100%", position: 'absolute', width: "100%", zIndex: 100 }]}>
+                        <ConfettiCannon count={200} origin={{ x: -10, y: 0 }} />
                         <View style={tailwind("flex flex-col items-center justify-center h-56 w-56 bg-white rounded-xl")}>
                             <Text style={[styles.title, tailwind("text-center mb-1 text-xl")]}>Congralutations!</Text>
                             <Text style={[styles.title, tailwind("text-center text-lg mb-3")]}>+75 points</Text>
