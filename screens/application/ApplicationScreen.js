@@ -3,22 +3,21 @@ import { View, StyleSheet, Text, SafeAreaView, ScrollView } from 'react-native';
 import { Searchbar } from "react-native-paper";
 import tailwind from "tailwind-rn";
 import CustomCard from "../../components/CustomCard";
+import Layout from '../../components/Layout';
 
 function ApplicationScreen({ navigation }) {
     return (
-        <SafeAreaView style = {styles.container} >
+        <Layout>
             <View style={tailwind("h-10")} />
-            <Searchbar
-                style={tailwind("mx-8")}
-                inputStyle={styles.searchBar}
-                placeholder="Search"/>
-            <ScrollView contentContainerStyle={tailwind("flex flex-col px-3 items-center justify-center")}>
-
-                <View style={tailwind("mt-8")}>
-                    <Text style={[styles.header, tailwind("text-2xl self-start  m-5")]}>
-                        Applications
-                    </Text>
+                <View style={tailwind("mt-4 flex flex-row self-start ml-5")}>
+                    <Text style={[styles.header, tailwind("text-3xl text-left mt-4 px-2 py-3")]}>Applications</Text>
                 </View>
+                <Searchbar
+                    style={tailwind("self-center h-11 w-5/6 mt-2 mx-3 mb-3 rounded-xl opacity-80")}
+                    inputStyle={styles.searchBar}
+                    placeholder="Search"
+                />
+                <ScrollView contentContainerStyle={tailwind("mt-1 flex flex-col px-3 items-center justify-center")}>
 
                 <View style={tailwind("flex flex-row mt-3")}>
                     <CustomCard
@@ -65,7 +64,7 @@ function ApplicationScreen({ navigation }) {
                 </View>
                 <View style={tailwind("h-20")} />
             </ScrollView>
-        </SafeAreaView>
+        </Layout>
     )
 };
 

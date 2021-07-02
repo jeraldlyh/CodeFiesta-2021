@@ -20,7 +20,7 @@ function CommunityScreen() {
         <SafeAreaView>
             <View
                 style={[
-                    tailwind("mt-5 ml-5 items-center"),
+                    tailwind("mt-7 ml-5 px-4 items-center"),
                     { flexDirection: "row", justifyContent: "space-between" },
                 ]}
             >
@@ -50,7 +50,7 @@ function CommunityScreen() {
                 </TouchableOpacity>
             </View>
             <Searchbar
-                style={tailwind("w-5/6 mx-3 mt-5")}
+                style={tailwind("self-center h-11 w-5/6 mx-3 mt-5 mb-3 rounded-xl opacity-80")}
                 inputStyle={styles.searchBar}
                 placeholder="Search"
             />
