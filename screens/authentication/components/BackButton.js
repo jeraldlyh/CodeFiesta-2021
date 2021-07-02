@@ -3,7 +3,7 @@ import { TouchableOpacity } from 'react-native';
 import { Icon } from "react-native-elements";
 import { useNavigation } from "@react-navigation/core";
 
-function BackButton() {
+function BackButton(props) {
     const navigation = useNavigation();
 
     return (
@@ -13,7 +13,7 @@ function BackButton() {
             <Icon
                 name='arrow-back-outline'
                 type='ionicon'
-                color='#fff'
+                color={props.color}
             />
         </TouchableOpacity>
     )

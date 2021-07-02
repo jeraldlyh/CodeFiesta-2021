@@ -33,7 +33,7 @@ function LoginScreen({ navigation }) {
                     <View style={tailwind("w-full items-center justify-center -mt-20")}>
                         <View style={tailwind("w-4/5 pb-8")}>
                             <View style={tailwind("self-start mb-10")}>
-                                <BackButton />
+                                <BackButton color="#fff" />
                             </View>
                             <Text style={[styles.text, tailwind("text-4xl text-white")]}>Login</Text>
                         </View>

@@ -13,7 +13,7 @@ function RegisterScreen() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const { setIsLoggedIn, setUsername } = useContext(AuthContext);
-    
+
     const submitLogin = () => {     // To integrate Singpass API
         setUsername("testing");
         setIsLoggedIn(true);
@@ -34,9 +34,9 @@ function RegisterScreen() {
                     <LinearGradient colors={["rgba(255, 255, 255, 0)", "rgba(32, 32, 32, .7)", "rgba(32, 32, 32, 1)"]} style={StyleSheet.absoluteFillObject} />
 
                     <View style={tailwind("w-full items-center justify-center")}>
-                    <View style={tailwind("w-4/5 pb-8")}>
+                        <View style={tailwind("w-4/5 pb-8")}>
                             <View style={tailwind("self-start mb-10")}>
-                                <BackButton />
+                                <BackButton color="#000" />
                             </View>
                             <Text style={[styles.header, tailwind("text-4xl text-black")]}>Welcome</Text>
                             <Text style={[styles.text, tailwind("text-xl")]}>Fill in your details to begin</Text>
@@ -68,7 +68,7 @@ function RegisterScreen() {
                         <Button onPress={() => submitRegister()} text="Sign Up" backgroundColor="#FE904B" textColor="#FFF" height={14} />
 
                         <View style={tailwind("mt-14 mb-3 w-5/6 border-b-2 border-gray-700")} />
-                        
+
                         <Text style={[styles.text, tailwind("text-white mb-2")]}>Returning Singaporean or PR?</Text>
                         <Button onPress={() => loginUser()} text="Login with" backgroundColor="#D0D0D0" textColor="#000" style={tailwind("items-center")} height={14}>
                             <Text styles={[tailwind("text-lg"), styles.text]} />
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
         width: 74
     },
     image: {
-        
+
     }
 });
 
