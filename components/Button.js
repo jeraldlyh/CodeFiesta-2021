@@ -10,7 +10,7 @@ function Button(props) {
         text: {
             fontFamily: "Poppins-Bold",
             color: `${props.textColor}`,
-            fontSize: 16
+            fontSize: 16,
         }
     });
 
