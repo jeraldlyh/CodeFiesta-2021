@@ -6,19 +6,18 @@ import VisaScreen from "./VisaScreen";
 import VisaTypeScreen from "./VisaTypeScreen";
 import UploadScreen from "./UploadScreen";
 
+const Document = createStackNavigator();
 
-const WorkPermit = createStackNavigator();
-
-const WorkPermitStack = () => {
+const DocumentStack = () => {
     return (
-        <WorkPermit.Navigator screenOptions={{ headerShown: false }}>
-            <WorkPermit.Screen name="Upload" component={UploadScreen}/>
-            {/* <WorkPermit.Screen name="Start" component={StartScreen}/>
-            <WorkPermit.Screen name="User" component={UserScreen}/>
-            <WorkPermit.Screen name="Visa" component={VisaScreen}/>
-            <WorkPermit.Screen name="Visa Type" component={VisaTypeScreen}/> */}
-        </WorkPermit.Navigator>
+        <Document.Navigator screenOptions={{ headerShown: false }}>
+            <Document.Screen name="Upload" component={UploadScreen}/>
+            <Document.Screen name="Start" component={StartScreen}/>
+            <Document.Screen name="User" component={UserScreen}/>
+            <Document.Screen name="Visa" component={VisaScreen}/>
+            <Document.Screen name="Visa Type" component={VisaTypeScreen}/>
+        </Document.Navigator>
     )
 }
 
-export default WorkPermitStack;
+export default DocumentStack;

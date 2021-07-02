@@ -1,7 +1,7 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import ApplicationScreen from "./ApplicationScreen";
-import DocumentStack from "../document/DocumentStack";
+import DocumentStack from "../../screens/document/DocumentStack";
 
 
 const Application = createStackNavigator();
