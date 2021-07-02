@@ -6,6 +6,7 @@ import Button from '../../components/Button';
 import { useNavigation } from '@react-navigation/native';
 
 
+
 function CurrentNewsScreen(props) {
     const navigation = useNavigation();
     return (

@@ -27,7 +27,7 @@ function Button(props) {
             </View>
             {
                 props.text === "Logout"
-                    ? <Fragment />
+                    ? null
                     : <View style={tailwind("w-1/6")}>
                         <Icon name='chevron-forward-outline'
                             type="ionicon"
@@ -56,11 +56,13 @@ const styles = StyleSheet.create({
         borderRadius: 14,
         alignItems: 'center',
         paddingHorizontal: 20,
-        // shadowColor: 'rgba(0, 0, 0, 0.1)',
-        // shadowOpacity: 0.8,
-        // elevation: 6,
-        // shadowRadius: 10,
-        // shadowOffset: { width: 1, height: 13 },
+        backgroundColor: 'white',
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 1 },
+        shadowOpacity: 0.2,
+        shadowRadius: 0.5,  
+        borderRadius:14,
+        marginBottom:5,
     }
 })
 
