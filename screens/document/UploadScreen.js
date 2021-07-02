@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import tailwind from "tailwind-rn";
 import * as ImagePicker from "expo-image-picker";
+import { Icon } from 'react-native-elements';
 
 function UploadScreen({ navigation }) {
     // function selectImage() {
@@ -85,186 +86,200 @@ function UploadScreen({ navigation }) {
         }
     };
     return (
-        <ScrollView contentContainerStyle={[tailwind("items-center w-full")]}>
-            <View style={styles.headerContainer}>
-                <Image
-                    source={require("../../assets/visa/entre.jpg")}
-                    style={styles.headerImage}
-                />
+        <>
+            <View style={tailwind("self-start top-10 ml-4 z-10")}>
+                <TouchableOpacity
+                        style={tailwind("bg-gray-300 w-14 h-14 rounded-full absolute opacity-50 items-center flex justify-center")}
+                        onPress={() => navigation.goBack()}
+                >
+                    <Icon
+                        name='arrow-back-outline'
+                        type='ionicon'
+                        color='#000'
+                    />
+                </TouchableOpacity>
+            </View>
+            <ScrollView contentContainerStyle={[tailwind("items-center w-full")]}>
+                <View style={styles.headerContainer}>
+                    <Image
+                        source={require("../../assets/visa/entre.jpg")}
+                        style={styles.headerImage}
+                    />
 
-                <View style={global.container}>
-                    <View style={styles.bodyContainer}></View>
+                    <View style={global.container}>
+                        <View style={styles.bodyContainer}></View>
+                    </View>
                 </View>
-            </View>
 
-            <View style={[tailwind("ml-12 mr-12 mt-16 mb-8")]}>
-                <Text style={styles.header}>Documents required</Text>
-                <Text style={styles.subHeader}>For Entre Pass</Text>
+                <View style={[tailwind("ml-12 mr-12 mt-16 mb-8")]}>
+                    <Text style={styles.header}>Documents required</Text>
+                    <Text style={styles.subHeader}>For Entre Pass</Text>
 
-                <Text style={[styles.subText1, tailwind("mt-3")]}>
-                    • Personal particulars page of your passport. {"\n"}• Past
-                    employment testimonials in English or resume. {"\n"}• For
-                    businesses registered with ACRA, upload company’s latest
-                    business profile or instant information from Bizfile. {"\n"}
-                    • A business plan in English, maximum 10 pages.
-                </Text>
-                <Text style={[styles.subText2]}>
-                    • Other documents that will support your EntrePass
-                    application
-                </Text>
-            </View>
+                    <Text style={[styles.subText1, tailwind("mt-3")]}>
+                        • Personal particulars page of your passport. {"\n"}• Past
+                        employment testimonials in English or resume. {"\n"}• For
+                        businesses registered with ACRA, upload company’s latest
+                        business profile or instant information from Bizfile. {"\n"}
+                        • A business plan in English, maximum 10 pages.
+                    </Text>
+                    <Text style={[styles.subText2]}>
+                        • Other documents that will support your EntrePass
+                        application
+                    </Text>
+                </View>
 
-            <View style={tailwind("flex items-center")}>
-                <View style={tailwind("flex flex-row")}>
-                    <View>
-                        <TouchableOpacity
-                            style={[
-                                styles.button,
-                                tailwind("flex items-center"),
-                            ]}
-                            onPress={() => pickImage(1)}
-                        >
-                            {image == null ? (
-                                <Image
+                <View style={tailwind("flex items-center")}>
+                    <View style={tailwind("flex flex-row")}>
+                        <View>
+                            <TouchableOpacity
+                                style={[
+                                    styles.button,
+                                    tailwind("flex items-center"),
+                                ]}
+                                onPress={() => pickImage(1)}
+                            >
+                                {image == null ? (
+                                    <Image
+                                        source={require("../../assets/work_permit/plus.png")}
+                                        style={styles.icon}
+                                    />
+                                ) : (
+                                    <Image
+                                        source={{ uri: image }}
+                                        style={styles.image}
+                                    />
+                                )}
+
+                                {/* <Image
                                     source={require("../../assets/work_permit/plus.png")}
                                     style={styles.icon}
-                                />
-                            ) : (
-                                <Image
-                                    source={{ uri: image }}
-                                    style={styles.image}
-                                />
-                            )}
+                                /> */}
+                                {/* {image && (
+                                    <Image
+                                        source={{ uri: image }}
+                                        style={styles.image}
+                                    />
+                                )} */}
 
-                            {/* <Image
+                                <Text style={styles.buttonText}>
+                                    Passport Personal Particulars{" "}
+                                </Text>
+                            </TouchableOpacity>
+                        </View>
+                        <View style={tailwind("w-8")} />
+                        <View>
+                            <TouchableOpacity
+                                style={[
+                                    styles.button,
+                                    tailwind("flex items-center"),
+                                ] }
+                                onPress={() => pickImage(2)}
+                            >
+                                {image1 == null ? (
+                                    <Image
+                                        source={require("../../assets/work_permit/plus.png")}
+                                        style={styles.icon}
+                                    />
+                                ) : (
+                                    <Image
+                                        source={{ uri: image1 }}
+                                        style={styles.image}
+                                    />
+                                )}
+
+                                <Text style={styles.buttonText}>
+                                    Past Employment Testimonials
+                                </Text>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+
+                    <View style={tailwind("flex flex-row mt-6")}>
+                        <View>
+                            <TouchableOpacity
+                                style={[
+                                    styles.button,
+                                    tailwind("flex items-center"),
+                                ]}
+                                onPress={() => pickImage(3)}
+                            >
+                                {image2 == null ? (
+                                    <Image
+                                        source={require("../../assets/work_permit/plus.png")}
+                                        style={styles.icon}
+                                    />
+                                ) : (
+                                    <Image
+                                        source={{ uri: image2 }}
+                                        style={styles.image}
+                                    />
+                                )}
+
+                                <Text style={styles.buttonText}>
+                                    Company's Business Profile
+                                </Text>
+                            </TouchableOpacity>
+                        </View>
+                        <View style={tailwind("w-8")} />
+                        <View>
+                            <TouchableOpacity
+                                style={[
+                                    styles.button,
+                                    tailwind("flex items-center"),
+                                ]}
+                                onPress={() => pickImage(3)}
+                            >
+                                {image3 == null ? (
+                                    <Image
+                                        source={require("../../assets/work_permit/plus.png")}
+                                        style={styles.icon}
+                                    />
+                                ) : (
+                                    <Image
+                                        source={{ uri: image3 }}
+                                        style={styles.image}
+                                    />
+                                )}
+
+                                <Text style={styles.buttonText}>
+                                    Your Business Plan
+                                </Text>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+                </View>
+
+                <View style={tailwind("flex flex-row mt-10")}>
+                    <TouchableOpacity style={[styles.button2]}>
+                        <View
+                            style={{
+                                flexDirection: "row",
+                                justifyContent: "center",
+                                alignItems: "center",
+                            }}
+                        >
+                            <Image
                                 source={require("../../assets/work_permit/plus.png")}
                                 style={styles.icon}
-                            /> */}
-                            {/* {image && (
-                                <Image
-                                    source={{ uri: image }}
-                                    style={styles.image}
-                                />
-                            )} */}
-
+                            />
                             <Text style={styles.buttonText}>
-                                Passport Personal Particulars{" "}
+                                {" "}
+                                Other supporting documents
                             </Text>
-                        </TouchableOpacity>
-                    </View>
-                    <View style={tailwind("w-8")} />
-                    <View>
-                        <TouchableOpacity
-                            style={[
-                                styles.button,
-                                tailwind("flex items-center"),
-                            ] }
-                            onPress={() => pickImage(2)}
-                        >
-                            {image1 == null ? (
-                                <Image
-                                    source={require("../../assets/work_permit/plus.png")}
-                                    style={styles.icon}
-                                />
-                            ) : (
-                                <Image
-                                    source={{ uri: image1 }}
-                                    style={styles.image}
-                                />
-                            )}
-
-                            <Text style={styles.buttonText}>
-                                Past Employment Testimonials
-                            </Text>
-                        </TouchableOpacity>
-                    </View>
+                        </View>
+                    </TouchableOpacity>
                 </View>
 
-                <View style={tailwind("flex flex-row mt-6")}>
-                    <View>
-                        <TouchableOpacity
-                            style={[
-                                styles.button,
-                                tailwind("flex items-center"),
-                            ]}
-                            onPress={() => pickImage(3)}
-                        >
-                            {image2 == null ? (
-                                <Image
-                                    source={require("../../assets/work_permit/plus.png")}
-                                    style={styles.icon}
-                                />
-                            ) : (
-                                <Image
-                                    source={{ uri: image2 }}
-                                    style={styles.image}
-                                />
-                            )}
-
-                            <Text style={styles.buttonText}>
-                                Company's Business Profile
-                            </Text>
-                        </TouchableOpacity>
-                    </View>
-                    <View style={tailwind("w-8")} />
-                    <View>
-                        <TouchableOpacity
-                            style={[
-                                styles.button,
-                                tailwind("flex items-center"),
-                            ]}
-                            onPress={() => pickImage(3)}
-                        >
-                            {image3 == null ? (
-                                <Image
-                                    source={require("../../assets/work_permit/plus.png")}
-                                    style={styles.icon}
-                                />
-                            ) : (
-                                <Image
-                                    source={{ uri: image3 }}
-                                    style={styles.image}
-                                />
-                            )}
-
-                            <Text style={styles.buttonText}>
-                                Your Business Plan
-                            </Text>
-                        </TouchableOpacity>
-                    </View>
+                <View style={tailwind("mt-5")}>
+                    <TouchableOpacity style={styles.submitButton}>
+                        <Text style={styles.buttonText2}>Submit application</Text>
+                    </TouchableOpacity>
                 </View>
-            </View>
 
-            <View style={tailwind("flex flex-row mt-10")}>
-                <TouchableOpacity style={[styles.button2]}>
-                    <View
-                        style={{
-                            flexDirection: "row",
-                            justifyContent: "center",
-                            alignItems: "center",
-                        }}
-                    >
-                        <Image
-                            source={require("../../assets/work_permit/plus.png")}
-                            style={styles.icon}
-                        />
-                        <Text style={styles.buttonText}>
-                            {" "}
-                            Other supporting documents
-                        </Text>
-                    </View>
-                </TouchableOpacity>
-            </View>
-
-            <View style={tailwind("mt-5")}>
-                <TouchableOpacity style={styles.submitButton}>
-                    <Text style={styles.buttonText2}>Submit application</Text>
-                </TouchableOpacity>
-            </View>
-
-            <View style={tailwind("mt-36")}></View>
-            {/* {image && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />} */}
-        </ScrollView>
+                <View style={tailwind("mt-36")}></View>
+                {/* {image && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />} */}
+            </ScrollView>
+        </>
     );
 }
 

@@ -164,7 +164,7 @@ function RoomScreen({ route, navigation }) {
                 showUserAvatar
                 scrollToBottom
                 bottomOffset={77}
-                renderActions={() => <Icon size={23} name="add-circle" style={tailwind("mb-2.5 ml-2")} />}
+                renderActions={() => <Icon size={23} name="add-circle" style={tailwind("mb-3 ml-2")} />}
                 renderInputToolbar={renderInputToolbar}
                 renderBubble={renderBubble}
                 renderLoading={Loading}

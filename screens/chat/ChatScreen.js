@@ -61,7 +61,7 @@ const ChatScreen = ({ navigation }) => {
     return (
         loading
             ? <Loading />
-            : <View style={tailwind("p-2 h-full")}>
+            : <View style={tailwind("p-2 px-6 h-full")}>
                 <Header title="Chats" />
                 {
                     threads

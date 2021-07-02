@@ -17,8 +17,8 @@ function ChatHeader(props) {
                     color='#000'
                 />
             </TouchableOpacity>
-            <View style={tailwind("flex flex-row ml-4 items-center")}>
-                <Image source={{ uri: props.image }} style={tailwind("rounded-full w-14 h-14 mr-2")} />
+            <View style={tailwind("flex flex-row ml-2 items-center")}>
+                <Image source={{ uri: props.image }} style={tailwind("rounded-full w-14 h-14 mr-4 -ml-1")} />
                 <View style={tailwind("flex flex-col")}>
                     <Text style={[styles.title, tailwind("text-2xl")]}>{props.user}</Text>
                     <View style={tailwind("flex flex-row items-center")}>
@@ -27,7 +27,7 @@ function ChatHeader(props) {
                     </View>
                 </View>
             </View>
-            <Icon name="call" type='ionicon' style={tailwind("ml-28")}/>
+            <Icon name="call" type='ionicon' style={tailwind("ml-40")}/>
         </View>
     )
 };

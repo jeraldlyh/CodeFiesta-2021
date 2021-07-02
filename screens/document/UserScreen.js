@@ -3,6 +3,7 @@ import { View, StyleSheet, Text, TouchableOpacity, Image } from 'react-native';
 import tailwind from "tailwind-rn";
 import Button from "../../components/Button";
 import Layout from "../../components/Layout";
+import { Icon } from 'react-native-elements';
 
 function UserScreen({ navigation }) {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -13,8 +14,25 @@ function UserScreen({ navigation }) {
 
     return (
         <Layout>
-            <View style={tailwind("flex flex-col w-full h-full p-3 items-center")}>
-                <Text style={[styles.title, tailwind("text-3xl p-3 text-left self-start ml-8 mt-24")]}>I'm...</Text>
+            {
+                activeIndex === 0 
+                ? null
+                :
+                <View style={tailwind("self-end top-1 mr-6 z-10")}>
+                    <TouchableOpacity
+                        style={tailwind("bg-gray-300 w-14 h-14 rounded-full absolute opacity-70 items-center flex justify-center")}
+                        onPress={() => navigation.push("Visa")}
+                    >
+                        <Icon
+                            name='arrow-forward-outline'
+                            type='ionicon'
+                            color='#000'
+                        />
+                    </TouchableOpacity>
+                </View>
+            }
+            <View style={tailwind("flex flex-col w-full h-full p-3 mt-9 items-center")}>
+                <Text style={[styles.title, tailwind("text-3xl p-3 text-left self-start mt-24")]}>I'm...</Text>
 
                 <View>
                     <Image style={styles.image} source={require('../../assets/work_permit/work.png')} />
@@ -29,20 +47,6 @@ function UserScreen({ navigation }) {
 
                 <View style={tailwind("mt-6")} />
                 <Button onPress={() => setActiveIndex(3)} height={14} width={72} height="20" text="hoping to become a permanent resident (PR)" backgroundColor={isActive(3) ? "#FE904B" : "#e3e3e3"} textColor={isActive(3) ? "#FFF" : "#000"} />
-
-                <View style={{ flexDirection: "row" }}>
-                    <View style={tailwind("m-14")}>
-                        <TouchableOpacity style={styles.button} onPress={() => navigation.goBack()}>
-                            <Text style={styles.buttonText}>Cancel</Text>
-                        </TouchableOpacity>
-                    </View>
-
-                    <View style={tailwind("m-14")}>
-                        <TouchableOpacity style={styles.button} onPress={() => navigation.push("Visa")}>
-                            <Text style={styles.buttonText}>Confirm</Text>
-                        </TouchableOpacity>
-                    </View>
-                </View>
             </View>
         </Layout>
     )

@@ -3,8 +3,8 @@ import { View, StyleSheet } from "react-native";
 import BouncingPreloader from "react-native-bouncing-preloaders";
 
 const icons = [
-    require("../assets/loading/mbs.png"),
-    require("../assets/loading/merlion.png"),
+    require("../assets/loading/merli.png"),
+    require("../assets/loading/blood.png"),
 ]
 
 function Loading() {
@@ -12,9 +12,9 @@ function Loading() {
         <View style={styles.container}>
             <BouncingPreloader
                 icons={icons}
-                leftDistance={-100}
-                rightDistance={-150}
-                speed={1000}
+                leftDistance={-50}
+                rightDistance={-170}
+                speed={1100}
             />
         </View>
     );

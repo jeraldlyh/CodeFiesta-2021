@@ -3,6 +3,7 @@ import { View, StyleSheet, Text, TouchableOpacity, Image} from 'react-native';
 import tailwind from "tailwind-rn";
 import Button from "../../components/Button";
 import Layout from "../../components/Layout";
+import { Icon } from 'react-native-elements';
 
 function VisaScreen({ navigation }) {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -13,8 +14,25 @@ function VisaScreen({ navigation }) {
 
     return (
         <Layout>
-            <View style={tailwind("flex flex-col w-full h-full p-3 items-center")}>
-                <Text style={[styles.title, tailwind("text-3xl p-3 text-left self-start ml-8 pt-24")]}>Do you have a work visa?</Text>
+            {
+                activeIndex === 0 
+                ? null
+                :
+                <View style={tailwind("self-end top-1 mr-9 z-10")}>
+                    <TouchableOpacity
+                        style={tailwind("bg-gray-300 w-14 h-14 rounded-full absolute opacity-70 items-center flex justify-center")}
+                        onPress={() => navigation.push("Visa Type")}
+                    >
+                        <Icon
+                            name='arrow-forward-outline'
+                            type='ionicon'
+                            color='#000'
+                        />
+                    </TouchableOpacity>
+                </View>
+            }
+            <View style={tailwind("flex flex-col w-full h-full p-3 mt-9 items-center")}>
+                <Text style={[styles.title, tailwind("text-3xl p-3 text-left self-start pt-24")]}>Do you have a work visa?</Text>
                 <View>
                     <Image style={styles.image} source={require('../../assets/work_permit/work.png')}/>
                 </View>
@@ -26,13 +44,7 @@ function VisaScreen({ navigation }) {
                 <View style={tailwind("mt-6")}/>
                 <Button height={14} width={72} onPress={() => setActiveIndex(2)} text="I do not have a visa" backgroundColor={isActive(2) ? "#FE904B": "#e3e3e3"} textColor={isActive(2) ? "#FFF" : "#000"} />
 
-                {/* <View style={tailwind("mt-8 flex flex-col w-4/5 items-center")}>
-                    <Button onPress={() => navigation.push("Visa Type")} text="Confirm" backgroundColor="#FE904B" textColor="#FFF" height="12" />
-                    <View style={tailwind("mt-3")}/>
-                    <Button onPress={() => navigation.goBack()} text="Cancel" backgroundColor="#FE904B" textColor="#FFF" height="12" />
-                </View> */}
-
-                <View style={{flexDirection:"row"}}>
+                {/* <View style={{flexDirection:"row"}}>
                     <View style={tailwind("m-14")}>
                         <TouchableOpacity style={styles.button} onPress={() => navigation.goBack()}>
                         <Text style ={styles.buttonText}>Cancel</Text>
@@ -44,7 +56,7 @@ function VisaScreen({ navigation }) {
                             <Text style = {styles.buttonText}>Confirm</Text>
                         </TouchableOpacity>
                     </View>
-                </View>
+                </View> */}
             </View>
         </Layout>
     )
