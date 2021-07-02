@@ -3,11 +3,6 @@ import AuthContextProvider from './provider/AuthProvider';
 import { NavigationContainer } from '@react-navigation/native';
 import * as Font from "expo-font";
 import RootStack from './screens/RootStack';
-import ProfileStack from './screens/profile/ProfileStack';
-import NewsStack from './screens/news/NewsStack';
-import DocumentStack from './screens/document/DocumentStack';
-import ApplicationStack from './screens/application/ApplicationStack';
-import CommunityStack from './screens/community/CommunityStack';
 import { loadData } from './database/loadData';
 import Loading from './components/Loading';
 
