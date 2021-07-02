@@ -54,9 +54,9 @@ function ProfileScreen({ route }) {
 
                             <View style={tailwind("mt-5")}>
                                 <TouchableOpacity style={[styles.button, tailwind("items-center")]}>
-                                    <Image source={require("../../assets/profile/AddUser.png")}
-                                        style={[styles.icons, tailwind("mr-2")]} />
-                                    <Text style={styles.buttonText}>Add friend</Text>
+                                    <Image source={require("../../assets/profile/EditUser.png")}
+                                        style={[styles.icons, tailwind("mr-3")]} />
+                                    <Text style={styles.buttonText}>Edit Profile</Text>
                                 </TouchableOpacity>
                             </View>
                         </View>
@@ -135,7 +135,7 @@ const styles = StyleSheet.create({
 
     icons: {
         width: 15,
-        height: 15,
+        height: 16,
     },
 
     currency: {
@@ -154,7 +154,7 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.9,
         elevation: 6,
         shadowRadius: 15,
-        shadowOffset: { width: 1, height: 15 },
+        shadowOffset: { width: 1, height: 7 },
         backgroundColor: '#FE904B',
         width: 130,
         flexDirection: 'row',

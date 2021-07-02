@@ -4,10 +4,22 @@ import { StyleSheet, View, Image,Text } from "react-native";
 function ApplicationStatus(props) {
     return (
         <View style={styles.container}>
-            <Image
-                source={require("../../../assets/visa/entre.jpg")}
-                style={styles.container}
-            />
+            {
+                props.name === "Entre Pass" ?
+                <Image
+                    source={require("../../../assets/visa/entre.jpg")}
+                    style={styles.container}
+                />
+                : null
+            }
+            {
+                props.name === "S Pass" ?
+                <Image
+                    source={require("../../../assets/visa/spass.jpg")}
+                    style={styles.container}
+                />
+                : null
+            }
             <View style={styles.details}>
                 <View style = {styles.nameDate}>
                     <Text style = {{fontFamily:'Poppins-SemiBold',fontSize:17,color:'white'}}>{props.name}</Text>

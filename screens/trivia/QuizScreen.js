@@ -79,7 +79,7 @@ function QuizScreen({ navigation }) {
                     ? <BlurView intensity={95} style={[tailwind("items-center justify-center"), { height: "100%", position: 'absolute', width: "100%", zIndex: 100 }]}>
                         <View style={tailwind("flex flex-col items-center justify-center h-56 w-56 bg-white rounded-xl")}>
                             <Text style={[styles.title, tailwind("text-center mb-1 text-xl")]}>Oh no!</Text>
-                            <Text style={[styles.description, tailwind("text-center mb-3")]}>You didn't managed to get the correct answer! 😐</Text>
+                            <Text style={[styles.description, tailwind("text-center mb-3 px-5")]}>You didn't manage to get the correct answer! 😐</Text>
                             <TouchableOpacity style={styles.button} onPress={confirmButton}>
                                 <Text style={styles.buttonText}>Exit Quiz</Text>
                             </TouchableOpacity>
@@ -149,6 +149,7 @@ const styles = StyleSheet.create({
     },
     button: {
         borderRadius: 25,
+        marginTop: 10,
         paddingTop: 10,
         paddingBottom: 10,
         paddingLeft: 22,
@@ -162,7 +163,7 @@ const styles = StyleSheet.create({
         width: 100,
     },
     buttonText: {
-        fontFamily: "Poppins-Normal",
+        fontFamily: "Poppins-SemiBold",
         color: "white",
         textAlign: "center"
     },

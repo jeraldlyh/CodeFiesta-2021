@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Text, View, Image, StyleSheet, SafeAreaView, ScrollView } from 'react-native';
+import { TouchableOpacity, Text, View, Image, StyleSheet, SafeAreaView, ScrollView } from 'react-native';
 import tailwind from 'tailwind-rn';
 import Button from "../../components/Button";
 import { getTipsByTag } from '../../database/actions/Tips';
 import Layout from '../../components/Layout';
 import Header from '../../components/Header';
+import { Icon } from "react-native-elements";
 
 
 const MustKnowTips = ({ navigation }) => {
@@ -18,7 +19,26 @@ const MustKnowTips = ({ navigation }) => {
 
     return (
         <Layout>
-            <ScrollView style={tailwind("pb-10")} contentContainerStyle={tailwind("flex flex-col items-center justify-center")}>
+            <TouchableOpacity
+                style={[tailwind("mr-5 mt-2 self-end z-50"), styles.quizButton]}
+                onPress={() => navigation.push("Quiz")}
+            >
+                <Icon
+                    name="game-controller-outline"
+                    type="ionicon"
+                    color="#F7F7F7"
+                />
+                <Text
+                    style={{
+                        fontSize: 8,
+                        fontFamily: "Poppins-Bold",
+                        color: "#F7F7F7",
+                    }}
+                >
+                    Quiz
+                </Text>
+            </TouchableOpacity>
+            <ScrollView style={tailwind("-mt-12 pb-10")} contentContainerStyle={tailwind("flex flex-col items-center justify-center")}>
                 <Header title="10 Useful things you need to know before coming into Singapore" />
                 {
                     tips && tips.length !== 0
@@ -34,8 +54,8 @@ const MustKnowTips = ({ navigation }) => {
                         : null
                 }
 
-                <Button onPress={() => navigation.push("Quiz")} text="Take a quiz!" backgroundColor="#FE904B" textColor="#FFF" height="12" />
-                <View style={tailwind("h-4")} />
+                {/* <Button onPress={() => navigation.push("Quiz")} text="Take a quiz!" backgroundColor="#FE904B" textColor="#FFF" height="12" />
+                <View style={tailwind("h-4")} /> */}
 
                 {/* <Button onPress={() => navigation.goBack()} text="Back" backgroundColor="#FE904B" textColor="#FFF" height="12" />
                 <View style={tailwind("h-12")} /> */}
@@ -62,7 +82,6 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: 'center',
     },
-
     body: {
         ...padding(20, 0, 0, 0),
         color: "black",
@@ -70,12 +89,21 @@ const styles = StyleSheet.create({
         textAlign: "justify",
         fontFamily: "Poppins-Normal"
     },
-
     title: {
         ...padding(0, 0, 20, 0),
         color: "black",
         fontSize: 16,
         fontFamily: "Poppins-Bold",
         textAlign: "center"
+    },
+    quizButton: {
+        flexDirection: "column",
+        height: 47,
+        width: 51,
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "#FE904B",
+        borderRadius: 14,
+        fontSize: 20,
     },
 })

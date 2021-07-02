@@ -70,7 +70,7 @@ function RegisterScreen() {
                         <View style={tailwind("mt-14 mb-3 w-5/6 border-b-2 border-gray-700")} />
 
                         <Text style={[styles.text, tailwind("text-white mb-2")]}>Returning Singaporean or PR?</Text>
-                        <Button onPress={() => loginUser()} text="Login with" backgroundColor="#D0D0D0" textColor="#000" style={tailwind("items-center")} height={14}>
+                        <Button text="Login with" backgroundColor="#D0D0D0" textColor="#000" style={tailwind("items-center")} height={14}>
                             <Text styles={[tailwind("text-lg"), styles.text]} />
                             <Image source={require("../../assets/login/singpass.png")} style={[tailwind("-ml-2 mt-1"), styles.singpass]} />
                         </Button>

@@ -9,7 +9,7 @@ import Title from "../../components/Title";
 function WelcomeScreen({ navigation }) {
     return (
         <>
-            <Swiper autoplay={true} showsPagination={false}>
+            <Swiper autoplay={true} showsPagination={true}>
                 <ImageBackground source={require("../../assets/welcome/1.webp")} style={styles.image}>
                     <View style={[tailwind("flex flex-col text-white self-end px-9 pb-4 font-normal"), { fontSize: 28, marginTop: 200 }]}>
                         <Title fontSize={28} />
