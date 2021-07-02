@@ -75,7 +75,7 @@ function ProfileScreen({ route }) {
                             <View style={styles.container}>
                                 <View style={tailwind("flex flex-row flex-wrap")}>
                                     {
-                                        profile.interests
+                                        profile.interests.length !== 0
                                             ? profile.interests.map((interest, key) => {
                                                 return (
                                                     <View key={key} style={styles.interestsContainer}>

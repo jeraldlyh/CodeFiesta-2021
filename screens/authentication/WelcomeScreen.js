@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View, ImageBackground, StyleSheet } from 'react-native';
+import { Text, View, ImageBackground, StyleSheet, TouchableOpacity } from 'react-native';
 import Swiper from 'react-native-swiper';
 import tailwind from "tailwind-rn";
 import Button from "../../components/Button";
@@ -32,7 +32,9 @@ function WelcomeScreen({ navigation }) {
 
             <View style={[tailwind("absolute flex flex-col text-white self-center pl-14 w-80 pb-4 font-extrabold"), { fontSize: 21, bottom: 150 }]}>
                 <Button onPress={() => navigation.push('Login')} text="Login" backgroundColor="#FE904B" textColor="#FFF" />
-                <Text style={[tailwind("flex flex-row text-white pt-5 pl-2 font-normal"), { fontSize: 13 }]}>Don't have an account? <Text style={[tailwind("font-semibold"), { color: "#FE904B" }]}>Sign up</Text></Text>
+                <TouchableOpacity onPress={() => navigation.push("Register")}>
+                    <Text style={[tailwind("flex flex-row text-white pt-5 pl-2 font-normal"), { fontSize: 13 }]}>Don't have an account? <Text style={[tailwind("font-semibold"), { color: "#FE904B" }]}>Sign up</Text></Text>
+                </TouchableOpacity>
             </View>
         </>
     )
