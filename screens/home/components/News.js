@@ -1,17 +1,19 @@
 import React from 'react';
-import { View, StyleSheet,Image,Text } from 'react-native';
+import { View, StyleSheet,Image,Text, TouchableOpacity } from 'react-native';
 import tailwind from "tailwind-rn";
-
+import { useNavigation } from '@react-navigation/native';
 
 function News(props) {
+    const navigation = useNavigation();
+
     return (
-        <View style = {styles.container}>
+        <TouchableOpacity style = {styles.container} onPress={() => navigation.push('CurrentNews')}>
             <Image source = {require("../../../assets/news/COVID-19.jpeg")} style = {styles.image} />
             <View style = {[tailwind("w-full"), {width:200,marginLeft:20}]}>
                 <Text style = {{fontFamily:'Poppins-SemiBold',fontSize:13}}>MOH, expert counter claims by doctors on need to halt COVID-19 jabs for schoolboys</Text>
                 <Text style = {{fontFamily:'Poppins-Normal', fontSize:11, color:'#AEAEBF'}}>2 hours ago</Text>
             </View>
-        </View>
+        </TouchableOpacity>
     );
 }
 

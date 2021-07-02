@@ -11,9 +11,9 @@ function CurrentNewsScreen(props) {
     const navigation = useNavigation();
     return (
         <>
-            <View style={tailwind("self-start top-10 ml-6 z-10")}>
+            <View style={tailwind("self-start top-10 ml-4 z-10")}>
                 <TouchableOpacity
-                        style={tailwind("mt-1 bg-gray-300 w-14 h-14 rounded-full absolute opacity-50 items-center flex justify-center")}
+                        style={tailwind("bg-gray-300 w-14 h-14 rounded-full absolute opacity-50 items-center flex justify-center")}
                         onPress={() => navigation.goBack()}
                 >
                     <Icon
@@ -28,10 +28,10 @@ function CurrentNewsScreen(props) {
                 <View style={{marginTop:180,left:30}}>
                     <Text style={[tailwind('text-white font-extrabold text-xl pr-24'), {bottom: 60}]}>13 new community COVID-19 cases in Singapore, including 6 unlinked; 4 imported cases</Text>
                     <View style={styles.details} />
-                    <Text style = {{fontFamily:'Poppins-Normal',fontSize:14,color:'white', position:'aboslute', bottom: 37, left:16}}>2 hours ago</Text>
+                    <Text style = {{fontFamily:'Poppins-Normal',fontSize:14,color:'white', bottom: 37, left:16}}>2 hours ago</Text>
                 </View>
                 <View style = {styles.articleContainer}>
-                    <Text style={tailwind("text-base mt-1")}>
+                    <Text style={tailwind("text-base")}>
                     <Text style={tailwind("font-semibold")}>SINGAPORE -</Text> There were 17 new coronavirus cases confirmed as at Saturday noon (June 26), taking Singapore's total to 62,530. Of these cases, 13 are in the community and four are imported. 
                     </Text>
                     <Text style={tailwind("text-base mt-5")}>
@@ -49,7 +49,7 @@ function CurrentNewsScreen(props) {
                     <Text style={tailwind("text-base mt-5")}>
                         More details will be announced on Saturday night.
                     </Text>
-                    <Image source={require("../../assets/news/stats.png")} style={tailwind("w-full h-80 mt-9")} />
+                    <Image source={require("../../assets/news/stats.png")} style={tailwind("w-full h-80 mt-10")} />
                 </View>
                 
                 
@@ -81,8 +81,8 @@ const styles = StyleSheet.create({
         height: '100%',
         alignItems:'flex-start',
         backgroundColor:'white',
-        padding:30,
-        paddingBottom:100
+        padding:35,
+        paddingBottom:50
     },
     backgroundImage:{
         ...StyleSheet.absoluteFillObject,

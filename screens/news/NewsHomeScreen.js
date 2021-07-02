@@ -38,7 +38,7 @@ function NewsHomeScreen(props) {
                         <Text style={tailwind('text-white font-extrabold text-xl pr-24')}>Mandatory Covid-19 test for Tiong Bahru residents after 13 cases found in 3 households</Text>
                     </View>
                     <View style={styles.details} />
-                    <Text style = {{fontFamily:'Poppins-Normal',fontSize:14,color:'white', position:'aboslute', bottom: 46, left: 47,}}>12 minutes ago</Text>
+                    <Text style = {{fontFamily:'Poppins-Normal',fontSize:14,color:'white', bottom: 46, left: 47,}}>12 minutes ago</Text>
                     <View style={[tailwind("flex flex-row items-center"), styles.readNow]}>
                         <Text style={tailwind("font-semibold text-white")}>Read now</Text>
                         <Ionicons name="chevron-forward-outline" size={20} color="white" />
