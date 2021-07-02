@@ -1,26 +1,38 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { View, Text, Image, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 import tailwind from "tailwind-rn";
 import CustomCard from "../../components/CustomCard";
 import Layout from "../../components/Layout";
 import Header from "../../components/Header";
+import { getUserProfile } from "../../database/actions/User";
+import moment from "moment";
 
+function ProfileScreen({ navigation, route }) {
+    const { username } = route.params;
+    const [profile, setProfile] = useState(null);
 
-function ProfileScreen({ navigation }) {
+    useEffect(() => {
+        getUserProfile(username).then(response => setProfile(response));
+    }, []);
+
+    const formatJoinedDate = (date) => {
+        return moment(date).fromNow();
+    };
+
     return (
         <Layout>
             <View style={{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center', }}>
                 <Image source={require("../../assets/profile/man.jpg")}
                     style={[styles.image, tailwind("mt-12")]} />
 
-                <Text style={[tailwind("mt-4"), styles.header]}>John doe</Text>
+                <Text style={[tailwind("mt-4"), styles.header]}>{username}</Text>
 
                 <View style={{ flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'flex-end' }}>
                     <Image source={require("../../assets/profile/TimeCircle.png")}
                         style={[styles.icons]} />
 
                     <Text style={[tailwind("mt-1 ml-2"), styles.subText]}>
-                        Joined 3 days ago
+                        Joined {formatJoinedDate(profile.registeredAt)}
                     </Text>
                 </View>
 
