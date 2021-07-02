@@ -7,22 +7,22 @@ import tailwind from "tailwind-rn";
 function QuestsScreen(props) {
     return (
         <Layout>
-            <ScrollView style={styles.container}>
+            <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
                 <Text style={styles.headerText}>Your quests (2)</Text>
-                    <QuestCard
-                        name="Chinatown"
-                        time="13 hours left"
-                        color="#C8F2FE"
-                        points="50"
-                    />
+                <QuestCard
+                    name="Chinatown"
+                    time="13 hours left"
+                    color="#C8F2FE"
+                    points="50"
+                />
 
-                    <QuestCard
-                        name="Merlion"
-                        time="13 hours left"
-                        color="#68C8C6"
-                        points="100"
-                    />
-                
+                <QuestCard
+                    name="Merlion"
+                    time="13 hours left"
+                    color="#68C8C6"
+                    points="100"
+                />
+                <View style={tailwind("h-28")} />
             </ScrollView>
         </Layout>
     );
