@@ -21,3 +21,13 @@ export const getUserAvatar = (username) => {
             .catch(error => console.log("Error in getUserAvatar"));
     });
 };
+
+export const getUserProfile = (username) => {
+    return new Promise((resolve, reject) => {
+        firebase.firestore().collection("User")
+            .doc(username)
+            .get()
+            .then(doc => resolve(doc.data()))
+            .catch(error => console.log("Error in getUserProfile"));
+    });
+};

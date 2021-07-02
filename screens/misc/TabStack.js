@@ -2,12 +2,9 @@ import React from "react"
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { StyleSheet } from "react-native";
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import NewsStack from "../news/NewsStack";
-import SingaporeStack from "../singapore/SingaporeStack";
-import ApplicationStack from "../application/ApplicationStack";
-import CommunityStack from "../community/CommunityStack";
+import HomeStack from "../home/HomeStack";
+import ProfileStack from "../profile/ProfileStack";
 import ChatStack from "../chat/ChatStack";
-
 
 const Tab = createBottomTabNavigator();
 
@@ -18,51 +15,41 @@ const TabStack = () => {
                 tabBarIcon: ({ focused, size }) => {
                     let iconName;
 
-                    if (route.name === 'Trivia') {
+                    if (route.name === 'Home') {
                         iconName = focused
-                            ? 'help-circle'
-                            : 'help-circle-outline'
-                    } else if (route.name === 'Apply') {
+                            ? 'home'
+                            : 'home-outline'
+                    } else if (route.name === 'Chat') {
                         iconName = focused
-                            ? 'create'
-                            : 'create-outline';
-                    } else if (route.name === 'News') {
+                            ? 'chatbubble-ellipses'
+                            : 'chatbubble-ellipses-outline';
+                    } else if (route.name === 'Notifications') {
                         iconName = focused
-                            ? 'newspaper'
-                            : 'newspaper-outline';
-                    } else if (route.name === 'Community') {
+                            ? 'notifications'
+                            : 'notifications-outline';
+                    } else if (route.name === 'Profile') {
                         iconName = focused
                             ? 'person'
                             : 'person-outline';
-                    }
+                    };
 
-                    return <Ionicons name={iconName} size={size} color="#AEAEB2" />;
+                    return <Ionicons name={iconName} size={size} color={focused ? "#2B2B2B" : "#AEAEB2"} />;
                 },
             })}
             tabBarOptions={{
                 labelStyle: {
                     fontFamily: "Poppins-Bold"
                 },
-                activeTintColor: "#000",
+                activeTintColor: "#2B2B2B",
                 inactiveTintColor: 'gray',
             }}
         >
-            <Tab.Screen name="Trivia" component={SingaporeStack} />
-            <Tab.Screen name="Apply" component={ApplicationStack} />
-            <Tab.Screen name="News" component={ChatStack} />
-            <Tab.Screen name="Community" component={CommunityStack} />
+            <Tab.Screen name="Home" component={HomeStack} />
+            <Tab.Screen name="Chat" component={ChatStack} />
+            <Tab.Screen name="Notifications" component={ChatStack} />
+            <Tab.Screen name="Profile" component={ProfileStack} />
         </Tab.Navigator>
-    )
-}
-
-const styles = StyleSheet.create({
-    text: {
-        fontFamily: "Poppins-Normal"
-    },
-    buttonText: {
-        fontFamily: "Poppins-Normal",
-        color: "white",
-    },
-})
+    );
+};
 
 export default TabStack;
