@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { View, Text, Image, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 import tailwind from "tailwind-rn";
 import CustomCard from "../../components/CustomCard";
@@ -6,13 +6,19 @@ import Layout from "../../components/Layout";
 import Header from "../../components/Header";
 import { getUserProfile } from "../../database/actions/User";
 import moment from "moment";
+import { AuthContext } from "../../provider/AuthProvider";
+import Loading from "../../components/Loading";
+import { Fragment } from "react";
 
 function ProfileScreen({ navigation, route }) {
-    const { username } = route.params;
+    const { username } = route.params ? route.params.username : useContext(AuthContext);
     const [profile, setProfile] = useState(null);
 
     useEffect(() => {
-        getUserProfile(username).then(response => setProfile(response));
+        getUserProfile(username).then(response => {
+            console.log(response)
+            setProfile(response)
+        });
     }, []);
 
     const formatJoinedDate = (date) => {
@@ -21,83 +27,77 @@ function ProfileScreen({ navigation, route }) {
 
     return (
         <Layout>
-            <View style={{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center', }}>
-                <Image source={require("../../assets/profile/man.jpg")}
-                    style={[styles.image, tailwind("mt-12")]} />
+            {
+                profile ?
+                    <Fragment>
+                        <View style={tailwind("flex flex-col items-center justify-center")}>
+                            <Image source={require("../../assets/profile/man.jpg")}
+                                style={[styles.image, tailwind("mt-12")]} />
 
-                <Text style={[tailwind("mt-4"), styles.header]}>{username}</Text>
+                            <Text style={[tailwind("mt-4"), styles.header]}>{username}</Text>
 
-                <View style={{ flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'flex-end' }}>
-                    <Image source={require("../../assets/profile/TimeCircle.png")}
-                        style={[styles.icons]} />
+                            <View style={{ flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'flex-end' }}>
+                                <Image source={require("../../assets/profile/TimeCircle.png")}
+                                    style={[styles.icons]} />
 
-                    <Text style={[tailwind("mt-1 ml-2"), styles.subText]}>
-                        Joined {formatJoinedDate(profile.registeredAt)}
-                    </Text>
-                </View>
+                                <Text style={[tailwind("mt-1 ml-2"), styles.subText]}>
+                                    Joined {formatJoinedDate(profile.registeredAt)}
+                                </Text>
+                            </View>
 
-                <View style={{ flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'flex-end' }}>
-                    <Image source={require("../../assets/profile/Game.png")}
-                        style={[styles.icons]} />
+                            <View style={{ flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'flex-end' }}>
+                                <Image source={require("../../assets/profile/Game.png")}
+                                    style={[styles.icons]} />
 
-                    <Text style={[tailwind("ml-2 mr-1"), styles.subText]}>3 quests completed | 290</Text>
+                                <Text style={[tailwind("ml-2 mr-1"), styles.subText]}>{profile.questCompleted} quests completed | {profile.points}</Text>
+                                <Image source={require("../../assets/profile/merlion.png")}
+                                    style={[styles.currency]} />
+                            </View>
 
-                    <Image source={require("../../assets/profile/merlion.png")}
-                        style={[styles.currency]} />
-                </View>
-
-                <View style={tailwind("mt-5")}>
-                    <TouchableOpacity style={styles.button}>
-                        <Image source={require("../../assets/profile/AddUser.png")}
-                            style={[styles.icons, tailwind("mr-2")]} />
-                        <Text style={styles.buttonText}>Add friend</Text>
-                    </TouchableOpacity>
-                </View>
-            </View>
-
-            <View style={[tailwind("ml-6 mr-6")]}>
-                <Text style={[tailwind("mt-4"), styles.subHeader]}>Bio</Text>
-
-                <View style={styles.container}>
-                    <Text style={[tailwind("ml-2")]}>
-                        Hello! I moved to Singapore from Switzerland recently. It has been a
-                        dream come true! I would love to meet more people :) Please send me a
-                        friend request!
-                    </Text>
-
-                </View>
-            </View>
-
-            <View style={[tailwind("mt-4 mr-6 ml-6")]}>
-                <Text style={[styles.subHeader]}>Interests</Text>
-
-                <View style={styles.container}>
-                    <View style={{ flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'flex-start' }}>
-                        <View style={styles.interestsContainer}>
-                            <Text>Sports & Fitness</Text>
+                            <View style={tailwind("mt-5")}>
+                                <TouchableOpacity style={styles.button}>
+                                    <Image source={require("../../assets/profile/AddUser.png")}
+                                        style={[styles.icons, tailwind("mr-2")]} />
+                                    <Text style={styles.buttonText}>Add friend</Text>
+                                </TouchableOpacity>
+                            </View>
                         </View>
-                        <View style={styles.interestsContainer}>
-                            <Text>Board Games</Text>
+
+                        <View style={[tailwind("ml-6 mr-6"), { width: 350 }]}>
+                            <Text style={[tailwind("mt-4"), styles.subHeader]}>Bio</Text>
+
+                            <View style={styles.container}>
+                                <Text style={[tailwind("ml-2"), styles.normalText]}>
+                                    {profile.bio}
+                                </Text>
+
+                            </View>
                         </View>
-                        <View style={styles.interestsContainer}>
-                            <Text>Gaming</Text>
+
+                        <View style={[tailwind("mt-4 mr-6 ml-6"), { width: 350 }]}>
+                            <Text style={[styles.subHeader]}>Interests</Text>
+
+                            <View style={styles.container}>
+                                <View style={tailwind("flex flex-row flex-wrap")}>
+                                    {
+                                        profile.interests
+                                            ? profile.interests.map((interest, key) => {
+                                                return (
+                                                    <View key={key} style={styles.interestsContainer}>
+                                                        <Text style={styles.normalText}>{interest}</Text>
+                                                    </View>
+                                                )
+                                            })
+                                            : <Text style={styles.normalText}>You currently do not have any interests!</Text>
+                                    }
+                                </View>
+                            </View>
                         </View>
-                    </View>
-                    <View style={{ flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'flex-start' }}>
-                        <View style={styles.interestsContainer}>
-                            <Text>Reading</Text>
-                        </View>
-                        <View style={styles.interestsContainer}>
-                            <Text>Travelling</Text>
-                        </View>
-                        <View style={styles.interestsContainer}>
-                            <Text>Food</Text>
-                        </View>
-                    </View>
-                </View>
-            </View>
+                    </Fragment>
+                    : <Loading />
+            }
         </Layout>
-    )
+    );
 };
 
 export default ProfileScreen;
@@ -124,6 +124,12 @@ const styles = StyleSheet.create({
         fontSize: 14,
         textAlign: "justify",
         fontFamily: "Poppins-Normal"
+    },
+
+    normalText: {
+        fontSize: 14,
+        fontFamily: "Poppins-Normal",
+        color: "black",
     },
 
     image: {

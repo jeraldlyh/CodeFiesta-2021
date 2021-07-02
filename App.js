@@ -27,17 +27,17 @@ export default function App() {
     }, [])
 
     return (
-            isLoaded
-                ? (
-                    <AuthContextProvider>
-                        <NavigationContainer>
-                            <DocumentStack/>
-                        </NavigationContainer>
-                    </AuthContextProvider>
-                )
-                : (
-                    <Loading />
-                )
-        
+        isLoaded
+            ? (
+                <AuthContextProvider>
+                    <NavigationContainer>
+                        <RootStack />
+                    </NavigationContainer>
+                </AuthContextProvider>
+            )
+            : (
+                <Loading />
+            )
+
     );
 }
