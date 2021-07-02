@@ -6,6 +6,7 @@ import UserScreen from "./UserScreen";
 import VisaScreen from "./VisaScreen";
 import VisaTypeScreen from "./VisaTypeScreen";
 import UploadScreen from "./UploadScreen";
+import SuccessScreen from "./SuccessScreen";
 
 const Document = createStackNavigator();
 
@@ -18,6 +19,7 @@ const DocumentStack = () => {
             <Document.Screen name="Visa" component={VisaScreen} />
             <Document.Screen name="Visa Type" component={VisaTypeScreen} />
             <Document.Screen name="Upload" component={UploadScreen} />
+            <Document.Screen name="Success" component={SuccessScreen} />
         </Document.Navigator>
     )
 }

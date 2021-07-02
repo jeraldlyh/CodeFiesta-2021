@@ -99,7 +99,7 @@ function UploadScreen({ navigation }) {
                     />
                 </TouchableOpacity>
             </View>
-            <ScrollView contentContainerStyle={[tailwind("items-center w-full")]}>
+            <ScrollView contentContainerStyle={[tailwind("items-center w-full pb-14")]}>
                 <View style={styles.headerContainer}>
                     <Image
                         source={require("../../assets/visa/entre.jpg")}
@@ -111,9 +111,9 @@ function UploadScreen({ navigation }) {
                     </View>
                 </View>
 
-                <View style={[tailwind("ml-12 mr-12 mt-16 mb-8")]}>
-                    <Text style={styles.header}>Documents required</Text>
-                    <Text style={styles.subHeader}>For Entre Pass</Text>
+                <View style={[tailwind("ml-12 mr-12 mt-3 mb-8")]}>
+                    <Text style={[styles.title, tailwind("text-2xl text-left")]}>Documents required</Text>
+                    <Text style={[styles.content, tailwind("text-lg text-gray-500 mt-1 mb-2")]}>for Entre Pass</Text>
 
                     <Text style={[styles.subText1, tailwind("mt-3")]}>
                         • Personal particulars page of your passport. {"\n"}• Past
@@ -249,7 +249,7 @@ function UploadScreen({ navigation }) {
                     </View>
                 </View>
 
-                <View style={tailwind("flex flex-row mt-10")}>
+                <View style={tailwind("flex flex-row mt-6")}>
                     <TouchableOpacity style={[styles.button2]}>
                         <View
                             style={{
@@ -263,21 +263,18 @@ function UploadScreen({ navigation }) {
                                 style={styles.icon}
                             />
                             <Text style={styles.buttonText}>
-                                {" "}
+                                {"  "}
                                 Other supporting documents
                             </Text>
                         </View>
                     </TouchableOpacity>
                 </View>
 
-                <View style={tailwind("mt-5")}>
-                    <TouchableOpacity style={styles.submitButton}>
+                <View style={tailwind("mt-8")}>
+                    <TouchableOpacity style={styles.submitButton} onPress={() => navigation.push("Success")}>
                         <Text style={styles.buttonText2}>Submit application</Text>
                     </TouchableOpacity>
                 </View>
-
-                <View style={tailwind("mt-36")}></View>
-                {/* {image && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />} */}
             </ScrollView>
         </>
     );
@@ -312,9 +309,17 @@ const styles = StyleSheet.create({
         fontFamily: "Poppins-Normal",
     },
 
+    content: {
+        fontFamily: "Poppins-Normal"
+    },
+
+    title: {
+        fontFamily: "Poppins-Bold",
+    },
+
     headerImage: {
         width: "100%",
-        height: 250,
+        height: 200,
     },
 
     headerContainer: {
@@ -349,6 +354,7 @@ const styles = StyleSheet.create({
         fontFamily: "Poppins-Bold",
         color: "white",
         textAlign: "center",
+        fontSize: 17,
     },
 
     button: {
@@ -380,7 +386,8 @@ const styles = StyleSheet.create({
     },
 
     submitButton: {
-        borderRadius: 20,
+        borderRadius: 14,
+        marginTop: 8,
         paddingTop: 17,
         paddingBottom: 17,
         shadowColor: "rgba(0, 0, 0, 0.1)",
