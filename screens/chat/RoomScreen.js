@@ -1,12 +1,13 @@
 import React, { useEffect, useState, Fragment } from "react";
 import { StyleSheet, View, Text, Platform } from "react-native";
-import { GiftedChat, Bubble, Send, SystemMessage, Time } from 'react-native-gifted-chat';
+import { GiftedChat, Bubble, Send, SystemMessage, Time, InputToolbar } from 'react-native-gifted-chat';
 import firebase from "../../database/firebaseDB";
 import Filter from "bad-words";
 import { IconButton } from "react-native-paper";
 import Loading from "../../components/Loading";
 import ChatHeader from "./components/ChatHeader";
-
+import { Icon } from "react-native-elements";
+import tailwind from "tailwind-rn";
 
 function RoomScreen({ route, navigation }) {
     const [messages, setMessage] = useState([]);
@@ -79,18 +80,20 @@ function RoomScreen({ route, navigation }) {
                 {...props}
                 wrapperStyle={{
                     left: {
-                        backgroundColor: "grey"
+                        backgroundColor: "#ECEEF1"
                     },
                     right: {
-                        backgroundColor: "#fa3c4c"
+                        backgroundColor: "#FB724C"
                     }
                 }}
                 textStyle={{
                     left: {
-                        color: "#fff"
+                        color: "#000",
+                        fontFamily: "Poppins-Normal"
                     },
                     right: {
-                        color: "#fff"
+                        color: "#fff",
+                        fontFamily: "Poppins-Normal"
                     }
                 }}
             />
@@ -103,10 +106,12 @@ function RoomScreen({ route, navigation }) {
                 {...props}
                 timeTextStyle={{
                     left: {
-                        color: "#fff"
+                        color: "#fff",
+                        fontFamily: "Poppins-Normal"
                     },
                     right: {
-                        color: "#fff"
+                        color: "#fff",
+                        fontFamily: "Poppins-Normal"
                     },
                 }}
             />
@@ -122,6 +127,13 @@ function RoomScreen({ route, navigation }) {
             </Send>
         );
     };
+
+    function renderInputToolbar(props) {
+        return (
+            <InputToolbar {...props} textInputStyle={{ fontFamily: "Poppins-Normal", fontSize: 14 }} placeholder="Type your message here..."
+            />
+        )
+    }
 
     function scrollToBottomComponent() {
         return (
@@ -148,11 +160,12 @@ function RoomScreen({ route, navigation }) {
                 messages={messages}
                 onSend={handleSend}
                 user={{ _id: username }}
-                placeholder="Type your message here..."
                 alwaysShowSend
                 showUserAvatar
                 scrollToBottom
-                bottomOffset={34}
+                bottomOffset={77}
+                renderActions={() => <Icon size={23} name="add-circle" style={tailwind("mb-2.5 ml-2")} />}
+                renderInputToolbar={renderInputToolbar}
                 renderBubble={renderBubble}
                 renderLoading={Loading}
                 renderSend={renderSend}
