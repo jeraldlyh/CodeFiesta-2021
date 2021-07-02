@@ -12,7 +12,7 @@ function Options(props) {
             { props.name === "News" ? <Image source={require("../../../assets/icons/news.png")} style={styles.image} /> : null }
             { props.name === "Community" ? <Image source={require("../../../assets/icons/community.png")} style={styles.community} /> : null }
 
-            <Text style={[tailwind("mt-1 font-semibold"), styles.text]}>{props.name}</Text>
+            <Text style={[tailwind("mt-1"), styles.text]}>{props.name}</Text>
         </View>
     );
 }
@@ -37,7 +37,8 @@ const styles = StyleSheet.create({
         width: 29,
     },
     text: {
-        color: '#2b2b2b'
+        color: '#2b2b2b',
+        fontFamily:'Poppins-SemiBold'
     }
 });
 
