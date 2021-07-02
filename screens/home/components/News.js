@@ -8,8 +8,8 @@ function News(props) {
         <View style = {styles.container}>
             <Image source = {require("../../../assets/news/COVID-19.jpeg")} style = {styles.image} />
             <View style = {[tailwind("w-full"), {width:200,marginLeft:20}]}>
-                <Text style = {{fontFamily:'Poppins-SemiBold',fontSize:11}}>MOH, expert counter claims by doctors on need to halt COVID-19 jabs for schoolboys</Text>
-                <Text style = {{fontFamily:'Poppins-Normal', fontSize:10, color:'#AEAEBF'}}>2 hours ago</Text>
+                <Text style = {{fontFamily:'Poppins-SemiBold',fontSize:13}}>MOH, expert counter claims by doctors on need to halt COVID-19 jabs for schoolboys</Text>
+                <Text style = {{fontFamily:'Poppins-Normal', fontSize:11, color:'#AEAEBF'}}>2 hours ago</Text>
             </View>
         </View>
     );

@@ -33,8 +33,8 @@ const styles = StyleSheet.create({
         width: 25,
     },
     community: {
-        height: 25,
-        width: 32,
+        height: 22,
+        width: 29,
     },
     text: {
         color: '#2b2b2b'

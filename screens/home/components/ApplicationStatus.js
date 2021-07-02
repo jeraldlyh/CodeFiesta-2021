@@ -10,7 +10,7 @@ function ApplicationStatus(props) {
             />
             <View style={styles.details}>
                 <View style = {styles.nameDate}>
-                    <Text style = {{fontFamily:'Poppins-Normal',fontSize:17,color:'white'}}>{props.name}</Text>
+                    <Text style = {{fontFamily:'Poppins-SemiBold',fontSize:17,color:'white'}}>{props.name}</Text>
                     <Text style = {{fontFamily:'Poppins-Normal',fontSize:10,color:'white'}}>{props.date}</Text>
                 </View>
                 <Text style = {{fontFamily:'Poppins-Normal',fontSize:12,color:'white'}}>Status: {props.status}</Text>

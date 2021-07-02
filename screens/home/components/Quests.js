@@ -28,11 +28,11 @@ const styles = StyleSheet.create({
     },
     header:{
         fontFamily:'Poppins-SemiBold',
-        fontSize:11
+        fontSize:13
     },
     time:{
         fontFamily:'Poppins-Normal',
-        fontSize:10,
+        fontSize:11,
         color:'#AEAEBF'
     }
 

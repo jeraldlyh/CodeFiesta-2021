@@ -13,13 +13,13 @@ function HomeScreenUpdated(props) {
         <ScrollView contentContainerStyle={[tailwind("items-center w-full"),{backgroundColor:'#FCFCFC'}]}>
             <View style={styles.headerContainer}>
                 <Image
-                    source={require("../../assets/home/headerImage.jpg")}
+                    source={require("../../assets/home/headerImage.png")}
                     style={styles.headerImage}
                 />
                 <Title fontSize={24} style={styles.headerTitle} />
             </View>
 
-            <View style={styles.guidingNav}>
+            <View style={[styles.guidingNav, tailwind("-mt-14")]}>
                 <Text style={{ fontFamily: "Poppins-Bold", fontSize: 18 }}>
                     What do you need?
                 </Text>
@@ -31,7 +31,7 @@ function HomeScreenUpdated(props) {
                     <Options name = "News"/>
                     <Options name = "Community"/>
                 </View>
-                <View style={styles.applicationStatus}>
+                <View style={[styles.applicationStatus, tailwind("mt-12")]}>
                     <View style={styles.applicationHeader}>
                         <Text
                             style={{ fontFamily: "Poppins-Bold", fontSize: 18 }}
@@ -66,7 +66,7 @@ function HomeScreenUpdated(props) {
                         <Text
                             style={{ fontFamily: "Poppins-Bold", fontSize: 18 }}
                         >
-                            Today's Reads
+                            Today's reads
                         </Text>
                         <Text
                             style={{
@@ -89,7 +89,7 @@ function HomeScreenUpdated(props) {
                         <Text
                             style={{ fontFamily: "Poppins-Bold", fontSize: 18 }}
                         >
-                            Daily Quests
+                            Daily quests
                         </Text>
                         <Text
                             style={{
@@ -114,9 +114,8 @@ function HomeScreenUpdated(props) {
 
 const styles = StyleSheet.create({
     headerImage: {
-        borderRadius: 24,
         width: "100%",
-        height: 200,
+        height: 140,
     },
     headerContainer: {
         width: "100%",
@@ -125,15 +124,14 @@ const styles = StyleSheet.create({
     headerTitle: {
         position: "absolute",
         left: 25,
-        bottom: 25,
+        bottom: 85,
     },
     guidingNav: {
         width: "100%",
         padding: 35,
-        marginTop: 10,
     },
     navOptions: {
-        marginTop: 20,
+        marginTop: 24,
         flexDirection: "row",
         justifyContent: "space-between",
     },
