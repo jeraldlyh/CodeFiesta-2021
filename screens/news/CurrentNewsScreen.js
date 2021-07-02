@@ -1,54 +1,75 @@
 import React from 'react';
-import { View,Image, StyleSheet,Text,ScrollView, Touchable } from 'react-native';
+import { TouchableOpacity, View, Image, StyleSheet,Text,ScrollView, Touchable } from 'react-native';
 import tailwind from "tailwind-rn";
 import { TouchableHighlight } from 'react-native-gesture-handler';
 import Button from '../../components/Button';
 import { useNavigation } from '@react-navigation/native';
+import { Icon } from 'react-native-elements';
 
 
 function CurrentNewsScreen(props) {
     const navigation = useNavigation();
     return (
-        <View style = {styles.container}>
-        <ScrollView >
-            <Image source={require("../../assets/news/backgroundImage.png")} style={styles.backgroundImage} />
-            <View style={{marginTop:250,right:30}}>
-                <Text style={[styles.header, tailwind("text-4xl text-left ml-16 mb-2")]}>COVID-19 news</Text>
+        <>
+            <View style={tailwind("self-start top-10 ml-6 z-10")}>
+                <TouchableOpacity
+                        style={tailwind("mt-1 bg-gray-300 w-14 h-14 rounded-full absolute opacity-50 items-center flex justify-center")}
+                        onPress={() => navigation.goBack()}
+                >
+                    <Icon
+                        name='arrow-back-outline'
+                        type='ionicon'
+                        color='#000'
+                    />
+                </TouchableOpacity>
             </View>
-            <View style = {styles.articleContainer}>
-                <View style = {styles.singleArticle}>
-                    <Text style = {styles.articleHeader}>13 new community COVID-19 cases in Singapore, including 6 unlinked; 4 imported cases.</Text>
-                    <Text style = {styles.articleTime}>2 hours ago</Text>
-                    <Text style = {styles.articleContent}>There were 17 new coronavirus cases confirmed as at Saturday noon (June 26), taking Singapore's total to 62,530. Of these cases, 13 are in the community and ...</Text>
-                    <TouchableHighlight style = {styles.articleButton}><Text style={{ color: "#FBFBFB",fontSize:10, }}>Go to article</Text></TouchableHighlight>
+            <ScrollView >
+                <Image source={require("../../assets/news/backgroundImage.png")} style={styles.backgroundImage} />
+                <View style={{marginTop:180,left:30}}>
+                    <Text style={[tailwind('text-white font-extrabold text-xl pr-24'), {bottom: 60}]}>13 new community COVID-19 cases in Singapore, including 6 unlinked; 4 imported cases</Text>
+                    <View style={styles.details} />
+                    <Text style = {{fontFamily:'Poppins-Normal',fontSize:14,color:'white', position:'aboslute', bottom: 37, left:16}}>2 hours ago</Text>
                 </View>
-                <View style = {styles.singleArticle}>
-                    <Text style = {styles.articleHeader}>Great World City mall and Ikea, Courts outlets in Tampines among places visited by Covid cases while infectious</Text>
-                    <Text style = {styles.articleTime}>4 hours ago</Text>
-                    <Text style = {styles.articleContent}>In its second update on the coronavirus situation here, the Ministry of Health (MOH) said on Friday (June 25) that the infectious persons had been to these places...</Text>
-                    <TouchableHighlight style = {styles.articleButton}><Text style={{ color: "#FBFBFB",fontSize:10, }}>Go to article</Text></TouchableHighlight>
-                </View>
-                <View style = {styles.singleArticle}>
-                    <Text style = {styles.articleHeader}>Mandatory Covid-19 test for residents of Tiong Bahru block after 13 cases found in 3 households</Text>
-                    <Text style = {styles.articleTime}>18 hours ago</Text>
-                    <Text style = {styles.articleContent}>Mandatory testing will be conducted for those living at Block 66 Eng Watt Street, at the pavilion of 2D Boon Tiong Road on June 26 and 27 between 9am and ...</Text>
-                    <TouchableHighlight style = {styles.articleButton}><Text style={{ color: "#FBFBFB",fontSize:10, }}>Go to article</Text></TouchableHighlight>
+                <View style = {styles.articleContainer}>
+                    <Text style={tailwind("text-base mt-1")}>
+                    <Text style={tailwind("font-semibold")}>SINGAPORE -</Text> There were 17 new coronavirus cases confirmed as at Saturday noon (June 26), taking Singapore's total to 62,530. Of these cases, 13 are in the community and four are imported. 
+                    </Text>
+                    <Text style={tailwind("text-base mt-5")}>
+                        The 13 community cases include six unlinked cases. The remaining seven are linked to existing cases.
+                    </Text>
+                    <Text style={tailwind("text-base mt-5")}>
+                        Of the linked cases, four were already quarantined, while the other three were detected through surveillance. The four imported cases were placed on stay-home notices on arrival in Singapore, said the Ministry of Health.
+                    </Text>
+                    <Text style={tailwind("text-base mt-5")}>
+                        No new cases were reported in the migrant worker dormitories.
+                    </Text>
+                    <Text style={tailwind("text-base mt-5")}>
+                        Singapore has had 35 deaths from Covid-19 complications, while 15 who tested positive have died of other causes.
+                    </Text>
+                    <Text style={tailwind("text-base mt-5")}>
+                        More details will be announced on Saturday night.
+                    </Text>
+                    <Image source={require("../../assets/news/stats.png")} style={tailwind("w-full h-80 mt-9")} />
                 </View>
                 
-
-            </View>
-            
-            
-        </ScrollView>
-            <View style = {styles.backButton}>
-                <Button onPress = {()=>navigation.goBack()}text="Back" backgroundColor="#FE904B" textColor="#FFF" />
-            </View>
-        </View>
+                
+            </ScrollView>
+        </>
         
     );
 }
 
 const styles = StyleSheet.create({
+    details: {
+        position: "absolute",
+        bottom: 30,
+        height:32,
+        width:115,
+        backgroundColor: "#7d7d7d",
+        opacity: 0.37,
+        borderRadius: 12,
+        padding:10
+    },
     container:{
         flex:1,
         alignItems:'stretch',
@@ -56,61 +77,18 @@ const styles = StyleSheet.create({
     },
     articleContainer:{
         borderRadius:24,
-        borderTopWidth:0.5,
-        borderLeftWidth:0.5,
-        borderRightWidth:0.5,
         width:'100%',
-        alignItems:'center',
+        height: '100%',
+        alignItems:'flex-start',
         backgroundColor:'white',
         padding:30,
         paddingBottom:100
     },
-    backButton:{
-        position:'absolute',
-        alignItems:'center',
-        width:'100%',
-        bottom:20,
-    },
-    articleButton:{
-        height:18,
-        alignSelf:'flex-end',
-        alignItems:'center',
-        justifyContent:'center',
-        width:90,
-        borderRadius:7,
-        borderWidth:1,
-        fontFamily:'Poppins-Normal',
-        backgroundColor:'#3D3D3D',
-    },
-    articleTime:{
-        fontSize:10,
-        fontFamily:'Poppins-Normal',
-    },
-    articleContent:{
-        fontSize:10,
-        fontFamily:'Poppins-Normal',
-        marginTop:10,
-    },
     backgroundImage:{
         ...StyleSheet.absoluteFillObject,
-        width:'100%'
-    },
-    header: {
-        fontFamily: "Poppins-Bold",
-        color:'white'
-    },
-    singleArticle:{
         width:'100%',
-        borderWidth:1,
-        borderRadius:14,
-        padding:10,
-        marginTop:20,
-        backgroundColor:'#F8F8F8'
+        height: 'auto',
     },
-    articleHeader:{
-        fontSize:13,
-        fontFamily:'Poppins-Bold'
-    }
 })
 
 

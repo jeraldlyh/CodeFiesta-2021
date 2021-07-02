@@ -16,9 +16,9 @@ function NewsHomeScreen(props) {
 
     return (
         <>
-            <View style={tailwind("self-start top-10 ml-8 z-10")}>
+            <View style={tailwind("self-start top-10 ml-6 z-10")}>
                 <TouchableOpacity
-                        style={tailwind("bg-gray-300 w-14 h-14 rounded-full absolute opacity-50 items-center flex justify-center")}
+                        style={tailwind("bg-gray-300 mt-1 w-14 h-14 rounded-full absolute opacity-50 items-center flex justify-center")}
                         onPress={() => navigation.goBack()}
                 >
                     <Icon
