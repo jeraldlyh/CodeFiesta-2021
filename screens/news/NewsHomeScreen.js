@@ -1,6 +1,5 @@
 import React from 'react';
-import { Image, View, Text, StyleSheet, ScrollView } from 'react-native';
-import Title from "../../components/Title";
+import { Image, View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 import tailwind from "tailwind-rn";
 import CustomCard from '../../components/CustomCard';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -9,13 +8,32 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import { Searchbar } from "react-native-paper";
 import News from "../home/components/News";
 import Tab from "./components/Tab";
+import { Icon } from 'react-native-elements';
 
 
 function NewsHomeScreen(props) {
     const navigation = useNavigation();
 
     return (
-        <ScrollView contentContainerStyle={[tailwind("flex items-center mt-20"),{paddingBottom:100}]} >
+        <>
+            <View style={tailwind("self-start top-10 ml-8 z-10")}>
+                {
+                    props.settingsButton ? 
+                    null
+                    :
+                    <TouchableOpacity
+                        style={tailwind("bg-gray-300 w-14 h-14 rounded-full absolute opacity-75 items-center flex justify-center")}
+                        onPress={() => navigation.goBack()}
+                    >
+                        <Icon
+                            name='arrow-back-outline'
+                            type='ionicon'
+                            color='#000'
+                        />
+                    </TouchableOpacity>
+                }
+            </View>
+            <ScrollView contentContainerStyle={[tailwind("flex items-center mt-20"),{paddingBottom:100}]} >
                 <View style={styles.headerContainer}>
                     <Image
                         source={require("../../assets/news/headerImage.png")}
@@ -25,7 +43,7 @@ function NewsHomeScreen(props) {
                         <Text style={tailwind('text-white font-extrabold text-xl pr-24')}>Mandatory Covid-19 test for Tiong Bahru residents after 13 cases found in 3 households</Text>
                     </View>
                     <View style={styles.details} />
-                    <Text style = {{fontFamily:'Poppins-Normal',fontSize:14,color:'white', position:'aboslute', bottom: 50, left: 47,}}>12 minutes ago{props.status}</Text>
+                    <Text style = {{fontFamily:'Poppins-Normal',fontSize:14,color:'white', position:'aboslute', bottom: 50, left: 47,}}>12 minutes ago</Text>
                     <View style={[tailwind("flex flex-row items-center"), styles.readNow]}>
                         <Text style={tailwind("font-semibold text-white")}>Read now</Text>
                         <Ionicons name="chevron-forward-outline" size={20} color="white" />
@@ -59,13 +77,14 @@ function NewsHomeScreen(props) {
                     <News />
                     <News />
                 </ScrollView>
-        </ScrollView>
+            </ScrollView>
+        </>
     );
 }
 
 const styles = StyleSheet.create({
     headerImage: {
-        borderRadius: 24,
+        borderRadius: 0,
         width: "100%",
         height: 250,
     },
@@ -96,9 +115,6 @@ const styles = StyleSheet.create({
         left: 30,
         bottom: 70,
     },
-    container:{
-        flex:1
-    },
     header: {
         fontFamily: "Poppins-Bold"
     },
@@ -114,23 +130,6 @@ const styles = StyleSheet.create({
     searchBar: {
         fontFamily: "Poppins-Normal",
     },
-    tabStyle: {},
-  scrollStyle: {
-    backgroundColor: 'white',
-    paddingLeft: 65,
-    paddingRight: 65,
-    // justifyContent: 'center',
-  },
-  tabBarTextStyle: {
-    fontSize: 14,
-    fontWeight: 'normal',
-  },
-  underlineStyle: {
-    height: 3,
-    backgroundColor: 'red',
-    borderRadius: 3,
-    width: 15,
-  },
 })
 
 

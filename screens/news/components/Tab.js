@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     },
     inactiveText:{
         fontSize:20,
-        color: '#aaaaaa',
+        color: '#bbbbbb',
         fontWeight: 'bold',
         paddingLeft:17,
         paddingRight:17,
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     }, 
     inactive:{
         borderBottomWidth: 2,
-        borderColor: '#aaaaaa',
+        borderColor: '#bbbbbb',
     
     },
 })
