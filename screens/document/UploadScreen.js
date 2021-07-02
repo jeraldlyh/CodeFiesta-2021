@@ -93,11 +93,7 @@ function UploadScreen({ navigation }) {
                 />
 
                 <View style={global.container}>
-<<<<<<< Updated upstream
-                    <View style = {styles.bodyContainer} />
-=======
                     <View style={styles.bodyContainer}></View>
->>>>>>> Stashed changes
                 </View>
             </View>
 

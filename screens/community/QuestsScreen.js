@@ -1,27 +1,38 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ScrollView, StyleSheet, View, Text } from "react-native";
 import QuestCard from "./components/QuestCard";
 import Layout from '../../components/Layout';
 import tailwind from "tailwind-rn";
+import { getAvailableQuests } from "../../database/actions/Community";
 
-function QuestsScreen(props) {
+function QuestsScreen() {
+    const [quests, setQuests] = useState([]);
+
+    useEffect(() => {
+        getAvailableQuests().then(response => setQuests(response))
+    }, []);
+
     return (
         <Layout>
             <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
-                <Text style={styles.headerText}>Your quests (2)</Text>
-                <QuestCard
-                    name="Chinatown"
-                    time="13 hours left"
-                    color="#C8F2FE"
-                    points="50"
-                />
-
-                <QuestCard
-                    name="Merlion"
-                    time="13 hours left"
-                    color="#68C8C6"
-                    points="100"
-                />
+                <Text style={styles.headerText}>Your quests ({quests.length})</Text>
+                {
+                    quests
+                        ? quests.map((quest, index) => {
+                            return (
+                                <QuestCard
+                                    key={index}
+                                    title={quest.title}
+                                    description={quest.description}
+                                    time={quest.createdAt}
+                                    color={quest.color}
+                                    points={quest.points}
+                                    image={quest.image}
+                                />
+                            )
+                        })
+                        : null
+                }
                 <View style={tailwind("h-28")} />
             </ScrollView>
         </Layout>
@@ -32,7 +43,7 @@ const styles = StyleSheet.create({
     container: {
         width: "100%",
         padding: 40,
-        paddingTop:70,
+        paddingTop: 70,
     },
     headerText: {
         fontFamily: "Poppins-Bold",
