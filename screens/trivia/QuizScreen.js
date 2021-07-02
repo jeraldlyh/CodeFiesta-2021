@@ -105,12 +105,13 @@ function QuizScreen({ navigation }) {
                             </CountdownCircleTimer>
                         </View>
 
-                        <View style={tailwind("flex flex-col items-center justify-center w-full")}>
+                        <View style={tailwind("flex flex-col items-center justify-center w-96")}>
                             <View style={tailwind("h-3 mt-5")} />
                             {
                                 _.toArray(question.options).map((question, index) => {
+                                    const buttonHeight = question.length > 39 ? 20 : 16
                                     return (
-                                        <Button key={index} onPress={() => setActiveIndex(index + 1)} text={question} backgroundColor={isActive(index + 1) ? "#FE904B" : "#e3e3e3"} textColor={isActive(index + 1) ? "#FFF" : "#000"} />
+                                        <Button key={index} onPress={() => setActiveIndex(index + 1)} text={question} backgroundColor={isActive(index + 1) ? "#FE904B" : "#e3e3e3"} textColor={isActive(index + 1) ? "#FFF" : "#000"}  height={buttonHeight} />
                                     )
                                 })
                             }
