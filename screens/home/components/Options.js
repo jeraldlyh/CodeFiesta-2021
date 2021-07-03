@@ -37,7 +37,7 @@ function Options(props) {
 
 const styles = StyleSheet.create({
     container: {
-        width: 160,
+        width: '46%',
         height: 80,
         borderRadius: 14,
         backgroundColor: 'white',

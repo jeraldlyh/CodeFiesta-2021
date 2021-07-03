@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
     map: {
         marginTop: 15,
         alignSelf: "center",
-        height: 520,
+        height: '65%',
         width: 350,
         borderRadius: 14,
     },

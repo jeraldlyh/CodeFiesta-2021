@@ -8,7 +8,7 @@ import Header from '../../components/Header';
 function SettingsScreen() {
     return (
         <Layout>
-            <ScrollView>
+            <ScrollView showsVerticalScrollIndicator={false}>
                 <Header />
                 <View style={tailwind("mt-2 self-start")}>
                     <Text style={[styles.header, tailwind("text-3xl")]}>Settings</Text>
@@ -32,7 +32,7 @@ function SettingsScreen() {
                     <Button text="Report a problem" icon="alert-circle-outline" />
                 </View>
 
-                <View style={[styles.container, tailwind("mt-3")]}>
+                <View style={[styles.container, tailwind("mt-3 mb-10")]}>
                     <Button text="Logout" icon="exit-outline" />
                 </View>
             </ScrollView>
@@ -42,13 +42,15 @@ function SettingsScreen() {
 
 const styles = StyleSheet.create({
     header: {
-        fontFamily: "Poppins-Bold"
+        fontFamily: "Poppins-Bold",
+        marginLeft: 3,
     },
     subHeader: {
         fontFamily: "Poppins-SemiBold",
         marginBottom: 10,
         marginTop: 17,
-        color: '#9999AA'
+        color: '#9999AA',
+        marginLeft: 3,
     },
     container: {
         width: "80%"

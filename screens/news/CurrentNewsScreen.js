@@ -49,7 +49,7 @@ function CurrentNewsScreen(props) {
                     <Text style={tailwind("text-base mt-5")}>
                         More details will be announced on Saturday night.
                     </Text>
-                    <Image source={require("../../assets/news/stats.png")} style={tailwind("w-full h-80 mt-10")} />
+                    <Image source={require("../../assets/news/stats.png")} style={tailwind("w-full h-72 mt-10")} />
                 </View>
                 
                 

@@ -5,7 +5,7 @@ import Button from "../../components/Button";
 
 function SuccessScreen({ navigation }) {
     return (
-        <ScrollView contentContainerStyle={[tailwind("items-center w-full pb-14")]}>
+        <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={[tailwind("items-center w-full pb-10")]}>
             <View style={styles.headerContainer}>
                 <Image
                     source={require("../../assets/visa/entre.jpg")}

@@ -94,7 +94,7 @@ function QuizScreen({ navigation }) {
                     question
                         ?
                         <Fragment>
-                            <Text style={[styles.title, tailwind("text-2xl mb-4")]}>{question.question}</Text>
+                            <Text style={[styles.title, tailwind("mx-5 text-2xl mb-4")]}>{question.question}</Text>
                             <View>
                                 <CountdownCircleTimer
                                     strokeWidth={20}
@@ -160,7 +160,7 @@ const styles = StyleSheet.create({
         shadowRadius: 15,
         shadowOffset: { width: 1, height: 15 },
         backgroundColor: '#FE904B',
-        width: 100,
+        width: 'auto',
     },
     buttonText: {
         fontFamily: "Poppins-SemiBold",

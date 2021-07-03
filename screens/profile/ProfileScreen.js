@@ -1,12 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
-import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 import tailwind from "tailwind-rn";
 import Layout from "../../components/Layout";
 import { getUserProfile } from "../../database/actions/User";
 import moment from "moment";
 import { AuthContext } from "../../provider/AuthProvider";
 import Loading from "../../components/Loading";
-import { Fragment } from "react";
 
 function ProfileScreen({ route }) {
     const { username } = route.params ? route.params.username : useContext(AuthContext);
@@ -18,7 +17,7 @@ function ProfileScreen({ route }) {
             setProfile(response)
         });
     }, []);
- 
+
     const formatJoinedDate = (date) => {
         return moment(date).fromNow();
     };
@@ -27,8 +26,8 @@ function ProfileScreen({ route }) {
         <Layout settingsButton={true}>
             {
                 profile ?
-                    <Fragment>
-                        <View style={tailwind("-mt-8 mb-8 ml-8 self-start")}>
+                    <ScrollView style={tailwind("w-full")} showsVerticalScrollIndicator={false}>
+                        <View style={tailwind("mb-8 ml-8 self-start")}>
                             <Text style={[styles.header, tailwind("text-3xl")]}>Profile</Text>
                         </View>
                         <View style={tailwind("flex flex-col items-center justify-center")}>
@@ -74,7 +73,7 @@ function ProfileScreen({ route }) {
                             </View>
                         </View>
 
-                        <View style={[tailwind("mt-7 mr-6 ml-6"), { width: 350 }]}>
+                        <View style={[tailwind("mt-7 mr-6 mb-12 ml-6"), { width: 350 }]}>
                             <Text style={[styles.subHeader]}>Interests</Text>
                             <View style={styles.container}>
                                 <View style={tailwind("flex flex-row flex-wrap")}>
@@ -92,7 +91,7 @@ function ProfileScreen({ route }) {
                                 </View>
                             </View>
                         </View>
-                    </Fragment>
+                    </ScrollView>
                     : <Loading />
             }
         </Layout>
