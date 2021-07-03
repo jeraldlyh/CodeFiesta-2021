@@ -83,15 +83,17 @@ function CommunityScreen() {
         isLoading
             ? <Loading />
             : <Layout>
-                <View style={tailwind("mt-20 items-center flex flex-row w-full pl-1 pr-2")}>
-                    <Text style={[styles.header, tailwind("text-3xl text-left")]}>
-                        My Community
+                <View style={tailwind("ml-10 mt-20 items-center justify-between flex flex-row w-full pl-1 pr-10")}>
+                    <Text style={[styles.header, tailwind("ml-2 text-3xl flex flex-row font-bold text-left")]}>
+                        Community
                     </Text>
-                    <QuestButton />
-                    <OnlineButton online={online} onPress={toggleOnline} />
+                    <View style={tailwind("flex flex-row ml-10")}>
+                        <OnlineButton online={online} onPress={toggleOnline} />
+                        <QuestButton />
+                    </View>
                 </View>
                 <Searchbar
-                    style={tailwind("self-center h-11 w-5/6 mx-3 mt-5 mb-3 rounded-xl opacity-80")}
+                    style={tailwind("self-center h-11 w-11/12 mx-3 mt-5 mb-3 rounded-xl opacity-80")}
                     inputStyle={styles.searchBar}
                     placeholder="Search"
                 />

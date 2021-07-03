@@ -16,11 +16,7 @@ function OnlineButton(props) {
                         : "flash-off-outline"
                 }
                 type="ionicon"
-                color={
-                    props.online
-                        ? "#F7F7F7"
-                        : "#000"
-                }
+                color="#000"
             />
             <Text style={
                 props.online
@@ -42,7 +38,7 @@ const styles = StyleSheet.create({
     onlineText: {
         fontSize: 8,
         fontFamily: "Poppins-Bold",
-        color: "#F7F7F7",
+        color: "#000",
     },
     button: {
         flexDirection: "column",
@@ -50,9 +46,14 @@ const styles = StyleSheet.create({
         width: 51,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "#FE904B",
+        backgroundColor: "white",
         borderRadius: 14,
         fontSize: 20,
+        shadowColor: 'rgba(0, 0, 0, 0.1)',
+        shadowOpacity: 0.4,
+        shadowRadius: 5,
+        shadowOffset: { width: 1, height: 7 },
+        marginRight: 8
     },
 });
 
