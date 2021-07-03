@@ -108,16 +108,52 @@ function UploadScreen({ navigation }) {
                     <Text style={[styles.title, tailwind("text-2xl text-left")]}>Documents required</Text>
                     <Text style={[styles.content, tailwind("text-lg text-gray-500 mt-1 mb-2")]}>for Entre Pass</Text>
 
-                    <Text style={[styles.subText1, tailwind("mt-3")]}>
-                        • Personal particulars page of your passport. {"\n"}• Past
-                        employment testimonials in English or resume. {"\n"}• For
-                        businesses registered with ACRA, upload company’s latest
-                        business profile or instant information from Bizfile. {"\n"}
-                        • A business plan in English, maximum 10 pages.
-                    </Text>
-                    <Text style={[styles.subText2]}>
-                        • Other documents that will support your EntrePass
-                        application
+                    {
+                        image ?
+                        <Text style={[styles.subText1Green, tailwind("mt-3")]}>
+                            • Personal particulars page of your passport.
+                        </Text>
+                        :
+                        <Text style={[styles.subText1Red, tailwind("mt-3")]}>
+                            • Personal particulars page of your passport.
+                        </Text>
+                    }
+
+                    {
+                        image1 ?
+                        <Text style={[styles.subText1Green]}>
+                            • Past employment testimonials in English or resume.
+                        </Text>
+                        :
+                        <Text style={[styles.subText1Red]}>
+                            • Past employment testimonials in English or resume.
+                        </Text>
+                    }
+
+                    {
+                        image2 ?
+                        <Text style={[styles.subText1Green]}>
+                            • For businesses registered with ACRA, upload company’s latest business profile or instant information from Bizfile.
+                        </Text>
+                        :
+                        <Text style={[styles.subText1Red]}>
+                            • For businesses registered with ACRA, upload company’s latest business profile or instant information from Bizfile.
+                        </Text>
+                    }
+
+                    {
+                        image3 ?
+                        <Text style={[styles.subText1Green]}>
+                            • A business plan in English, maximum 10 pages.
+                        </Text>
+                        :
+                        <Text style={[styles.subText1Red]}>
+                            • A business plan in English, maximum 10 pages.
+                        </Text>
+                    }
+
+                    <Text style={styles.subText2}>
+                        • Other documents that will support your EntrePass application.
                     </Text>
                 </View>
 
@@ -132,31 +168,33 @@ function UploadScreen({ navigation }) {
                                 onPress={() => pickImage(1)}
                             >
                                 {image == null ? (
-                                    <Image
-                                        source={require("../../assets/work_permit/plus.png")}
-                                        style={styles.icon}
-                                    />
+                                    <>
+                                        <Image
+                                            source={require("../../assets/work_permit/plus.png")}
+                                            style={styles.icon}
+                                        />
+                                        <Text style={styles.buttonText}>
+                                            Passport Personal Particulars
+                                        </Text>
+                                    </>
                                 ) : (
-                                    <Image
-                                        source={{ uri: image }}
-                                        style={styles.image}
-                                    />
+                                    <>
+                                        <Image
+                                            source={{ uri: image }}
+                                            style={styles.image}
+                                        />
+                                        <View style={[tailwind("bg-black opacity-25"), styles.image]} />
+                                        <Image
+                                            source={require("../../assets/work_permit/pencil.png")}
+                                            style={styles.icon}
+                                        />
+                                        <Text style={styles.buttonTextWhite}>
+                                            Passport Personal Particulars
+                                        </Text>
+                                    </>
                                 )}
 
-                                {/* <Image
-                                    source={require("../../assets/work_permit/plus.png")}
-                                    style={styles.icon}
-                                /> */}
-                                {/* {image && (
-                                    <Image
-                                        source={{ uri: image }}
-                                        style={styles.image}
-                                    />
-                                )} */}
-
-                                <Text style={styles.buttonText}>
-                                    Passport Personal Particulars{" "}
-                                </Text>
+                                
                             </TouchableOpacity>
                         </View>
                         <View style={tailwind("w-8")} />
@@ -169,20 +207,33 @@ function UploadScreen({ navigation }) {
                                 onPress={() => pickImage(2)}
                             >
                                 {image1 == null ? (
-                                    <Image
-                                        source={require("../../assets/work_permit/plus.png")}
-                                        style={styles.icon}
-                                    />
+                                    <>
+                                        <Image
+                                            source={require("../../assets/work_permit/plus.png")}
+                                            style={styles.icon}
+                                        />
+                                        <Text style={styles.buttonText}>
+                                            Past Employment Testimonials
+                                        </Text>
+                                    </>
                                 ) : (
-                                    <Image
-                                        source={{ uri: image1 }}
-                                        style={styles.image}
-                                    />
+                                    <>
+                                        <Image
+                                            source={{ uri: image1 }}
+                                            style={styles.image}
+                                        />
+                                        <View style={[tailwind("bg-black opacity-25"), styles.image]} />
+                                        <Image
+                                            source={require("../../assets/work_permit/pencil.png")}
+                                            style={styles.icon}
+                                        />
+                                        <Text style={styles.buttonTextWhite}>
+                                            Past Employment Testimonials
+                                        </Text>
+                                    </>
                                 )}
 
-                                <Text style={styles.buttonText}>
-                                    Past Employment Testimonials
-                                </Text>
+                                
                             </TouchableOpacity>
                         </View>
                     </View>
@@ -197,20 +248,33 @@ function UploadScreen({ navigation }) {
                                 onPress={() => pickImage(3)}
                             >
                                 {image2 == null ? (
-                                    <Image
-                                        source={require("../../assets/work_permit/plus.png")}
-                                        style={styles.icon}
-                                    />
+                                    <>
+                                        <Image
+                                            source={require("../../assets/work_permit/plus.png")}
+                                            style={styles.icon}
+                                        />
+                                        <Text style={styles.buttonText}>
+                                            Company's Business Profile
+                                        </Text>
+                                    </>
                                 ) : (
-                                    <Image
-                                        source={{ uri: image2 }}
-                                        style={styles.image}
-                                    />
+                                    <>
+                                        <Image
+                                            source={{ uri: image2 }}
+                                            style={styles.image}
+                                        />
+                                        <View style={[tailwind("bg-black opacity-25"), styles.image]} />
+                                        <Image
+                                            source={require("../../assets/work_permit/pencil.png")}
+                                            style={styles.icon}
+                                        />
+                                        <Text style={styles.buttonTextWhite}>
+                                            Company's Business Profile
+                                        </Text>
+                                    </>
                                 )}
 
-                                <Text style={styles.buttonText}>
-                                    Company's Business Profile
-                                </Text>
+                                
                             </TouchableOpacity>
                         </View>
                         <View style={tailwind("w-8")} />
@@ -220,23 +284,36 @@ function UploadScreen({ navigation }) {
                                     styles.button,
                                     tailwind("flex items-center"),
                                 ]}
-                                onPress={() => pickImage(3)}
+                                onPress={() => pickImage(4)}
                             >
                                 {image3 == null ? (
-                                    <Image
-                                        source={require("../../assets/work_permit/plus.png")}
-                                        style={styles.icon}
-                                    />
+                                    <>
+                                        <Image
+                                            source={require("../../assets/work_permit/plus.png")}
+                                            style={styles.icon}
+                                        />
+                                        <Text style={styles.buttonText}>
+                                            Your Business Plan
+                                        </Text>
+                                    </>
                                 ) : (
-                                    <Image
-                                        source={{ uri: image3 }}
-                                        style={styles.image}
-                                    />
+                                    <>
+                                        <Image
+                                            source={{ uri: image3 }}
+                                            style={styles.image}
+                                        />
+                                        <View style={[tailwind("bg-black opacity-25"), styles.image]} />
+                                        <Image
+                                            source={require("../../assets/work_permit/pencil.png")}
+                                            style={styles.icon}
+                                        />
+                                        <Text style={styles.buttonTextWhite}>
+                                            Your Business Plan
+                                        </Text>
+                                    </>
                                 )}
 
-                                <Text style={styles.buttonText}>
-                                    Your Business Plan
-                                </Text>
+                                
                             </TouchableOpacity>
                         </View>
                     </View>
@@ -262,12 +339,22 @@ function UploadScreen({ navigation }) {
                         </View>
                     </TouchableOpacity>
                 </View>
-
-                <View style={tailwind("mt-8")}>
-                    <TouchableOpacity style={styles.submitButton} onPress={() => navigation.push("Success")}>
-                        <Text style={styles.buttonText2}>Submit application</Text>
-                    </TouchableOpacity>
-                </View>
+                
+                {
+                    image && image1 && image2 && image3 ?
+                    <View style={tailwind("mt-8")}>
+                        <TouchableOpacity style={styles.submitButton} onPress={() => navigation.push("Success")}>
+                            <Text style={styles.buttonText2}>Submit application</Text>
+                        </TouchableOpacity>
+                    </View>
+                    :
+                    <>
+                        <View style={[styles.submitButton, tailwind("mt-8 opacity-30")]}>
+                            <Text style={styles.buttonText2}>Submit application</Text>
+                        </View>
+                        <Text style={tailwind("px-10 pt-3 text-red-400")}>Please attach all required documents before submisson. </Text>
+                    </>
+                }
             </ScrollView>
         </>
     );
@@ -288,7 +375,14 @@ const styles = StyleSheet.create({
         fontFamily: "Poppins-Normal",
     },
 
-    subText1: {
+    subText1Green: {
+        color: "#30B12D",
+        fontSize: 14,
+        textAlign: "justify",
+        fontFamily: "Poppins-Normal",
+    },
+
+    subText1Red: {
         color: "#C24A4A",
         fontSize: 14,
         textAlign: "justify",
@@ -343,6 +437,12 @@ const styles = StyleSheet.create({
         textAlign: "center",
     },
 
+    buttonTextWhite: {
+        fontFamily: "Poppins-Normal",
+        color: "white",
+        textAlign: "center",
+    },
+
     buttonText2: {
         fontFamily: "Poppins-Bold",
         color: "white",
@@ -363,6 +463,7 @@ const styles = StyleSheet.create({
         shadowOffset: { width: 5, height: 5 },
         backgroundColor: "#f0f0f0",
         width: 150,
+        height:150,
     },
 
     button2: {
@@ -393,9 +494,12 @@ const styles = StyleSheet.create({
     },
 
     image: {
-        width: 130,
-        height: 180,
+        position: 'absolute',
+        opacity: 0.5,
+        width: 150,
+        height: 150,
         borderRadius: 14,
+        backgroundColor: 'black'
     },
 });
 
