@@ -4,6 +4,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import HomeStack from "../home/HomeStack";
 import ProfileStack from "../profile/ProfileStack";
 import ChatStack from "../chat/ChatStack";
+import NotifStack from "../notifications/NotifStack";
 import { AuthContext } from "../../provider/AuthProvider";
 
 const Tab = createBottomTabNavigator();
@@ -25,7 +26,7 @@ const TabStack = () => {
                         iconName = focused
                             ? 'chatbubble-ellipses'
                             : 'chatbubble-ellipses-outline';
-                    } else if (route.name === 'Notifications') {
+                    } else if (route.name === 'Notifs') {
                         iconName = focused
                             ? 'notifications'
                             : 'notifications-outline';
@@ -48,7 +49,7 @@ const TabStack = () => {
         >
             <Tab.Screen name="Home" component={HomeStack} />
             <Tab.Screen name="Chat" component={ChatStack} />
-            <Tab.Screen name="Notifications" component={ChatStack} />
+            <Tab.Screen name="Notifs" component={NotifStack} />
             <Tab.Screen name="Profile" component={ProfileStack} />
         </Tab.Navigator>
     );

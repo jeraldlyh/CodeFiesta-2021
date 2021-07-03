@@ -9,8 +9,8 @@ function SettingsScreen() {
     return (
         <Layout>
             <Header />
-            <View style={tailwind("mt-3 self-start")}>
-                <Text style={[styles.header, tailwind("text-4xl")]}>Settings</Text>
+            <View style={tailwind("mt-2 self-start")}>
+                <Text style={[styles.header, tailwind("text-3xl")]}>Settings</Text>
             </View>
             <View style={styles.container}>
                 <Text style={styles.subHeader}>Account</Text>
@@ -31,7 +31,7 @@ function SettingsScreen() {
                 <Button text="Report a problem" icon="alert-circle-outline" />
             </View>
 
-            <View style={[styles.container, tailwind("mt-2")]}>
+            <View style={[styles.container, tailwind("mt-3")]}>
                 <Button text="Logout" icon="exit-outline" />
             </View>
         </Layout>
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     subHeader: {
         fontFamily: "Poppins-SemiBold",
         marginBottom: 10,
-        marginTop: 10,
+        marginTop: 17,
         color: '#9999AA'
     },
     container: {
