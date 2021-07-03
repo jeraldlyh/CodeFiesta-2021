@@ -22,7 +22,7 @@ function SettingsScreen() {
                 <Button type="quest" name="Chinatown" time="11 hours ago"/>
                 <Button type="quest" name="Merlion" time="11 hours ago"/>
                 <Button type="application" name="S Pass" status="Approved" time="11 hours ago"/>
-                <Button type="application" name="Entre Pass" status="Submitted" time="1 day ago"/>
+                <Button type="application" name="EntrePass" status="Submitted" time="1 day ago"/>
                 <Button type="application" name="S Pass" status="Submitted" time="2 days ago"/>
             </View>
         </ScrollView>

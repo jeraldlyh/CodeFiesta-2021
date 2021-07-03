@@ -56,7 +56,7 @@ function HomeScreenUpdated(props) {
                     </View>
                     <ScrollView horizontal={true}>
                         <ApplicationStatus
-                            name="Entre Pass"
+                            name="EntrePass"
                             status="Pending"
                             date="29/06/2021"
                         />

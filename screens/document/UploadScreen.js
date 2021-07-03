@@ -106,7 +106,7 @@ function UploadScreen({ navigation }) {
 
                 <View style={[tailwind("ml-12 mr-12 mt-3 mb-8")]}>
                     <Text style={[styles.title, tailwind("text-2xl text-left")]}>Documents required</Text>
-                    <Text style={[styles.content, tailwind("text-lg text-gray-500 mt-1 mb-2")]}>for Entre Pass</Text>
+                    <Text style={[styles.content, tailwind("text-lg text-gray-500 mt-1 mb-2")]}>for EntrePass</Text>
 
                     {
                         image ?

@@ -45,7 +45,7 @@ function VisaTypeScreen({ navigation }) {
                             <View style={tailwind("flex flex-col items-center")}>
                                 <View style={tailwind("flex items-center justify-center")}>
                                     <Image style={tailwind("absolute w-80 h-16 rounded-xl")} source={require("../../assets/visa/entre.jpg")} />
-                                    <Text style={[tailwind("text-white text-lg"), styles.content]}>Entre Pass</Text>
+                                    <Text style={[tailwind("text-white text-lg"), styles.content]}>EntrePass</Text>
                                 </View>
                             </View>
                         </TouchableOpacity>
@@ -54,16 +54,16 @@ function VisaTypeScreen({ navigation }) {
                                 ? <View style={[tailwind("mt-2 bg-gray-100 w-80 rounded-lg p-2"), styles.card]}>
                                     <Text style={styles.content}>
                                         {`
-    The Entre Pass is valid for a period of 1 year and may be renewed further.
+    The EntrePass is valid for a period of 1 year and may be renewed further.
 
     Dependents can be brought to Singapore only after the pass has been renewed once.
 
-    Eligibility criteria for an Entre Pass:
+    Eligibility criteria for an EntrePass:
     • The individual must be at least 21 years old.
     • He or she must have the relevant education and experience.
     • The applicant must own at least 30% of the new venture.
     • The business must be able to provide local employment.
-    • The individual’s business must be registered with the Accounting and Corporate Regulatory Authority (ACRA) or he must intend on registering it on receiving the Entre Pass.
+    • The individual’s business must be registered with the Accounting and Corporate Regulatory Authority (ACRA) or he must intend on registering it on receiving the EntrePass.
 
     The new business must meet one of the below 4 criteria:
     • It must be funded by an accredited VC
@@ -93,7 +93,7 @@ function VisaTypeScreen({ navigation }) {
                             <View style={tailwind("flex flex-col items-center")}>
                                 <View style={tailwind("flex items-center justify-center")}>
                                     <Image style={tailwind("absolute w-80 h-16 rounded-xl")} source={require("../../assets/visa/personalized.jpg")} />
-                                    <Text style={[tailwind("text-white text-lg text-center"), styles.content]}>Personalized Employment Pass (PEP)</Text>
+                                    <Text style={[tailwind("text-white text-lg text-center"), styles.content]}>Personalized Employment Pass</Text>
                                 </View>
                             </View>
                         </TouchableOpacity>

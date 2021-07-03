@@ -17,7 +17,7 @@ function HomeScreen({ navigation }) {
                     <CustomCard
                         onPress={() => navigation.navigate("Tips")}
                         source={require("../../assets/singapore/road.jpeg")}
-                        title="Useful tips before coming into Singapore"
+                        title="Useful tips before coming into SG"
                         description="These are some information you will need when migrating to SG!"
                     />
                     <View style={tailwind("w-3")} />

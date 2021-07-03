@@ -121,13 +121,15 @@ function QuizScreen({ navigation }) {
                                     _.toArray(question.options).map((question, index) => {
                                         const buttonHeight = question.length > 39 ? 20 : 16
                                         return (
-                                            <Button key={index} onPress={() => setActiveIndex(index + 1)} text={question} backgroundColor={isActive(index + 1) ? "#FE904B" : "#e3e3e3"} textColor={isActive(index + 1) ? "#FFF" : "#000"} height={buttonHeight} />
+                                            <View style={tailwind("flex flex-row justify-center w-full mb-4")}>
+                                                <Button key={index} onPress={() => setActiveIndex(index + 1)} text={question} backgroundColor={isActive(index + 1) ? "#FE904B" : "#e3e3e3"} textColor={isActive(index + 1) ? "#FFF" : "#000"} height={buttonHeight} />
+                                            </View>
                                         )
                                     })
                                 }
                             </View>
 
-                            <View style={tailwind("mt-5")}>
+                            <View style={tailwind("mt-1")}>
                                 <TouchableOpacity style={styles.button} onPress={submitButton}>
                                     <Text style={styles.buttonText}>Confirm</Text>
                                 </TouchableOpacity>

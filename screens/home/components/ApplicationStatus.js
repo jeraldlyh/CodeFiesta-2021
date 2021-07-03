@@ -5,7 +5,7 @@ function ApplicationStatus(props) {
     return (
         <View style={styles.container}>
             {
-                props.name === "Entre Pass" ?
+                props.name === "EntrePass" ?
                 <Image
                     source={require("../../../assets/visa/entre.jpg")}
                     style={styles.container}
