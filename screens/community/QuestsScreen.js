@@ -25,8 +25,6 @@ function QuestsScreen() {
                                     title={quest.title}
                                     description={quest.description}
                                     time={quest.createdAt}
-                                    color={quest.color}
-                                    points={quest.points}
                                     image={quest.image}
                                 />
                             )
