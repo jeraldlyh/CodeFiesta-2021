@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import { Searchbar } from "react-native-paper";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Image } from "react-native";
 import tailwind from "tailwind-rn";
 import MapView, { PROVIDER_GOOGLE, Marker, Callout } from "react-native-maps";
 import Loading from "../../components/Loading";
@@ -11,39 +11,17 @@ import OnlineButton from "./components/OnlineButton";
 import QuestButton from "./components/QuestButton";
 import firebase from "../../database/firebaseDB";
 import _ from "lodash";
+import { getUserProfile } from "../../database/actions/User";
 
 function CommunityScreen() {
     const [online, setOnline] = useState(false);
     const { username } = useContext(AuthContext);
     const [isLoading, setIsLoading] = useState(true);
     const [location, setLocation] = useState(null);
-    const [players, setPlayers] = useState([]);
-    const DELTA = {
-        latitudeDelta: 0.0922,
-        longitudeDelta: 0.0421,
-    }
+    const [onlinePlayers, setOnlinePlayers] = useState([]);
+    const [onlineMarkers, setOnlineMarkers] = useState([]);
 
     useEffect(() => {
-        console.log(players)
-    }, [players]);
-
-    useEffect(() => {
-        const unsubscribe = firebase.firestore().collection("Community")
-            .onSnapshot(collection => {
-                collection.forEach(doc => {
-                    const onlinePlayers = [];
-                    doc.data().players.forEach(player => {
-                        getCurrentLocationDB(player).then(response => {
-                            onlinePlayers.push({
-                                coordinates: response,
-                                player: player
-                            });
-                        });
-                    })
-                    setPlayers(onlinePlayers);
-                })
-            })
-
         updateLocation(username).then(() => {
             getCurrentLocationDB(username).then(response => {
                 setLocation(response);
@@ -51,19 +29,54 @@ function CommunityScreen() {
             });
         });
 
+        const unsubscribe = firebase.firestore().collection("Community")
+            .doc("Community")
+            .onSnapshot(doc => {
+                setOnlinePlayers(doc.data().players);
+            });
+
         return () => {
             goOffline(username);        // Go offline when unmount
             unsubscribe();              // Unsubscribe from firebase listener
         }
     }, []);
 
+    useEffect(() => {
+        populateMarkers();
+        console.log("CHANGED")
+    }, [onlinePlayers])
+
     const toggleOnline = () => {
         if (online) {
             goOffline(username);
+            setOnline(false);
         } else {
             goOnline(username);
+            setOnline(true);
         }
-        setOnline(!online);
+    };
+
+    const populateMarkers = async () => {
+        const markers = [];
+
+        for (const index in onlinePlayers) {
+            const profile = await getUserProfile(onlinePlayers[index]);
+            markers.push(
+                <Marker
+                    key={index}
+                    coordinate={{ longitude: profile.location.longitude, latitude: profile.location.latitude }}
+                >
+                    <Image source={{ uri: profile.avatar }} style={tailwind("w-14 h-14 rounded-full")} />
+                    <Callout style={tailwind("h-28 w-28 bg-white")}>
+                        <View style={tailwind("p-2")}>
+                            <Text></Text>
+                            <Text>This is a plain view</Text>
+                        </View>
+                    </Callout>
+                </Marker>
+            );
+        };
+        setOnlineMarkers(markers);
     };
 
     return (
@@ -91,27 +104,12 @@ function CommunityScreen() {
                         latitudeDelta: 0.0922,
                         longitudeDelta: 0.0421,
                     }}
-                // showsUserLocation={true}
                 >
                     {
-                        players.length !== 0
-                            ? players.map((player, index) => {
-                                
-                                console.log(player);
-                              
-                                return(<Marker key={index} coordinate={{longitude:player.coordinates.longitude,latitude:player.coordinates.latitude }}>
-                                    <Callout style={tailwind("h-14 w-14 bg-black")}>
-                                        <View>
-                                            <Text>This is a plain view</Text>
-                                        </View>
-                                    </Callout>
-                                </Marker>);
-                                
-                            })
+                        onlineMarkers.length !== 0
+                            ? onlineMarkers
                             : null
                     }
-                     {/* <Marker coordinate={{ latitude: 1.2953686997982004, longitude:103.85045293243007}} />
-                     <Marker coordinate={{ latitude: 1.553686997982004, longitude:103.85045293243007}} /> */}
                 </MapView>
             </Layout>
     );
@@ -119,6 +117,9 @@ function CommunityScreen() {
 
 const styles = StyleSheet.create({
     searchBar: {
+        fontFamily: "Poppins-Normal",
+    },
+    text: {
         fontFamily: "Poppins-Normal",
     },
     header: {

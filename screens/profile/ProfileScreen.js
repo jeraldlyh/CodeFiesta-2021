@@ -34,7 +34,7 @@ function ProfileScreen({ route }) {
                     <ScrollView style={tailwind("w-full")} showsVerticalScrollIndicator={false}>
                         <View style={tailwind("flex flex-col items-center justify-center")}>
                             
-                            <Image source={require("../../assets/profile/man.jpg")}
+                            <Image source={{uri: profile.avatar}}
                                 style={[styles.image, tailwind("mt-6")]} />
 
                             <Text style={[tailwind("mt-4"), styles.header]}>{username}</Text>

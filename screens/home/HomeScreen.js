@@ -111,7 +111,6 @@ function HomeScreenUpdated(props) {
                         {
                             quests
                             ? quests.map((quest, index) => {
-                                console.log(quest)
                                 return (
                                     <Quests
                                         key={index}

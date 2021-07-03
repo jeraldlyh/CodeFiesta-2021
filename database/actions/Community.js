@@ -31,6 +31,7 @@ export const insertQuest = (data) => {
                         title: data.title,
                         description: data.description,
                         points: data.points,
+                        action: data.action,
                         image: data.image,
                         createdAt: new Date().getTime(),
                         color: data.color,

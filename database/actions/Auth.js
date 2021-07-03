@@ -1,5 +1,6 @@
 import firebase from "../firebaseDB";
 import { v4 as uuidv4 } from "uuid";
+import _ from "lodash";
 
 export const loginUser = (email, password) => {
     return new Promise((resolve, reject) => {
@@ -21,6 +22,13 @@ export const loginUser = (email, password) => {
 
 // Manual cloud function trigger
 export const createUser = (username) => {
+    const AVATAR_URL = [
+        "https://i.ibb.co/3FsT97Z/doctor.png",
+        "https://i.ibb.co/Sxzbj94/designer.png",
+        "https://i.ibb.co/t2nMrzL/woman.png",
+        "https://i.ibb.co/GPBdCP6/boy.png",
+    ];
+
     firebase.firestore().collection("User")
         .doc(username)
         .set({
@@ -29,7 +37,7 @@ export const createUser = (username) => {
             points: 0,
             enableNotification: false,
             questCompleted: 0,
-            avatar: "https://placeimg.com/140/140/any",
+            avatar: _.sample(AVATAR_URL),
             bio: "Add a bio here",
             interests: [],
             location: {
