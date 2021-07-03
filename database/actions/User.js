@@ -1,4 +1,5 @@
 import firebase from "../firebaseDB";
+import _ from "lodash";
 
 export const addPointsToUser = (newPoints, user) => {
     return new Promise((resolve, reject) => {
@@ -27,7 +28,7 @@ export const getUserProfile = (username) => {
         firebase.firestore().collection("User")
             .doc(username)
             .get()
-            .then(doc => resolve(doc.data()))
+            .then(doc => resolve(_.merge(doc.data(), { username: username })))
             .catch(error => console.log("Error in getUserProfile"));
     });
 };
