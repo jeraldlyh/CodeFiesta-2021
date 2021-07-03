@@ -15,8 +15,9 @@ import { Icon } from "react-native-elements";
 import { getUserProfile } from "../../database/actions/User";
 import Currency from "../../components/Currency";
 import { createConvo } from "../../database/actions/Message";
+import {useNavigation} from '@react-navigation/native'
 
-function CommunityScreen({ navigation }) {
+function CommunityScreen(props) {
     const [online, setOnline] = useState(false);
     const { username } = useContext(AuthContext);
     const [avatar, setAvatar] = useState("");
@@ -24,6 +25,7 @@ function CommunityScreen({ navigation }) {
     const [location, setLocation] = useState(null);
     const [onlinePlayers, setOnlinePlayers] = useState([]);
     const [onlineMarkers, setOnlineMarkers] = useState([]);
+    const navigation = useNavigation()
 
     useEffect(() => {
         updateLocation(username).then(() => {
@@ -157,7 +159,15 @@ function CommunityScreen({ navigation }) {
                             ? onlineMarkers
                             : null
                     }
-                </MapView>
+                   {
+                       props.route.params && (
+                        <Marker coordinate={{ longitude: props.route.params.longitude, latitude: props.route.params.latitude}}>
+                        <Image source={{ uri: props.route.params.image }} style={tailwind("w-14 h-14 rounded-full")} />
+                        </Marker>)
+                    }
+                   
+                    
+                    </MapView>
             </Layout>
     );
 }

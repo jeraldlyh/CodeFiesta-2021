@@ -5,7 +5,9 @@
         "action": "Visit Chinatown",
         "points": 50,
         "image": "https://i.ibb.co/cJvKR8H/chinatown-Cartoon.jpg",
-        "color": "#C8F2FE"
+        "color": "#C8F2FE",
+        "latitude":1.2805071,
+        "longitude":103.8407971
     },
     {
         "title": "Merlion",
@@ -13,6 +15,9 @@
         "description": "The Merlion is a mythical creature with a lion's head and the body of a fish that is used as a national mascot of Singapore. Check out this place to earn 100 points!",
         "points": 100,
         "image": "https://i.ibb.co/xGqmrtZ/merlion-Cartoon.jpg",
-        "color": "#68C8C6"
+        "color": "#68C8C6",
+        "latitude":1.2867416,
+        "longitude":103.8523024
+
     }
 ]

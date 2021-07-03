@@ -2,6 +2,8 @@ import React from "react";
 import { View, StyleSheet, Image, Text } from "react-native";
 import Currency from "../../../components/Currency";
 import moment from "moment";
+import { TouchableOpacity } from "react-native-gesture-handler";
+import { useNavigation } from "@react-navigation/native";
 
 function QuestCard(props) {
     const getQuestAvailability = () => {
@@ -10,6 +12,9 @@ function QuestCard(props) {
         var difference = currentTime.diff(createdAt, "hours");
         return 24 - difference >= 0 ? 24 : difference;
     };
+    const navigation = useNavigation();
+
+
 
     return (
         <View style={[styles.container, { backgroundColor: `${props.color}` }]}>
@@ -40,6 +45,14 @@ function QuestCard(props) {
                     {props.description}
                 </Text>
             </View>
+            <TouchableOpacity onPress = {()=>navigation.navigate('CommunityHome',{
+                latitude: props.latitude,
+                image: props.image,
+                title: props.title,
+                longitude: props.longitude,
+            })}>
+                <Text>hello</Text>
+            </TouchableOpacity>
         </View>
     );
 }

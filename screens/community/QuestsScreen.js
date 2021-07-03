@@ -26,6 +26,9 @@ function QuestsScreen() {
                                     description={quest.description}
                                     time={quest.createdAt}
                                     image={quest.image}
+                                    longitude = {quest.longitude}
+                                    latitude = {quest.latitude}
+                                    color = {quest.color}
                                 />
                             )
                         })

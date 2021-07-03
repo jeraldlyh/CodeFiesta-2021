@@ -35,7 +35,9 @@ export const insertQuest = (data) => {
                         image: data.image,
                         createdAt: new Date().getTime(),
                         color: data.color,
-                        available: true                         // Option to disable quest in the future
+                        available: true,                         // Option to disable quest in the future
+                        latitude: data.latitude,
+                        longitude: data.longitude
                     })
                     .then(doc => console.log(`Inserted quest ${doc.id}`))
                     .catch(error => console.log("Error in insertQuest"));
