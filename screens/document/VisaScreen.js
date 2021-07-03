@@ -18,7 +18,7 @@ function VisaScreen({ navigation }) {
                 activeIndex === 0 
                 ? null
                 :
-                <View style={tailwind("self-end top-1 mr-9 z-10")}>
+                <View style={tailwind("self-end top-1 mr-12 z-10")}>
                     <TouchableOpacity
                         style={tailwind("bg-gray-300 w-14 h-14 rounded-full absolute opacity-70 items-center flex justify-center")}
                         onPress={() => navigation.push("Visa Type")}

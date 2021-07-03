@@ -19,7 +19,7 @@ function VisaTypeScreen({ navigation }) {
         <>
             <View style={tailwind("self-start top-10 ml-4 z-10")}>
                 <TouchableOpacity
-                        style={tailwind("bg-gray-300 w-14 h-14 rounded-full absolute opacity-50 items-center flex justify-center")}
+                        style={tailwind("mt-4 bg-gray-300 w-14 h-14 rounded-full absolute opacity-50 items-center flex justify-center")}
                         onPress={() => navigation.goBack()}
                 >
                     <Icon

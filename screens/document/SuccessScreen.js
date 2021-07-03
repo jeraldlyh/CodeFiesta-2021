@@ -2,7 +2,6 @@ import React from "react";
 import { View, StyleSheet, Text, Image } from 'react-native';
 import tailwind from "tailwind-rn";
 import Button from "../../components/Button";
-import Layout from "../../components/Layout";
 
 function SuccessScreen({ navigation }) {
     return (
@@ -24,7 +23,7 @@ function SuccessScreen({ navigation }) {
                 </View>
                 <View style={tailwind("flex flex-col w-full h-full -mt-4 items-center")}>
                     <Image style={[styles.image, tailwind("mb-5")]} source={require("../../assets/work_permit/work2.png")} />
-                    <Button onPress={() => navigation.push("DocumentScreen")} text="Back to applications" height={14} width={72} backgroundColor="#FE904B" textColor="#FFF" />
+                    <Button onPress={() => navigation.popToTop()} text="Back to applications" height={14} width={72} backgroundColor="#FE904B" textColor="#FFF" />
                 </View>
             </View>
 

@@ -4,7 +4,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import HomeStack from "../home/HomeStack";
 import ProfileStack from "../profile/ProfileStack";
 import ChatStack from "../chat/ChatStack";
-import NotifStack from "../notifications/NotifStack";
+import NotifScreen from "../notifications/NotifScreen";
 import { AuthContext } from "../../provider/AuthProvider";
 
 const Tab = createBottomTabNavigator();
@@ -49,7 +49,7 @@ const TabStack = () => {
         >
             <Tab.Screen name="Home" component={HomeStack} />
             <Tab.Screen name="Chat" component={ChatStack} />
-            <Tab.Screen name="Notifs" component={NotifStack} />
+            <Tab.Screen name="Notifs" component={NotifScreen} />
             <Tab.Screen name="Profile" component={ProfileStack} />
         </Tab.Navigator>
     );
