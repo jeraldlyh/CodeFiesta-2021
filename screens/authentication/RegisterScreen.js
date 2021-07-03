@@ -72,7 +72,7 @@ function RegisterScreen() {
                         <Text style={[styles.text, tailwind("text-white mb-2")]}>Returning Singaporean or PR?</Text>
                         <Button text="Login with" backgroundColor="#D0D0D0" textColor="#000" style={tailwind("items-center")} height={14}>
                             <Text styles={[tailwind("text-lg"), styles.text]} />
-                            <Image source={require("../../assets/login/singpass.png")} style={[tailwind("-ml-2 mt-1"), styles.singpass]} />
+                            <Image source={require("../../assets/login/singpass.png")} style={[tailwind("-ml-4 mt-1"), styles.singpass]} />
                         </Button>
                         <View style={tailwind("w-4/6")}>
                             <Text style={[styles.text, tailwind("text-center text-white mt-2")]}>By signing up, I agree with Terms of Use and Privacy Policy</Text>

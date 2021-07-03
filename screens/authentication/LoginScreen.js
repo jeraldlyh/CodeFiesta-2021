@@ -60,7 +60,7 @@ function LoginScreen({ navigation }) {
 
                         <Button onPress={() => loginUser()} text="Login with" backgroundColor="#D0D0D0" textColor="#000" style={tailwind("items-center")} height={14}>
                             <Text styles={[tailwind("text-lg"), styles.text]} />
-                            <Image source={require("../../assets/login/singpass.png")} style={[tailwind("-ml-2 mt-1"), styles.singpass]} />
+                            <Image source={require("../../assets/login/singpass.png")} style={[tailwind("-ml-4 mt-1"), styles.singpass]} />
                         </Button>
                     </View>
                 </View>

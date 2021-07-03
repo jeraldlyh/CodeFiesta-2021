@@ -1,7 +1,6 @@
 import React from 'react';
 import tailwind from "tailwind-rn";
 import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
-import Button from "../profile/components/Button";
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { Icon } from "react-native-elements";
 

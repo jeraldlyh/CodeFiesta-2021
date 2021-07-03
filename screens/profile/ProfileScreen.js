@@ -27,10 +27,11 @@ function ProfileScreen({ route }) {
         <Layout settingsButton={true}>
             {
                 profile ?
+                <>
+                    <View style={tailwind("mb-4 -mt-5 ml-8 self-start")}>
+                        <Text style={[styles.header, tailwind("text-3xl")]}>Profile</Text>
+                    </View>
                     <ScrollView style={tailwind("w-full")} showsVerticalScrollIndicator={false}>
-                        <View style={tailwind("mb-8 ml-8 self-start")}>
-                            <Text style={[styles.header, tailwind("text-3xl")]}>Profile</Text>
-                        </View>
                         <View style={tailwind("flex flex-col items-center justify-center")}>
                             
                             <Image source={require("../../assets/profile/man.jpg")}
@@ -80,7 +81,7 @@ function ProfileScreen({ route }) {
                             </View>
                         </View>
 
-                        <View style={[tailwind("mt-7 mr-6 mb-10 ml-6"), { width: 350 }]}>
+                        <View style={[tailwind("mt-7 mr-6 mb-8 ml-6"), { width: 350 }]}>
                             <Text style={[styles.subHeader]}>Interests</Text>
                             <View style={styles.container}>
                                 <View style={tailwind("flex flex-row flex-wrap")}>
@@ -99,7 +100,8 @@ function ProfileScreen({ route }) {
                             </View>
                         </View>
                     </ScrollView>
-                    : <Loading />
+                </>
+                : <Loading />
             }
         </Layout>
     );

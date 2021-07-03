@@ -3,6 +3,7 @@ import tailwind from "tailwind-rn";
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import { Icon } from 'react-native-elements';
 import { AuthContext } from "../../../provider/AuthProvider";
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 function Button(props) {
     const { setIsLoggedIn } = useContext(AuthContext);
@@ -22,18 +23,15 @@ function Button(props) {
                     iconStyle={props.text === "Logout" ? { color: "#fff" } : styles.iconColor}
                 />
             </View>
-            <View style={tailwind("w-4/6 mr-4")}>
-                <Text style={[styles.text, props.text === "Logout" ? { color: '#fff' } : { color: '#9999AA', }]}> {props.text}</Text>
+            <View style={tailwind("justify-start w-4/6 mr-8")}>
+                <Text style={[styles.text, props.text === "Logout" ? { color: '#fff' } : { color: '#888899', }]}> {props.text}</Text>
             </View>
             {
                 props.text === "Logout"
-                    ? null
-                    : <View style={tailwind("w-1/6")}>
-                        <Icon name='chevron-forward-outline'
-                            type="ionicon"
-                            iconStyle={styles.iconColor}
-                        />
-                    </View>
+                    ? <Ionicons style={tailwind("w-5")} />
+                    : 
+                        <Ionicons name="chevron-forward-outline" size={20} color="#9999aa" />
+  
             }
         </TouchableOpacity>
     )
@@ -44,7 +42,7 @@ const styles = StyleSheet.create({
         fontFamily: "Poppins-Bold"
     },
     iconColor: {
-        color: '#9999AA'
+        color: '#888899'
     },
     text: {
         fontFamily: 'Poppins-SemiBold'
@@ -55,6 +53,7 @@ const styles = StyleSheet.create({
         width: 350,
         borderRadius: 14,
         alignItems: 'center',
+        justifyContent: 'space-between',
         paddingHorizontal: 20,
         backgroundColor: 'white',
         shadowColor: '#000',

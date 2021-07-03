@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
         fontFamily: "Poppins-SemiBold",
         marginBottom: 10,
         marginTop: 17,
-        color: '#9999AA',
+        color: '#888899',
         marginLeft: 3,
     },
     container: {
