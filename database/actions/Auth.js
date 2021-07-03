@@ -31,7 +31,11 @@ export const createUser = (username) => {
             questCompleted: 0,
             avatar: "https://placeimg.com/140/140/any",
             bio: "Add a bio here",
-            interests: []
+            interests: [],
+            location: {
+                longitude: 0,
+                latitude: 0
+            }
         });
 }
 
