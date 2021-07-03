@@ -5,17 +5,35 @@ import { Icon } from 'react-native-elements';
 
 function Button(props) {
     return (
-        <TouchableOpacity style={[styles.button, tailwind("mt-5 pl-8 h-20 w-5/6 flex flex-row items-center justify-start")]}>
- 
-            <Icon
-                name="game-controller-outline"
-                type="ionicon"
-                color="#aeaebf"
-            />
-            <View style={tailwind("ml-6")}>
-                <Text style={[styles.text, tailwind("text-base")]}>New Quest: Chinatown</Text>
-                <Text style={tailwind("text-sm text-gray-400 font-normal")}>11 hours ago</Text>
-            </View>
+        <TouchableOpacity style={[styles.button, tailwind("border-b border-gray-200 pl-8 w-5/6 flex flex-row items-center justify-start")]}>
+            {
+                props.type === "quest" ?
+                <>
+                    <Icon
+                        name="game-controller-outline"
+                        type="ionicon"
+                        color="#aeaebf"
+                    />
+                    <View style={tailwind("ml-6")}>
+                        <Text style={[styles.text, tailwind("text-base")]}>New Quest: {props.name}</Text>
+                        <Text style={tailwind("text-sm text-gray-400 font-normal")}>{props.time}</Text>
+                    </View>
+                </>
+                :
+                <>
+                    <Icon
+                        name="document-text-outline"
+                        type="ionicon"
+                        color="#aeaebf"
+                    />
+                    <View style={tailwind("ml-6")}>
+                        <Text style={[styles.text, tailwind("text-base")]}>Application {props.status}:</Text>
+                        <Text style={[styles.text, tailwind("text-base")]}>{props.name}</Text>
+                        <Text style={tailwind("text-sm text-gray-400 font-normal")}>{props.time}</Text>
+                    </View>
+                </>
+            }
+            
         </TouchableOpacity>
     )
 };
@@ -26,9 +44,8 @@ const styles = StyleSheet.create({
         fontFamily: 'Poppins-SemiBold'
     },
     button: {
-        borderRadius: 14,
-        backgroundColor: 'white',
-        paddingHorizontal: 20
+        paddingHorizontal: 20,
+        paddingVertical: 18
     }
 })
 

@@ -31,7 +31,7 @@ function Button(props) {
                     ? <Ionicons style={tailwind("w-5")} />
                     : 
                         <Ionicons name="chevron-forward-outline" size={20} color="#9999aa" />
-  
+                
             }
         </TouchableOpacity>
     )

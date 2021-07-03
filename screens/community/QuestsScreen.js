@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     },
     headerText: {
         fontFamily: "Poppins-Bold",
-        fontSize: 22,
+        fontSize: 24,
         marginTop: 10,
     },
 });
