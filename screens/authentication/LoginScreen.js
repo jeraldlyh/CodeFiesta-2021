@@ -14,13 +14,11 @@ function LoginScreen({ navigation }) {
     const { setIsLoggedIn, setUsername } = useContext(AuthContext);
 
     const submitLogin = () => {
-        // loginUser(email, password)
-        //     .then(response => {
-        //         setUsername(response);
-        //         setIsLoggedIn(true);
-        //     });
-        setUsername("testing");
-        setIsLoggedIn(true);
+        loginUser(email, password)
+            .then(response => {
+                setUsername(response);
+                setIsLoggedIn(true);
+            });
     };
 
     return (
