@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Text, View, StyleSheet } from "react-native";
 import BouncingPreloader from "react-native-bouncing-preloaders";
-import Spinner from 'react-native-loading-spinner-overlay';
 import tailwind from "tailwind-rn";
 
 const icons = [
