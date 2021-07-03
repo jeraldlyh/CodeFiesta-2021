@@ -24,7 +24,7 @@ const MustKnowTips = ({ navigation }) => {
                 onPress={() => navigation.push("Quiz")}
             >
                 <Icon
-                    name="game-controller-outline"
+                    name="document-text-outline"
                     type="ionicon"
                     color="#F7F7F7"
                 />

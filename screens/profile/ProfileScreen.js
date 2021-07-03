@@ -6,6 +6,7 @@ import { getUserProfile } from "../../database/actions/User";
 import moment from "moment";
 import { AuthContext } from "../../provider/AuthProvider";
 import Loading from "../../components/Loading";
+import { Icon } from "react-native-elements";
 
 function ProfileScreen({ route }) {
     const { username } = route.params ? route.params.username : useContext(AuthContext);
@@ -46,9 +47,15 @@ function ProfileScreen({ route }) {
                                 </Text>
                             </View>
 
-                            <View style={[ tailwind("mt-1"), {flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center' }]}>
-                                <Image source={require("../../assets/profile/Game.png")}
-                                    style={[styles.icons]} />
+                            <View style={{ flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center' }}>
+                                {/* <Image source={require("../../assets/profile/Game.png")}
+                                    style={[styles.icons]} /> */}
+
+                                <Icon
+                                    name="game-controller-outline"
+                                    type="ionicon"
+                                    color="#a1a1a1" 
+                                />
 
                                 <Text style={[tailwind("ml-2 mr-1"), styles.subText]}>{profile.questCompleted} quests completed | {profile.points}</Text>
                                 <Image source={require("../../assets/profile/merlion.png")}

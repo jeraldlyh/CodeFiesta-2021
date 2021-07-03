@@ -32,9 +32,9 @@ function CommunityScreen() {
                     }}
                 >
                     <Icon
-                        name="document-text-outline"
+                        name="game-controller-outline"
                         type="ionicon"
-                        color="#F7F7F7"
+                        color="#F7F7F7" 
                     />
                     <Text
                         style={{
