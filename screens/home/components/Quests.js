@@ -1,13 +1,20 @@
 import React from 'react';
 import { View, StyleSheet, Image,Text } from 'react-native';
+import moment from "moment";
 
 function Quests(props) {
+    const getQuestAvailability = () => {
+        var currentTime = moment(new Date().getTime());
+        var createdAt = moment(props.time);
+        var difference = currentTime.diff(createdAt, "hours");
+        return 24 - difference >= 0 ? 24 : difference;
+    };
     return (
         <View style = {styles.container}>
-            <Image source = {require("../../../assets/quests/chinatownCartoon.jpeg")} style = {{height:76,width:163,borderRadius:14}}/>
+            <Image source = {{uri:props.image}} style = {{height:76,width:163,borderRadius:14}}/>
             <View style = {{padding:10}}>
-                <Text style = {styles.header}>Check in at Chinatown to earn 50!</Text>
-                <Text style = {styles.time}>13 hours left</Text>
+                <Text style = {styles.header}>{props.description}</Text>
+                <Text style = {styles.time}>{getQuestAvailability()} hours left</Text>
             </View>
         </View>
     );

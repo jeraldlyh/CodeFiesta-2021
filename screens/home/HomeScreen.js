@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Image, StyleSheet, View, Text, SafeAreaView } from "react-native";
 import Title from "../../components/Title";
 import Options from "./components/Options";
@@ -7,8 +7,14 @@ import { ScrollView } from "react-native-gesture-handler";
 import ApplicationStatus from "./components/ApplicationStatus";
 import News from "./components/News";
 import Quests from "./components/Quests";
+import { getAvailableQuests } from "../../database/actions/Community";
 
 function HomeScreenUpdated(props) {
+    const [quests, setQuests] = useState([]);
+    
+    useEffect(() => {
+        getAvailableQuests().then(response => setQuests(response))
+    }, []);
     return (
         <ScrollView contentContainerStyle={[tailwind("items-center w-full"),{backgroundColor:'#FCFCFC'}]}>
             <View style={styles.headerContainer}>
@@ -102,9 +108,26 @@ function HomeScreenUpdated(props) {
                         </Text>
                     </View>
                     <ScrollView horizontal={true}>
+                        {
+                            quests
+                            ? quests.map((quest, index) => {
+                                return (
+                                    <Quests
+                                        key={index}
+                                        title={quest.title}
+                                        description={quest.description}
+                                        time={quest.createdAt}
+                                        color={quest.color}
+                                        points={quest.points}
+                                        image={quest.image}
+                                    />
+                                )
+                            })
+                            : null
+                        }
+                        {/* <Quests/>
                         <Quests/>
-                        <Quests/>
-                        <Quests/>
+                        <Quests/> */}
                     </ScrollView>
                 </View>
             </View>
