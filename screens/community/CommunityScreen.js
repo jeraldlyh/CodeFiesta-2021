@@ -96,17 +96,22 @@ function CommunityScreen() {
                     {
                         players.length !== 0
                             ? players.map((player, index) => {
+                                
                                 console.log(player);
-                                <Marker key={index} coordinate={player.coordinates}>
+                              
+                                return(<Marker key={index} coordinate={{longitude:player.coordinates.longitude,latitude:player.coordinates.latitude }}>
                                     <Callout style={tailwind("h-14 w-14 bg-black")}>
                                         <View>
                                             <Text>This is a plain view</Text>
                                         </View>
                                     </Callout>
-                                </Marker>
+                                </Marker>);
+                                
                             })
                             : null
                     }
+                     {/* <Marker coordinate={{ latitude: 1.2953686997982004, longitude:103.85045293243007}} />
+                     <Marker coordinate={{ latitude: 1.553686997982004, longitude:103.85045293243007}} /> */}
                 </MapView>
             </Layout>
     );
