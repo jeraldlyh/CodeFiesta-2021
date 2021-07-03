@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { Searchbar } from "react-native-paper";
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import tailwind from "tailwind-rn";
-import MapView, { PROVIDER_GOOGLE, Marker, Callout } from "react-native-maps";
+import MapView, { PROVIDER_GOOGLE, Marker, Callout, CalloutSubview } from "react-native-maps";
 import Loading from "../../components/Loading";
 import Layout from '../../components/Layout';
 import { getCurrentLocationDB, goOffline, goOnline, updateLocation } from "../../database/actions/Community";
@@ -15,7 +15,7 @@ import { Icon } from "react-native-elements";
 import { getUserProfile } from "../../database/actions/User";
 import Currency from "../../components/Currency";
 import { createConvo } from "../../database/actions/Message";
-import {useNavigation} from '@react-navigation/native'
+import { useNavigation } from '@react-navigation/native'
 
 function CommunityScreen(props) {
     const [online, setOnline] = useState(false);
@@ -49,7 +49,6 @@ function CommunityScreen(props) {
 
     useEffect(() => {
         populateMarkers();
-        console.log("CHANGED")
     }, [onlinePlayers])
 
     const toggleOnline = () => {
@@ -66,15 +65,18 @@ function CommunityScreen(props) {
         return text.length > 15 ? text.substr(0, 15) + "..." : text;
     };
 
-    const openChat = (anotherUser) => {
-        createConvo(username, anotherUser).then(response => {
-            navigation.navigate("Room", {
-                thread: response,
-                username: username,
-                avatar: avatar,
-                anotherUser: anotherUser
-            })
-        })
+    const openChat = (anotherUser, anotherUserAvatar) => {
+        if (username !== anotherUser) {
+            createConvo(username, anotherUser).then(response => {
+                navigation.push("Chat", {
+                    thread: response,
+                    username: username,
+                    avatar: avatar,
+                    anotherUser: anotherUser,
+                    anotherUserAvatar: anotherUserAvatar
+                });
+            });
+        };
     };
 
     const populateMarkers = async () => {
@@ -92,9 +94,11 @@ function CommunityScreen(props) {
                     coordinate={{ longitude: profile.location.longitude, latitude: profile.location.latitude }}
                 >
                     <Image source={{ uri: profile.avatar }} style={tailwind("w-14 h-14 rounded-full")} />
-                    <Callout style={tailwind("h-32 w-32 bg-white")}>
+                    <Callout style={tailwind("flex bg-white w-36 h-32")}
+                        onPress={() => openChat(profile.username, profile.avatar)}
+                    >
                         <View style={tailwind("flex flex-col p-2 items-center justify-center")}>
-                            <Text style={[styles.header, tailwind("text-xl")]}>{profile.username}</Text>
+                            <Text style={[styles.header]}>{profile.username}</Text>
                             <Text style={styles.text}>{formatBio(profile.bio)}</Text>
                             {/* Points */}
                             <View style={tailwind("flex flex-row items-center justify-center")}>
@@ -107,14 +111,13 @@ function CommunityScreen(props) {
                                 <Text styles={styles.text}>{profile.questCompleted}</Text>
                             </View>
                             <View style={tailwind("flex flex-row justify-between w-full mt-2")}>
-                                <TouchableOpacity style={[tailwind("rounded-lg"), styles.button]} onPress={() => console.log("Adding friend")}>
+                                <TouchableOpacity style={[styles.button, tailwind("p-1 border-2")]} onPress={() => console.log("Adding friend")}>
                                     <Icon name="person-add-outline" type="ionicon" />
                                 </TouchableOpacity>
+
                                 <View style={tailwind("ml-2 mr-2")} />
-                                <TouchableOpacity
-                                    style={[tailwind("rounded-lg"), styles.button]}
-                                    onPress={profile.username !== username ? () => openChat(profile.username) : null}
-                                >
+
+                                <TouchableOpacity style={[styles.button, tailwind("p-1 border-2 border-black")]}>
                                     <Icon name="chatbox-ellipses-outline" type="ionicon" />
                                 </TouchableOpacity>
                             </View>
@@ -159,15 +162,15 @@ function CommunityScreen(props) {
                             ? onlineMarkers
                             : null
                     }
-                   {
-                       props.route.params && (
-                        <Marker coordinate={{ longitude: props.route.params.longitude, latitude: props.route.params.latitude}}>
-                        <Image source={{ uri: props.route.params.image }} style={tailwind("w-14 h-14 rounded-full")} />
-                        </Marker>)
+                    {
+                        props.route.params && (
+                            <Marker coordinate={{ longitude: props.route.params.longitude, latitude: props.route.params.latitude }}>
+                                <Image source={{ uri: props.route.params.image }} style={tailwind("w-14 h-14 rounded-full")} />
+                            </Marker>)
                     }
-                   
-                    
-                    </MapView>
+
+
+                </MapView>
             </Layout>
     );
 }

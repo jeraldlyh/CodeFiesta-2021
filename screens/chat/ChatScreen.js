@@ -51,11 +51,12 @@ const ChatScreen = ({ navigation }) => {
 
     const formatDescription = (message) => {
         var parsedMessage = message.text;
+        const timeAgo = moment(message.createAt).fromNow();
 
         if (parsedMessage.length > 12) {
-            parsedMessage = parsedMessage.substr(0, 12)
+            return parsedMessage.substr(0, 12) + "...\t\t" + timeAgo;
         }
-        return parsedMessage + "...\t\t" + moment(message.createAt).fromNow();
+        return parsedMessage + "\t\t\t" + timeAgo;
     };
 
     return (

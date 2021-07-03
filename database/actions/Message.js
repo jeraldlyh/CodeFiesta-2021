@@ -7,8 +7,9 @@ export const isConvoExist = (userOne, userTwo) => {
         firebase.firestore().collection("Threads")
             .get()
             .then(querySnapshot => {
-                const convoData = querySnapshot.docs.map(doc => doc.data());
-                const parsedData = convoData.filter(function (data) {
+                const convoData = querySnapshot.docs.map(doc => doc);
+                const parsedData = convoData.filter(function (doc) {
+                    const data = doc.data();
                     if (
                         (data.userOne === userOne && data.userTwo === userTwo) ||
                         (data.userOne === userTwo && data.userTwo === userOne)
@@ -17,9 +18,10 @@ export const isConvoExist = (userOne, userTwo) => {
                     }
                     return false;
                 })
-                if (parsedData || parsedData.length !== 0) {
-                    resolve(parsedData[0]);
-                }
+                if (parsedData && parsedData.length !== 0) {
+                    resolve(parsedData[0].id);
+                };
+                resolve();
             })
             .catch(error => {
                 console.log("Error in isConvoExist");
@@ -63,9 +65,9 @@ export const createConvo = (userOne, userTwo) => {
                             });
                     })
                 } else {
-                    resolve(response._id)
-                }
-            })
+                    resolve(response);
+                };
+            });
     });
 };
 

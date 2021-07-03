@@ -106,7 +106,7 @@ function RoomScreen({ route, navigation }) {
                 {...props}
                 timeTextStyle={{
                     left: {
-                        color: "#fff",
+                        color: "#000",
                         fontFamily: "Poppins-Normal"
                     },
                     right: {
