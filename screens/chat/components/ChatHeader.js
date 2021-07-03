@@ -6,9 +6,9 @@ import { Icon } from "react-native-elements";
 
 function ChatHeader(props) {
     return (
-        <View style={tailwind("flex flex-row w-full mt-20 items-center ml-3")}>
+        <View style={tailwind("flex flex-row w-full mt-20 items-center")}>
             <TouchableOpacity
-                style={tailwind("w-14 h-14 rounded-full items-center flex justify-center")}
+                style={tailwind("w-1/5 h-14 rounded-full items-center flex justify-center")}
                 onPress={props.onPressed}
             >
                 <Icon
@@ -17,7 +17,7 @@ function ChatHeader(props) {
                     color='#000'
                 />
             </TouchableOpacity>
-            <View style={tailwind("flex flex-row ml-2 items-center")}>
+            <View style={tailwind("w-3/5 flex flex-row items-center")}>
                 <Image source={{ uri: props.image }} style={tailwind("rounded-full w-14 h-14 mr-4 -ml-1")} />
                 <View style={tailwind("flex flex-col")}>
                     <Text style={[styles.title, tailwind("text-2xl")]}>{props.user}</Text>
@@ -27,7 +27,9 @@ function ChatHeader(props) {
                     </View>
                 </View>
             </View>
-            <Icon name="call" type='ionicon' style={tailwind("ml-40")}/>
+            <View style={tailwind("w-1/5")}>
+                <Icon name="call" type='ionicon' />
+            </View>
         </View>
     )
 };

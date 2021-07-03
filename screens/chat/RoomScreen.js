@@ -1,5 +1,5 @@
 import React, { useEffect, useState, Fragment } from "react";
-import { StyleSheet, View, Text, Platform } from "react-native";
+import { StyleSheet, View, Text } from "react-native";
 import { GiftedChat, Bubble, Send, SystemMessage, Time, InputToolbar } from 'react-native-gifted-chat';
 import firebase from "../../database/firebaseDB";
 import Filter from "bad-words";
