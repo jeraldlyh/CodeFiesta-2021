@@ -1,16 +1,14 @@
-import React, { useState, createContext } from "react"
+import React, { useState, createContext } from "react";
 
-export const AuthContext = createContext()
+export const AuthContext = createContext();
 
 function AuthContextProvider(props) {
-    const [isLoading, setIsLoading] = useState(false);
     const [isLoggedIn, setIsLoggedIn] = useState("");
     const [username, setUsername] = useState("");
 
     return (
         <AuthContext.Provider value={{
-            isLoading, setIsLoggedIn, 
-            isLoggedIn,
+            isLoggedIn, setIsLoggedIn,
             username, setUsername,
         }}>
             {props.children}

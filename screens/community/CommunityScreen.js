@@ -1,69 +1,114 @@
-import React from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Searchbar } from "react-native-paper";
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import tailwind from "tailwind-rn";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { TouchableOpacity } from "react-native-gesture-handler";
-import { Icon } from "react-native-elements";
-
-import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
-import QuestsScreen from "./QuestsScreen";
-import QuestCard from "./components/QuestCard";
-import BottomDrawer from "rn-bottom-drawer";
-import { useNavigation } from "@react-navigation/native";
+import MapView, { PROVIDER_GOOGLE, Marker, Callout } from "react-native-maps";
+import Loading from "../../components/Loading";
 import Layout from '../../components/Layout';
-
+import { getCurrentLocationDB, goOffline, goOnline, updateLocation } from "../../database/actions/Community";
+import { AuthContext } from "../../provider/AuthProvider";
+import OnlineButton from "./components/OnlineButton";
+import QuestButton from "./components/QuestButton";
+import firebase from "../../database/firebaseDB";
+import _ from "lodash";
 
 function CommunityScreen() {
-    const navigation = useNavigation();
+    const [online, setOnline] = useState(false);
+    const { username } = useContext(AuthContext);
+    const [isLoading, setIsLoading] = useState(true);
+    const [location, setLocation] = useState(null);
+    const [players, setPlayers] = useState([]);
+    const DELTA = {
+        latitudeDelta: 0.0922,
+        longitudeDelta: 0.0421,
+    }
+
+    useEffect(() => {
+        console.log(players)
+    }, [players]);
+
+    useEffect(() => {
+        const unsubscribe = firebase.firestore().collection("Community")
+            .onSnapshot(collection => {
+                collection.forEach(doc => {
+                    const onlinePlayers = [];
+                    doc.data().players.forEach(player => {
+                        getCurrentLocationDB(player).then(response => {
+                            onlinePlayers.push({
+                                coordinates: response,
+                                player: player
+                            });
+                        });
+                    })
+                    setPlayers(onlinePlayers);
+                })
+            })
+
+        updateLocation(username).then(() => {
+            getCurrentLocationDB(username).then(response => {
+                setLocation(response);
+                setIsLoading(false);
+            });
+        });
+
+        return () => {
+            goOffline(username);        // Go offline when unmount
+            unsubscribe();              // Unsubscribe from firebase listener
+        }
+    }, []);
+
+    const toggleOnline = () => {
+        if (online) {
+            goOffline(username);
+        } else {
+            goOnline(username);
+        }
+        setOnline(!online);
+    };
 
     return (
-        <Layout>
-            <View
-                style={tailwind("mt-20 items-center flex flex-row justify-between")}
-            >
-                <Text style={[styles.header, tailwind("text-3xl text-left mr-16")]}>
-                    My Community
-                </Text>
-                <TouchableOpacity
-                    style={[tailwind("-mr-2"), styles.questButton]}
-                    onPress={() => {
-                        navigation.navigate("Quests");
-                    }}
-                >
-                    <Icon
-                        name="game-controller-outline"
-                        type="ionicon"
-                        color="#F7F7F7" 
-                    />
-                    <Text
-                        style={{
-                            fontSize: 8,
-                            fontFamily: "Poppins-Bold",
-                            color: "#F7F7F7",
-                        }}
-                    >
-                        Quests
+        isLoading
+            ? <Loading />
+            : <Layout>
+                <View style={tailwind("mt-20 items-center flex flex-row w-full pl-1 pr-2")}>
+                    <Text style={[styles.header, tailwind("text-3xl text-left")]}>
+                        My Community
                     </Text>
-                </TouchableOpacity>
-            </View>
-            <Searchbar
-                style={tailwind("self-center h-11 w-5/6 mx-3 mt-5 mb-3 rounded-xl opacity-80")}
-                inputStyle={styles.searchBar}
-                placeholder="Search"
-            />
-            <MapView
-                provider={PROVIDER_GOOGLE}
-                style={styles.map}
-                region={{
-                    latitude: 42.882004,
-                    longitude: 74.582748,
-                    latitudeDelta: 0.0922,
-                    longitudeDelta: 0.0421,
-                }}
-                showsUserLocation={true}
-            />
-        </Layout>
+                    <QuestButton />
+                    <OnlineButton online={online} onPress={toggleOnline} />
+                </View>
+                <Searchbar
+                    style={tailwind("self-center h-11 w-5/6 mx-3 mt-5 mb-3 rounded-xl opacity-80")}
+                    inputStyle={styles.searchBar}
+                    placeholder="Search"
+                />
+                <MapView
+                    provider={PROVIDER_GOOGLE}
+                    style={styles.map}
+                    region={{
+                        latitude: location.latitude,
+                        longitude: location.longitude,
+                        latitudeDelta: 0.0922,
+                        longitudeDelta: 0.0421,
+                    }}
+                // showsUserLocation={true}
+                >
+                    {
+                        players.length !== 0
+                            ? players.map((player, index) => {
+                                console.log(player);
+                                <Marker key={index} coordinate={player.coordinates}>
+                                    <Callout style={tailwind("h-14 w-14 bg-black")}>
+                                        <View>
+                                            <Text>This is a plain view</Text>
+                                        </View>
+                                    </Callout>
+                                </Marker>
+                            })
+                            : null
+                    }
+                </MapView>
+            </Layout>
     );
 }
 
@@ -73,17 +118,6 @@ const styles = StyleSheet.create({
     },
     header: {
         fontFamily: "Poppins-Bold",
-    },
-    questButton: {
-        flexDirection: "column",
-        height: 47,
-        width: 51,
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: "#FE904B",
-        right: 10,
-        borderRadius: 14,
-        fontSize: 20,
     },
     map: {
         marginTop: 15,
