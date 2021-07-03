@@ -108,16 +108,52 @@ function UploadScreen({ navigation }) {
                     <Text style={[styles.title, tailwind("text-2xl text-left")]}>Documents required</Text>
                     <Text style={[styles.content, tailwind("text-lg text-gray-500 mt-1 mb-2")]}>for Entre Pass</Text>
 
-                    <Text style={[styles.subText1, tailwind("mt-3")]}>
-                        • Personal particulars page of your passport. {"\n"}• Past
-                        employment testimonials in English or resume. {"\n"}• For
-                        businesses registered with ACRA, upload company’s latest
-                        business profile or instant information from Bizfile. {"\n"}
-                        • A business plan in English, maximum 10 pages.
-                    </Text>
-                    <Text style={[styles.subText2]}>
-                        • Other documents that will support your EntrePass
-                        application
+                    {
+                        image ?
+                        <Text style={[styles.subText1Green, tailwind("mt-3")]}>
+                            • Personal particulars page of your passport.
+                        </Text>
+                        :
+                        <Text style={[styles.subText1Red, tailwind("mt-3")]}>
+                            • Personal particulars page of your passport.
+                        </Text>
+                    }
+
+                    {
+                        image1 ?
+                        <Text style={[styles.subText1Green]}>
+                            • Past employment testimonials in English or resume.
+                        </Text>
+                        :
+                        <Text style={[styles.subText1Red]}>
+                            • Past employment testimonials in English or resume.
+                        </Text>
+                    }
+
+                    {
+                        image2 ?
+                        <Text style={[styles.subText1Green]}>
+                            • For businesses registered with ACRA, upload company’s latest business profile or instant information from Bizfile.
+                        </Text>
+                        :
+                        <Text style={[styles.subText1Red]}>
+                            • For businesses registered with ACRA, upload company’s latest business profile or instant information from Bizfile.
+                        </Text>
+                    }
+
+                    {
+                        image3 ?
+                        <Text style={[styles.subText1Green]}>
+                            • A business plan in English, maximum 10 pages.
+                        </Text>
+                        :
+                        <Text style={[styles.subText1Red]}>
+                            • A business plan in English, maximum 10 pages.
+                        </Text>
+                    }
+
+                    <Text style={styles.subText2}>
+                        • Other documents that will support your EntrePass application.
                     </Text>
                 </View>
 
@@ -339,7 +375,14 @@ const styles = StyleSheet.create({
         fontFamily: "Poppins-Normal",
     },
 
-    subText1: {
+    subText1Green: {
+        color: "#30B12D",
+        fontSize: 14,
+        textAlign: "justify",
+        fontFamily: "Poppins-Normal",
+    },
+
+    subText1Red: {
         color: "#C24A4A",
         fontSize: 14,
         textAlign: "justify",
