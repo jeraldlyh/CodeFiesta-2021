@@ -73,7 +73,7 @@ function ProfileScreen({ route }) {
                             </View>
                         </View>
 
-                        <View style={[tailwind("mt-7 mr-6 mb-12 ml-6"), { width: 350 }]}>
+                        <View style={[tailwind("mt-7 mr-6 mb-10 ml-6"), { width: 350 }]}>
                             <Text style={[styles.subHeader]}>Interests</Text>
                             <View style={styles.container}>
                                 <View style={tailwind("flex flex-row flex-wrap")}>
