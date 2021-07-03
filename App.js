@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import AuthContextProvider from './provider/AuthProvider';
 import { NavigationContainer } from '@react-navigation/native';
+import { LogBox } from "react-native";
 import * as Font from "expo-font";
 import RootStack from './screens/RootStack';
 import { loadData } from './database/loadData';
 import Loading from './components/Loading';
 
+LogBox.ignoreAllLogs();
+
 export default function App() {
+
     const [isLoaded, setIsLoaded] = useState(false);
 
     const loadFonts = async () => {

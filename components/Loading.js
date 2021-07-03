@@ -1,7 +1,8 @@
-import React, { useState } from "react";
-import { Text, View, StyleSheet } from "react-native";
+import React, { Fragment } from "react";
+import { View, StyleSheet } from "react-native";
 import BouncingPreloader from "react-native-bouncing-preloaders";
 import tailwind from "tailwind-rn";
+import LoadingText from "./LoadingText";
 
 const icons = [
     require("../assets/loading/merli.png"),
@@ -10,7 +11,7 @@ const icons = [
 
 function Loading() {
     return (
-        <View style={tailwind("flex flex-col items-center")}>
+        <Fragment>
             <View style={styles.container}>
                 <BouncingPreloader
                     icons={icons}
@@ -19,8 +20,8 @@ function Loading() {
                     speed={1100}
                 />
             </View>
-            <Text style={[tailwind("mt-10 text-lg font-semibold"), styles.text]}>Loading...</Text>
-        </View>
+            <LoadingText />
+        </Fragment>
     );
 }
 

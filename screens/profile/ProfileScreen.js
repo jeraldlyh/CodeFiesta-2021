@@ -7,7 +7,6 @@ import moment from "moment";
 import { AuthContext } from "../../provider/AuthProvider";
 import Loading from "../../components/Loading";
 import { Icon } from "react-native-elements";
-import firebase from "../../database/firebaseDB";
 
 function ProfileScreen() {
     const { username } = useContext(AuthContext);
