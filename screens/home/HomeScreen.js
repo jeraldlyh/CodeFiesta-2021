@@ -111,9 +111,11 @@ function HomeScreenUpdated(props) {
                         {
                             quests
                             ? quests.map((quest, index) => {
+                                console.log(quest)
                                 return (
                                     <Quests
                                         key={index}
+                                        action = {quest.action}
                                         title={quest.title}
                                         description={quest.description}
                                         time={quest.createdAt}

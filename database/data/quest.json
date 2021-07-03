@@ -2,12 +2,14 @@
     {
         "title": "Chinatown",
         "description": "Famous for its colourful heritage buildings and old Chinese shophouses, Chinatown in Singapore is a blend of old and new, hip and traditional. Check out this place to earn 50 points!",
+        "action": "Check in at Chinatown",
         "points": 50,
         "image": "https://i.ibb.co/cJvKR8H/chinatown-Cartoon.jpg",
         "color": "#C8F2FE"
     },
     {
         "title": "Merlion",
+        "action": "Pose with the Merlion",
         "description": "The Merlion is a mythical creature with a lion's head and the body of a fish that is used as a national mascot of Singapore. Check out this place to earn 100 points!",
         "points": 100,
         "image": "https://i.ibb.co/xGqmrtZ/merlion-Cartoon.jpg",
