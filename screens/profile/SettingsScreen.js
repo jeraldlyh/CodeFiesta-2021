@@ -1,6 +1,6 @@
 import React from 'react';
 import tailwind from "tailwind-rn";
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, ScrollView } from 'react-native';
 import Button from "./components/Button";
 import Layout from '../../components/Layout';
 import Header from '../../components/Header';
@@ -8,32 +8,34 @@ import Header from '../../components/Header';
 function SettingsScreen() {
     return (
         <Layout>
-            <Header />
-            <View style={tailwind("mt-2 self-start")}>
-                <Text style={[styles.header, tailwind("text-3xl")]}>Settings</Text>
-            </View>
-            <View style={styles.container}>
-                <Text style={styles.subHeader}>Account</Text>
-                <Button text="Set Two-Factor Authentication" icon="lock-closed-outline" />
-                <Button text="Language" icon="language-outline" />
-                <Button text="Font Size" icon="text-outline" />
-            </View>
+            <ScrollView>
+                <Header />
+                <View style={tailwind("mt-2 self-start")}>
+                    <Text style={[styles.header, tailwind("text-3xl")]}>Settings</Text>
+                </View>
+                <View style={styles.container}>
+                    <Text style={styles.subHeader}>Account</Text>
+                    <Button text="Set Two-Factor Authentication" icon="lock-closed-outline" />
+                    <Button text="Language" icon="language-outline" />
+                    <Button text="Font Size" icon="text-outline" />
+                </View>
 
-            <View style={styles.container}>
-                <Text style={styles.subHeader}>Notifications</Text>
-                <Button text="Notification Settings" icon="notifications-circle-outline" />
-            </View>
+                <View style={styles.container}>
+                    <Text style={styles.subHeader}>Notifications</Text>
+                    <Button text="Notification Settings" icon="notifications-circle-outline" />
+                </View>
 
-            <View style={styles.container}>
-                <Text style={styles.subHeader}>About</Text>
-                <Button text="Terms of Use" icon="newspaper-outline" />
-                <Button text="Privacy Policy" icon="shield-checkmark-outline" />
-                <Button text="Report a problem" icon="alert-circle-outline" />
-            </View>
+                <View style={styles.container}>
+                    <Text style={styles.subHeader}>About</Text>
+                    <Button text="Terms of Use" icon="newspaper-outline" />
+                    <Button text="Privacy Policy" icon="shield-checkmark-outline" />
+                    <Button text="Report a problem" icon="alert-circle-outline" />
+                </View>
 
-            <View style={[styles.container, tailwind("mt-3")]}>
-                <Button text="Logout" icon="exit-outline" />
-            </View>
+                <View style={[styles.container, tailwind("mt-3")]}>
+                    <Button text="Logout" icon="exit-outline" />
+                </View>
+            </ScrollView>
         </Layout>
     );
 };

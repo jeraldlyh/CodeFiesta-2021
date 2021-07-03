@@ -28,7 +28,7 @@ function ProfileScreen({ route }) {
             {
                 profile ?
                     <Fragment>
-                        <View style={tailwind("-mt-7 mb-8 ml-8 self-start")}>
+                        <View style={tailwind("-mt-8 mb-8 ml-8 self-start")}>
                             <Text style={[styles.header, tailwind("text-3xl")]}>Profile</Text>
                         </View>
                         <View style={tailwind("flex flex-col items-center justify-center")}>
