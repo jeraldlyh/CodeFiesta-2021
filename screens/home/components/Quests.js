@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, Image,Text } from 'react-native';
 import moment from "moment";
+import Currency from '../../../components/Currency';
 
 function Quests(props) {
     const getQuestAvailability = () => {
@@ -13,8 +14,8 @@ function Quests(props) {
         <View style = {styles.container}>
             <Image source = {{uri:props.image}} style = {{height:76,width:163,borderRadius:14}}/>
             <View style = {{padding:10}}>
-                <Text style = {styles.header}>{props.description}</Text>
-                <Text style = {styles.time}>{getQuestAvailability()} hours left</Text>
+            <Text style = {styles.header}>{props.action} to earn {props.points}<Currency/></Text>
+            <Text style = {styles.time}>{getQuestAvailability()} hours left</Text>
             </View>
         </View>
     );
