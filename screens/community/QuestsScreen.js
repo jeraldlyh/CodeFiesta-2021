@@ -29,6 +29,7 @@ function QuestsScreen() {
                                     longitude = {quest.longitude}
                                     latitude = {quest.latitude}
                                     color = {quest.color}
+                                    points = {quest.points}
                                 />
                             )
                         })

@@ -14,7 +14,7 @@ function Quests(props) {
         <View style = {styles.container}>
             <Image source = {{uri:props.image}} style = {{height:76,width:163,borderRadius:14}}/>
             <View style = {{padding:10}}>
-            <Text style = {styles.header}>{props.action} to earn {props.points}<Currency/></Text>
+            <Text style = {styles.header}>{props.action} to earn {props.points} <Currency height = {14} width = {14} /> !</Text>
             <Text style = {styles.time}>{getQuestAvailability()} hours left</Text>
             </View>
         </View>
