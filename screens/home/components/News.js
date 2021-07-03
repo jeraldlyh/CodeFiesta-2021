@@ -5,13 +5,16 @@ import { useNavigation } from '@react-navigation/native';
 
 function News(props) {
     const navigation = useNavigation();
-
+    
     return (
         <TouchableOpacity style = {styles.container} onPress={() => navigation.push('CurrentNews')}>
-            <Image source = {require("../../../assets/news/COVID-19.jpeg")} style = {styles.image} />
+             { props.image === "covid" ? <Image source={require("../../../assets/news/covid.png")} style={styles.image} /> : null }
+            { props.image === "migrantWorkers" ? <Image source={require("../../../assets/news/migrantWorkers.jpeg")} style={styles.image} /> : null }
+            { props.image === "cgh" ? <Image source={require("../../../assets/news/cgh.jpeg")} style={styles.image} /> : null }
+         
             <View style = {[tailwind("w-full"), {width:200,marginLeft:20}]}>
-                <Text style = {{fontFamily:'Poppins-SemiBold',fontSize:13}}>MOH, expert counter claims by doctors on need to halt COVID-19 jabs for schoolboys</Text>
-                <Text style = {{fontFamily:'Poppins-Normal', fontSize:11, color:'#AEAEBF'}}>2 hours ago</Text>
+                <Text style = {{fontFamily:'Poppins-SemiBold',fontSize:13}}>{props.header}</Text>
+                <Text style = {{fontFamily:'Poppins-Normal', fontSize:11, color:'#AEAEBF'}}>{props.time} hours ago</Text>
             </View>
         </TouchableOpacity>
     );

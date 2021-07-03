@@ -25,9 +25,9 @@ function NewsHomeScreen(props) {
     const [active4, setActive4] = useState(false);
     const [active5, setActive5] = useState(false);
     const [active6, setActive6] = useState(false);
-    const setOthersInactive = (number) =>{
-        for (let i = 1; i <= 6; i++){
-            if (i!=number){
+    const setOthersInactive = (number) => {
+        for (let i = 1; i <= 6; i++) {
+            if (i != number) {
                 switch (i) {
                     case 1:
                         setActive1(false);
@@ -50,9 +50,8 @@ function NewsHomeScreen(props) {
                 }
             }
         }
-    }
+    };
     const navigateTab = (number) => {
-        
         switch (number) {
             case 1:
                 setActive1(true);
@@ -73,7 +72,7 @@ function NewsHomeScreen(props) {
                 setActive6(true);
                 break;
         }
-        setOthersInactive(number)
+        setOthersInactive(number);
     };
 
     return (
@@ -155,12 +154,36 @@ function NewsHomeScreen(props) {
                     showsHorizontalScrollIndicator={false}
                     styles={tailwind("w-5/6 flex flex-row justify-between")}
                 >
-                    <Tab text="Health" onPress={()=>navigateTab(1)} active={active1} />
-                    <Tab text="Transport" onPress={()=>navigateTab(2)}  active={active2} />
-                    <Tab text="Education" onPress={()=>navigateTab(3)} active={active3} />
-                    <Tab text="Politics" onPress={()=>navigateTab(4)} active={active4} />
-                    <Tab text="Environment" onPress={()=>navigateTab(5)} active={active5} />
-                    <Tab text="Technology" onPress={()=>navigateTab(6)} active={active6} />
+                    <Tab
+                        text="Health"
+                        onPress={() => navigateTab(1)}
+                        active={active1}
+                    />
+                    <Tab
+                        text="Transport"
+                        onPress={() => navigateTab(2)}
+                        active={active2}
+                    />
+                    <Tab
+                        text="Education"
+                        onPress={() => navigateTab(3)}
+                        active={active3}
+                    />
+                    <Tab
+                        text="Politics"
+                        onPress={() => navigateTab(4)}
+                        active={active4}
+                    />
+                    <Tab
+                        text="Environment"
+                        onPress={() => navigateTab(5)}
+                        active={active5}
+                    />
+                    <Tab
+                        text="Technology"
+                        onPress={() => navigateTab(6)}
+                        active={active6}
+                    />
                 </ScrollView>
 
                 <Searchbar
@@ -172,12 +195,27 @@ function NewsHomeScreen(props) {
                 />
 
                 <ScrollView style={tailwind("w-full px-8 mt-4")}>
-                    <News />
-                    <News />
-                    <News />
-                    <News />
-                    <News />
-                    <News />
+                    <News
+                        header={
+                            "13 new community COVID-19 cases in Singapore, including 6 unlinked; 4 imported cases"
+                        }
+                        time={2}
+                        image={"covid"}
+                    />
+                    <News
+                        header={
+                            "New medical centres for migrant workers will provide medical, well-being support"
+                        }
+                        time={18}
+                        image={"migrantWorkers"}
+                    />
+                    <News
+                        header={
+                            "New Covid-19 clusters in Henderson Crescent, CGH; 3 unlinked cases"
+                        }
+                        time={18}
+                        image={"cgh"}
+                    />
                 </ScrollView>
             </ScrollView>
         </>

@@ -85,9 +85,9 @@ function HomeScreenUpdated(props) {
                         </Text>
                     </View>
                     <ScrollView style = {{height:200}} >
-                        <News />
-                        <News />
-                        <News />
+                        <News header = {"13 new community COVID-19 cases in Singapore, including 6 unlinked; 4 imported cases"} time = {2} image = {"covid"}/>
+                        <News header = {"New medical centres for migrant workers will provide medical, well-being support"} time = {18} image = {"migrantWorkers"}/>
+                        <News header = {"New Covid-19 clusters in Henderson Crescent, CGH; 3 unlinked cases"} time = {18} image = {"cgh"}/>
                     </ScrollView>
                 </View>
                 <View style={styles.applicationStatus}>
