@@ -5,8 +5,8 @@ import tailwind from "tailwind-rn";
 
 function News(props) {
     return (
-        <View style = {props.active ? styles.active : styles.inactive}>
-            <Text style={props.active ? styles.activeText : styles.inactiveText}>{props.text}</Text>
+        <View style = {props.active ? styles.active : styles.inactive} >
+            <Text onPress = {props.onPress} style={props.active ? styles.activeText : styles.inactiveText}>{props.text}</Text>
         </View>
     );
 }
