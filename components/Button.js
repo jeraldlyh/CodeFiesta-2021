@@ -26,8 +26,8 @@ function Button(props) {
 
     return (
         <View style={[styles.background, tailwind(getDesign())]}>
-            <TouchableOpacity onPress={props.onPress} styles={styles.background}>
-                <View style={tailwind("flex flex-row items-center")}>
+            <TouchableOpacity onPress={props.onPress} style={tailwind("w-full")}>
+                <View style={tailwind("flex flex-row items-center justify-center")}>
                     <Text style={[styles.text, tailwind("mr-2 p-4 text-center")]}>{props.text}</Text>
                     {props.children}
                 </View>
