@@ -1,17 +1,14 @@
-import React, { useContext } from "react"
+import React from "react";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import HomeStack from "../home/HomeStack";
 import ProfileStack from "../profile/ProfileStack";
 import ChatStack from "../chat/ChatStack";
 import NotifScreen from "../notifications/NotifScreen";
-import { AuthContext } from "../../provider/AuthProvider";
 
 const Tab = createBottomTabNavigator();
 
 const TabStack = () => {
-    const { username } = useContext(AuthContext);
-
     return (
         <Tab.Navigator
             screenOptions={({ route }) => ({
