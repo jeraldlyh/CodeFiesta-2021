@@ -4,6 +4,7 @@ import Currency from "../../../components/Currency";
 import moment from "moment";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
+import tailwind from "tailwind-rn";
 
 function QuestCard(props) {
     const getQuestAvailability = () => {
@@ -50,8 +51,12 @@ function QuestCard(props) {
                 image: props.image,
                 title: props.title,
                 longitude: props.longitude,
-            })}>
-                <Text>hello</Text>
+            })}
+                
+            >   
+                <View style={tailwind("px-3 py-2 mb-2 rounded-full bg-white opacity-50")}>
+                    <Text>Take me there!</Text>
+                </View>
             </TouchableOpacity>
         </View>
     );
@@ -95,7 +100,7 @@ const styles = StyleSheet.create({
     bodyText: {
         fontSize: 11,
         fontFamily: "Poppins-Normal",
-        marginBottom: 20
+        marginBottom: 13
     }
 });
 
