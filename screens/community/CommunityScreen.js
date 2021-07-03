@@ -15,7 +15,7 @@ import { Icon } from "react-native-elements";
 import { getUserProfile } from "../../database/actions/User";
 import Currency from "../../components/Currency";
 import { createConvo } from "../../database/actions/Message";
-import { useNavigation } from '@react-navigation/native'
+import { useNavigation } from '@react-navigation/native';
 
 function CommunityScreen(props) {
     const [online, setOnline] = useState(false);
@@ -25,7 +25,7 @@ function CommunityScreen(props) {
     const [location, setLocation] = useState(null);
     const [onlinePlayers, setOnlinePlayers] = useState([]);
     const [onlineMarkers, setOnlineMarkers] = useState([]);
-    const navigation = useNavigation()
+    const navigation = useNavigation();
 
     useEffect(() => {
         updateLocation(username).then(() => {
