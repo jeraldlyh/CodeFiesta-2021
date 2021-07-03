@@ -56,8 +56,8 @@ function HomeScreenUpdated(props) {
                         />
                         <ApplicationStatus
                             name="S Pass"
-                            status="Pending"
-                            date="30/06/2021"
+                            status="Approved"
+                            date="28/06/2021"
                         />
                     </ScrollView>
                 </View>

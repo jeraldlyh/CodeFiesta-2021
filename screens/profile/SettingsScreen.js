@@ -20,15 +20,15 @@ function SettingsScreen() {
             </View>
 
             <View style={styles.container}>
-                <Text style={styles.subHeader}>Support</Text>
-                <Button text="Report a problem" icon="alert-circle-outline" />
+                <Text style={styles.subHeader}>Notifications</Text>
+                <Button text="Notification Settings" icon="notifications-circle-outline" />
             </View>
 
             <View style={styles.container}>
                 <Text style={styles.subHeader}>About</Text>
                 <Button text="Terms of Use" icon="newspaper-outline" />
                 <Button text="Privacy Policy" icon="shield-checkmark-outline" />
-                <Button text="About Us" icon="help-circle-outline" />
+                <Button text="Report a problem" icon="alert-circle-outline" />
             </View>
 
             <View style={[styles.container, tailwind("mt-2")]}>
