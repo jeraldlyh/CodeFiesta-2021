@@ -6,10 +6,11 @@
 > - [Nicholas](http://github.com/oversparkling/)
 > - [Jerald](http://github.com/jeraldlyh/)
 
-| Platform            | Description                                                                                                                    |
-:-------------------- | :----------------------------------------------------------------------------------------------------------------------------: |
-| Youtube             | [App Demo](https://www.youtube.com/watch?v=x_qPzHPEdz4&ab_channel=xDevolution_)                                                |
-| Figma               | [Wireframes](https://www.figma.com/proto/EDMnKAMo2zEnmK19In2G18/Untitled?node-id=60%3A563&scaling=scale-down&page-id=0%3A1)    |
+| Platform                          | Description                                                                                                                    |
+:---------------------------------- | :----------------------------------------------------------------------------------------------------------------------------: |
+| Youtube (Preliminary)             | [App Demo](https://youtu.be/x_qPzHPEdz4)                                                                                       |
+| Youtube (Finals)                  | [App Demo](https://youtu.be/PIa-qn23pRo)                                                                                       |
+| Figma                             | [Wireframes](https://www.figma.com/proto/EDMnKAMo2zEnmK19In2G18/Untitled?node-id=60%3A563&scaling=scale-down&page-id=0%3A1)    |
 
 Code submission for [GovTech CodeFiesta-2021](https://codefiesta.sg/)
 
@@ -52,3 +53,6 @@ Refer to official [Firestore documentation](https://firebase.google.com/docs/fir
 
 ![image](https://user-images.githubusercontent.com/37609749/122356081-0b2c8880-cf85-11eb-97bd-5dac71a1b36f.png)
 - Navigate to `/database/firebaseDB.js` and copy the above config into the file
+
+## Disclaimer
+- We do not own or license any copyrights in the images used in the application. You may use the Services and the contents contained in the Services soley for your own individual non-commercial and informational purposes only.
